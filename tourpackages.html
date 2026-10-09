@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STACKLY - Tour & Travel Booking</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/index.css"><link rel="stylesheet" href="css/tourpackages.css"><link rel="stylesheet" href="css/animation.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.webp" alt="Stackly Logo" style="height: 40px; width: auto;">
+            </a>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="tourpackages.html">Tour Packages</a></li>
+                    <li><a href="hotels.html">Hotels</a></li>
+                    <li><a href="flights.html">Flights</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="login.html" class="login-link">Login</a>
+                <a href="booknow.html" class="btn btn-primary btn-shadow">Book Now</a>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <!-- GSAP CDNs -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+        
+        <!-- Hero Section -->
+        <section class="tp-hero gsap-hero" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');">
+            <div class="tp-hero-overlay"></div>
+            <div class="container tp-hero-content">
+                <span class="tp-badge">FIND YOUR NEXT ADVENTURE</span>
+                <h1>Explore Our Best Tour Packages</h1>
+                <p>Browse our handpicked tour packages designed to give you the ultimate travel experience, from romantic getaways to thrilling expeditions.</p>
+                
+                <div class="tp-search-bar">
+                    <div class="tp-search-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div class="tp-search-text">
+                            <label>Location</label>
+                            <input type="text" placeholder="Where do you want to go?">
+                        </div>
+                    </div>
+                    <div class="tp-search-divider"></div>
+                    <div class="tp-search-item">
+                        <i class="fa-regular fa-calendar"></i>
+                        <div class="tp-search-text">
+                            <label>Check in - Check out</label>
+                            <input type="text" placeholder="Add dates">
+                        </div>
+                    </div>
+                    <div class="tp-search-divider"></div>
+                    <div class="tp-search-item">
+                        <i class="fa-regular fa-user"></i>
+                        <div class="tp-search-text">
+                            <label>Guests</label>
+                            <input type="text" placeholder="2 Adults, 1 Room">
+                        </div>
+                    </div>
+                    <button class="btn tp-search-btn">Search Packages</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Tour Packages -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header flex-header gsap-fade-up">
+                    <div>
+                        <span class="section-subtitle">TOP DESTINATIONS</span>
+                        <h2>Popular Tour Packages</h2>
+                    </div>
+                    <div class="tp-sort">
+                        <span style="font-size: 14px; color: #64748b; margin-right: 8px;">Sort by:</span>
+                        <select style="padding: 8px 12px; border: 1px solid #e2e8f0; border-radius: 8px; font-family: inherit; font-size: 14px; color: #0f172a; outline: none; cursor: pointer;">
+                            <option>Recommended</option>
+                            <option>Price: Low to High</option>
+                            <option>Price: High to Low</option>
+                            <option>Highest Rated</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid-3 gsap-stagger-group">
+                    
+        <div class="card gsap-item">
+            <div class="card-img" style="height: 220px;">
+                <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?w=500" alt="Swiss Alps Retreat">
+                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                <div class="card-badges">
+                    <span class="badge" style="background: rgba(0,0,0,0.6); color: white; border: none; backdrop-filter: blur(4px);"><i class="fa-solid fa-map-pin"></i> Switzerland</span>
+                </div>
+            </div>
+            <div class="card-content">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                    <h3 style="font-size: 18px; margin: 0;">Swiss Alps Retreat</h3>
+                    <div style="font-size: 13px; font-weight: 700;"><i class="fa-solid fa-star" style="color: #f59e0b;"></i> 4.9 <span style="font-weight: 400; color: #64748b;">(124)</span></div>
+                </div>
+                <p style="color: #64748b; font-size: 14px; margin-bottom: 20px; line-height: 1.5; min-height: 42px;">Experience an unforgettable journey with our premium curated package.</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid #f1f5f9;">
+                    <div>
+                        <span style="font-size: 13px; color: #64748b; display: block;">Starting from</span>
+                        <span style="font-size: 18px; font-weight: 800; color: #0f172a;">$1,200</span>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <a href="#" class="btn btn-outline btn-sm" style="font-size: 13px; padding: 8px 12px; border-radius: 6px;">Details</a>
+                        <a href="#" class="btn btn-primary btn-sm" style="background: #0f172a; font-size: 13px; padding: 8px 12px; border-radius: 6px;">Book</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="card gsap-item">
+            <div class="card-img" style="height: 220px;">
+                <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=500" alt="Caribbean Sunset">
+                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                <div class="card-badges">
+                    <span class="badge" style="background: rgba(0,0,0,0.6); color: white; border: none; backdrop-filter: blur(4px);"><i class="fa-solid fa-map-pin"></i> Maldives</span>
+                </div>
+            </div>
+            <div class="card-content">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                    <h3 style="font-size: 18px; margin: 0;">Caribbean Sunset</h3>
+                    <div style="font-size: 13px; font-weight: 700;"><i class="fa-solid fa-star" style="color: #f59e0b;"></i> 5.0 <span style="font-weight: 400; color: #64748b;">(89)</span></div>
+                </div>
+                <p style="color: #64748b; font-size: 14px; margin-bottom: 20px; line-height: 1.5; min-height: 42px;">Experience an unforgettable journey with our premium curated package.</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid #f1f5f9;">
+                    <div>
+                        <span style="font-size: 13px; color: #64748b; display: block;">Starting from</span>
+                        <span style="font-size: 18px; font-weight: 800; color: #0f172a;">$2,150</span>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <a href="#" class="btn btn-outline btn-sm" style="font-size: 13px; padding: 8px 12px; border-radius: 6px;">Details</a>
+                        <a href="#" class="btn btn-primary btn-sm" style="background: #0f172a; font-size: 13px; padding: 8px 12px; border-radius: 6px;">Book</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="card gsap-item">
+            <div class="card-img" style="height: 220px;">
+                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500" alt="Dubai Skyline Experience">
+                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                <div class="card-badges">
+                    <span class="badge" style="background: rgba(0,0,0,0.6); color: white; border: none; backdrop-filter: blur(4px);"><i class="fa-solid fa-map-pin"></i> Dubai, UAE</span>
+                </div>
+            </div>
+            <div class="card-content">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                    <h3 style="font-size: 18px; margin: 0;">Dubai Skyline Experience</h3>
+                    <div style="font-size: 13px; font-weight: 700;"><i class="fa-solid fa-star" style="color: #f59e0b;"></i> 4.8 <span style="font-weight: 400; color: #64748b;">(312)</span></div>
+                </div>
+                <p style="color: #64748b; font-size: 14px; margin-bottom: 20px; line-height: 1.5; min-height: 42px;">Experience an unforgettable journey with our premium curated package.</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid #f1f5f9;">
+                    <div>
+                        <span style="font-size: 13px; color: #64748b; display: block;">Starting from</span>
+                        <span style="font-size: 18px; font-weight: 800; color: #0f172a;">$950</span>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <a href="#" class="btn btn-outline btn-sm" style="font-size: 13px; padding: 8px 12px; border-radius: 6px;">Details</a>
+                        <a href="#" class="btn btn-primary btn-sm" style="background: #0f172a; font-size: 13px; padding: 8px 12px; border-radius: 6px;">Book</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="card gsap-item">
+            <div class="card-img" style="height: 220px;">
+                <img src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?w=500" alt="Peaceful Backwaters">
+                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                <div class="card-badges">
+                    <span class="badge" style="background: rgba(0,0,0,0.6); color: white; border: none; backdrop-filter: blur(4px);"><i class="fa-solid fa-map-pin"></i> Kerala, India</span>
+                </div>
+            </div>
+            <div class="card-content">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                    <h3 style="font-size: 18px; margin: 0;">Peaceful Backwaters</h3>
+                    <div style="font-size: 13px; font-weight: 700;"><i class="fa-solid fa-star" style="color: #f59e0b;"></i> 4.7 <span style="font-weight: 400; color: #64748b;">(145)</span></div>
+                </div>
+                <p style="color: #64748b; font-size: 14px; margin-bottom: 20px; line-height: 1.5; min-height: 42px;">Experience an unforgettable journey with our premium curated package.</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid #f1f5f9;">
+                    <div>
+                        <span style="font-size: 13px; color: #64748b; display: block;">Starting from</span>
+                        <span style="font-size: 18px; font-weight: 800; color: #0f172a;">$650</span>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <a href="#" class="btn btn-outline btn-sm" style="font-size: 13px; padding: 8px 12px; border-radius: 6px;">Details</a>
+                        <a href="#" class="btn btn-primary btn-sm" style="background: #0f172a; font-size: 13px; padding: 8px 12px; border-radius: 6px;">Book</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="card gsap-item">
+            <div class="card-img" style="height: 220px;">
+                <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=500" alt="Bali Nature Escape">
+                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                <div class="card-badges">
+                    <span class="badge" style="background: rgba(0,0,0,0.6); color: white; border: none; backdrop-filter: blur(4px);"><i class="fa-solid fa-map-pin"></i> Bali, Indonesia</span>
+                </div>
+            </div>
+            <div class="card-content">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                    <h3 style="font-size: 18px; margin: 0;">Bali Nature Escape</h3>
+                    <div style="font-size: 13px; font-weight: 700;"><i class="fa-solid fa-star" style="color: #f59e0b;"></i> 4.8 <span style="font-weight: 400; color: #64748b;">(210)</span></div>
+                </div>
+                <p style="color: #64748b; font-size: 14px; margin-bottom: 20px; line-height: 1.5; min-height: 42px;">Experience an unforgettable journey with our premium curated package.</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid #f1f5f9;">
+                    <div>
+                        <span style="font-size: 13px; color: #64748b; display: block;">Starting from</span>
+                        <span style="font-size: 18px; font-weight: 800; color: #0f172a;">$890</span>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <a href="#" class="btn btn-outline btn-sm" style="font-size: 13px; padding: 8px 12px; border-radius: 6px;">Details</a>
+                        <a href="#" class="btn btn-primary btn-sm" style="background: #0f172a; font-size: 13px; padding: 8px 12px; border-radius: 6px;">Book</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="card gsap-item">
+            <div class="card-img" style="height: 220px;">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=500" alt="Paris Romance Tour">
+                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                <div class="card-badges">
+                    <span class="badge" style="background: rgba(0,0,0,0.6); color: white; border: none; backdrop-filter: blur(4px);"><i class="fa-solid fa-map-pin"></i> Paris, France</span>
+                </div>
+            </div>
+            <div class="card-content">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                    <h3 style="font-size: 18px; margin: 0;">Paris Romance Tour</h3>
+                    <div style="font-size: 13px; font-weight: 700;"><i class="fa-solid fa-star" style="color: #f59e0b;"></i> 4.9 <span style="font-weight: 400; color: #64748b;">(450)</span></div>
+                </div>
+                <p style="color: #64748b; font-size: 14px; margin-bottom: 20px; line-height: 1.5; min-height: 42px;">Experience an unforgettable journey with our premium curated package.</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid #f1f5f9;">
+                    <div>
+                        <span style="font-size: 13px; color: #64748b; display: block;">Starting from</span>
+                        <span style="font-size: 18px; font-weight: 800; color: #0f172a;">$1,100</span>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <a href="#" class="btn btn-outline btn-sm" style="font-size: 13px; padding: 8px 12px; border-radius: 6px;">Details</a>
+                        <a href="#" class="btn btn-primary btn-sm" style="background: #0f172a; font-size: 13px; padding: 8px 12px; border-radius: 6px;">Book</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+                </div>
+            </div>
+        </section>
+
+        <!-- Tour Categories -->
+        <section class="section" style="background-color: #f8fafc;">
+            <div class="container">
+                <div class="section-header text-center gsap-fade-up">
+                    <span class="section-subtitle">BROWSE BY TYPE</span>
+                    <h2>Tour Categories</h2>
+                    <p style="max-width: 600px; margin: 0 auto;">Choose a category that best matches your travel style and discover tailored packages just for you.</p>
+                </div>
+                <div class="tp-categories-grid gsap-stagger-group">
+                    
+        <div class="tp-cat-card gsap-item">
+            <img src="https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=300" alt="Mountains">
+            <div class="tp-cat-overlay"></div>
+            <div class="tp-cat-content">
+                <div class="tp-cat-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+                <h3>Mountains</h3>
+                <p>45 Tours</p>
+            </div>
+        </div>
+    
+        <div class="tp-cat-card gsap-item">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=300" alt="Beach & Sea">
+            <div class="tp-cat-overlay"></div>
+            <div class="tp-cat-content">
+                <div class="tp-cat-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+                <h3>Beach & Sea</h3>
+                <p>82 Tours</p>
+            </div>
+        </div>
+    
+        <div class="tp-cat-card gsap-item">
+            <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=300" alt="City Tours">
+            <div class="tp-cat-overlay"></div>
+            <div class="tp-cat-content">
+                <div class="tp-cat-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+                <h3>City Tours</h3>
+                <p>124 Tours</p>
+            </div>
+        </div>
+    
+        <div class="tp-cat-card gsap-item">
+            <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?w=300" alt="Historical">
+            <div class="tp-cat-overlay"></div>
+            <div class="tp-cat-content">
+                <div class="tp-cat-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+                <h3>Historical</h3>
+                <p>56 Tours</p>
+            </div>
+        </div>
+    
+        <div class="tp-cat-card gsap-item">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=300" alt="Nature">
+            <div class="tp-cat-overlay"></div>
+            <div class="tp-cat-content">
+                <div class="tp-cat-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+                <h3>Nature</h3>
+                <p>94 Tours</p>
+            </div>
+        </div>
+    
+        <div class="tp-cat-card gsap-item">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=300" alt="Luxury">
+            <div class="tp-cat-overlay"></div>
+            <div class="tp-cat-content">
+                <div class="tp-cat-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+                <h3>Luxury</h3>
+                <p>67 Tours</p>
+            </div>
+        </div>
+    
+        <div class="tp-cat-card gsap-item">
+            <img src="https://images.unsplash.com/photo-1533692328991-08159ff19fca?w=300" alt="Adventure">
+            <div class="tp-cat-overlay"></div>
+            <div class="tp-cat-content">
+                <div class="tp-cat-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+                <h3>Adventure</h3>
+                <p>88 Tours</p>
+            </div>
+        </div>
+    
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel More Pay Less Banner -->
+        <section class="section">
+            <div class="container">
+                <div class="tp-promo-banner gsap-fade-up" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+                    <div class="tp-promo-overlay"></div>
+                    <div class="tp-promo-content">
+                        <div>
+                            <span class="promo-badge" style="background: rgba(255,255,255,0.2); padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; color: white; display: inline-block; margin-bottom: 16px;">SPECIAL OFFER</span>
+                            <h2 style="color: white; font-size: 36px; margin-bottom: 16px;">Travel More, Pay Less</h2>
+                            <p style="color: rgba(255,255,255,0.8); font-size: 16px; margin-bottom: 24px; max-width: 500px;">Get exclusive discounts on selected packages. Join our premium club for free and start saving today.</p>
+                            <div style="display: flex; gap: 24px; color: white; font-size: 14px;">
+                                <span><i class="fa-solid fa-check" style="color: #f59e0b; margin-right: 8px;"></i> Complimentary upgrades</span>
+                                <span><i class="fa-solid fa-check" style="color: #f59e0b; margin-right: 8px;"></i> Up to 30% off on premium stays</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-shadow" style="background: #f59e0b; border-color: #f59e0b; color: #fff;">View Offers</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Destinations (Masonry-style Grid) -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header flex-header gsap-fade-up">
+                    <div>
+                        <span class="section-subtitle">MUST VISIT</span>
+                        <h2>Featured Destinations</h2>
+                    </div>
+                    <a href="#" style="color: #0f172a; font-weight: 700; text-decoration: underline;">See All Destinations</a>
+                </div>
+                <div class="tp-featured-grid">
+                    
+    <div class="tp-featured-item large gsap-item" style="background-image: url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800');">
+        <div class="tp-featured-overlay"></div>
+        <div class="tp-featured-content">
+            <span class="tp-featured-badge">12 Tours</span>
+            <h3>India</h3>
+            <p>Explore the majestic forts, vibrant culture, and diverse landscapes.</p>
+        </div>
+    </div>
+    <div class="tp-featured-item large gsap-item" style="background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800');">
+        <div class="tp-featured-overlay"></div>
+        <div class="tp-featured-content">
+            <span class="tp-featured-badge">8 Tours</span>
+            <h3>Dubai</h3>
+            <p>Experience the ultimate luxury, towering skyscrapers, and desert safaris.</p>
+        </div>
+    </div>
+    <div class="tp-featured-item small gsap-item" style="background-image: url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=500');">
+        <div class="tp-featured-overlay"></div>
+        <div class="tp-featured-content">
+            <span class="tp-featured-badge">15 Tours</span>
+            <h3>Bali</h3>
+        </div>
+    </div>
+    <div class="tp-featured-item small gsap-item" style="background-image: url('https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=500');">
+        <div class="tp-featured-overlay"></div>
+        <div class="tp-featured-content">
+            <span class="tp-featured-badge">10 Tours</span>
+            <h3>Singapore</h3>
+        </div>
+    </div>
+    <div class="tp-featured-item small gsap-item" style="background-image: url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=500');">
+        <div class="tp-featured-overlay"></div>
+        <div class="tp-featured-content">
+            <span class="tp-featured-badge">24 Tours</span>
+            <h3>Europe</h3>
+        </div>
+    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Book With Us -->
+        <section class="section" style="background-color: #f8fafc;">
+            <div class="container">
+                <div class="section-header text-center gsap-fade-up">
+                    <span class="section-subtitle">OUR ADVANTAGE</span>
+                    <h2>Why Book With Us</h2>
+                    <p style="max-width: 600px; margin: 0 auto;">We go above and beyond to ensure your travel experience is smooth, secure, and absolutely unforgettable.</p>
+                </div>
+                <div class="grid-4 gsap-stagger-group">
+                    
+        <div class="tp-feature-card gsap-item">
+            <div class="tp-feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h4>Safe & Secure Booking</h4>
+            <p>We use bank-level encryption to ensure your transactions and personal data are always protected.</p>
+        </div>
+    
+        <div class="tp-feature-card gsap-item">
+            <div class="tp-feature-icon"><i class="fa-solid fa-plane-up"></i></div>
+            <h4>Seamless Itineraries</h4>
+            <p>Every trip is meticulously planned so you can simply relax and enjoy your vacation without stress.</p>
+        </div>
+    
+        <div class="tp-feature-card gsap-item">
+            <div class="tp-feature-icon"><i class="fa-solid fa-headset"></i></div>
+            <h4>Expert 24/7 Support</h4>
+            <p>Our dedicated travel agents are available around the clock to assist you anywhere in the world.</p>
+        </div>
+    
+        <div class="tp-feature-card gsap-item">
+            <div class="tp-feature-icon"><i class="fa-solid fa-tag"></i></div>
+            <h4>Best Price Guarantee</h4>
+            <p>We confidently match any competitor's price for identical packages, ensuring you get the best deal.</p>
+        </div>
+    
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header text-center gsap-fade-up">
+                    <span class="section-subtitle">REVIEWS</span>
+                    <h2>Loved by Discerning Travelers</h2>
+                    <p style="max-width: 600px; margin: 0 auto;">Take it from our guests who have experienced the world with Stackly.</p>
+                </div>
+                <div class="grid-3 gsap-stagger-group">
+                    
+        <div class="tp-review-card gsap-item">
+            <div class="tp-review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p class="tp-review-text">"Absolutely breathtaking! The Switzerland tour was perfectly organized. From the hotels to the guides, everything was top-notch."</p>
+            <div class="tp-review-user">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Jenkins">
+                <div>
+                    <h5>Sarah Jenkins</h5>
+                    <span>Solo Traveler</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="tp-review-card gsap-item">
+            <div class="tp-review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p class="tp-review-text">"Our family trip to Dubai was flawless. Stackly handled all the transfers and tickets, saving us so much time and hassle. Highly recommend!"</p>
+            <div class="tp-review-user">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
+                <div>
+                    <h5>Michael Chen</h5>
+                    <span>Family Vacation</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="tp-review-card gsap-item">
+            <div class="tp-review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p class="tp-review-text">"The Maldives package exceeded all expectations. The over-water villa was exactly as pictured, and the 24/7 support gave us peace of mind."</p>
+            <div class="tp-review-user">
+                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma Watson">
+                <div>
+                    <h5>Emma Watson</h5>
+                    <span>Honeymooner</span>
+                </div>
+            </div>
+        </div>
+    
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom CTA -->
+        <section class="tp-cta-banner gsap-fade-up" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+            <div class="tp-cta-overlay"></div>
+            <div class="container tp-cta-content">
+                <div>
+                    <h2 style="color: white; font-size: 32px; margin-bottom: 12px;">Your Next Adventure Starts Here</h2>
+                    <p style="color: rgba(255,255,255,0.8); font-size: 16px; margin: 0; max-width: 600px;">Contact us today to plan your dream vacation. Our experts are ready to craft the perfect itinerary for you.</p>
+                </div>
+                <div style="display: flex; gap: 16px;">
+                    <a href="#" class="btn btn-primary" style="background: #f59e0b; border-color: #f59e0b; box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);">View Packages</a>
+                    <a href="#" class="btn btn-outline" style="border-color: rgba(255,255,255,0.3); color: white;">Contact Us</a>
+                </div>
+            </div>
+        </section>
+
+        <script src="js/animation.js"></script>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="assets/logo.webp" alt="Stackly Logo" style="height: 40px; width: auto;">
+                    </a>
+                    <p class="brand-desc">Effortless luxury exploration and handcrafted travel experiences worldwide. Turning dream itineraries into lifelong memories.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-solid fa-earth-americas"></i></a>
+                        <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+                        <a href="#"><i class="fa-solid fa-plane"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="tourpackages.html">Tour Packages</a></li>
+                        <li><a href="hotels.html">Hotels</a></li>
+                        <li><a href="flights.html">Flights</a></li>
+                        <li><a href="activities.html">Activities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-col">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Booking Guide</a></li>
+                        <li><a href="#">Safety Information</a></li>
+                        <li><a href="#">Travel Insurance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fa-regular fa-envelope"></i> concierge@travelgo.com</li>
+                        <li><i class="fa-solid fa-phone"></i> +1 (800) 872-8354</li>
+                        <li><i class="fa-solid fa-location-dot"></i> San Francisco & Geneva</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    &copy; 2026. Stackly. All rights reserved. Effortless luxury exploration.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="destinations.html">Destinations</a>
+                    <a href="tourpackages.html">Packages</a>
+                    <a href="hotels.html">Stays</a>
+                    <a href="experiences.html">Experiences</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

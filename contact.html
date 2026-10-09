@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STACKLY - Tour & Travel Booking</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/index.css">\n    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.webp" alt="Stackly Logo" style="height: 40px; width: auto;">
+            </a>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="tourpackages.html">Tour Packages</a></li>
+                    <li><a href="hotels.html">Hotels</a></li>
+                    <li><a href="flights.html">Flights</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="login.html" class="login-link">Login</a>
+                <a href="booknow.html" class="btn btn-primary btn-shadow">Book Now</a>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Contact Hero Section -->
+        <section class="contact-hero gsap-hero" style="background-image: url('https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');">
+            <div class="contact-hero-overlay"></div>
+            <div class="container contact-hero-content">
+                <span class="contact-badge">YOUR JOURNEY BEGINS HERE</span>
+                <h1>Let's Plan Your Next Adventure</h1>
+                <p>Have a dream destination in mind? Our travel experts are ready to craft a personalized itinerary exclusively for you.</p>
+                
+                <div class="hero-actions">
+                    <button class="btn btn-primary" style="background: #f59e0b; border-color: #f59e0b; padding: 14px 32px; box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);">Plan My Trip <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></button>
+                    <button class="btn btn-outline" style="background: white; color: #0f172a; border: none; padding: 14px 32px;"><i class="fa-solid fa-phone" style="margin-right: 8px; color: #4f46e5;"></i> Call Us</button>
+                </div>
+                
+                <div class="hero-features">
+                    <span><i class="fa-solid fa-check-circle" style="color: #f59e0b;"></i> 24/7 Booking Support</span>
+                    <span><i class="fa-solid fa-check-circle" style="color: #f59e0b;"></i> 100% Secure Transactions</span>
+                    <span><i class="fa-solid fa-check-circle" style="color: #f59e0b;"></i> Best Price Guarantee</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overlapping Contact Cards -->
+        <section class="contact-cards-section">
+            <div class="container">
+                <div class="grid-4 contact-cards-grid gsap-stagger-group">
+                    <!-- Card 1 -->
+                    <div class="contact-card gsap-item">
+                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <h4>Call Us</h4>
+                        <p class="contact-val">+1 (800) 872-8354</p>
+                        <a href="#" class="contact-link">Give us a call anytime <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="contact-card gsap-item">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <h4>Email Us</h4>
+                        <p class="contact-val">hello@stackly.com</p>
+                        <a href="#" class="contact-link">We usually reply in 24 hours</a>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="contact-card gsap-item">
+                        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <h4>Visit Us</h4>
+                        <p class="contact-val">789 Market St, San Francisco, CA 94103</p>
+                        <a href="#" class="contact-link">Get directions on Google Maps</a>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="contact-card gsap-item whatsapp-card">
+                        <div class="contact-icon" style="background: #dcfce7; color: #16a34a;"><i class="fa-brands fa-whatsapp"></i></div>
+                        <h4>WhatsApp Chat</h4>
+                        <p class="contact-val" style="font-size: 13px; font-weight: 400; color: #64748b; margin-bottom: 12px;">Instant assistance from our travel experts via WhatsApp.</p>
+                        <button class="btn btn-primary" style="background: #16a34a; border-color: #16a34a; width: 100%; padding: 10px;">Chat Now <i class="fa-solid fa-arrow-right" style="margin-left: 4px;"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Custom Trip Enquiry Form -->
+        <section class="section" style="padding-top: 40px;">
+            <div class="container">
+                <div class="enquiry-layout">
+                    <!-- Left Text -->
+                    <div class="enquiry-text gsap-fade-up">
+                        <span class="section-subtitle">CUSTOMIZED ITINERARIES</span>
+                        <h2>Tell Us About Your Dream Voyage</h2>
+                        <p style="color: #64748b; font-size: 15px; margin-bottom: 32px; line-height: 1.6;">Every traveler is unique, and so should be their journey. Fill out the form with your preferences, and our dedicated travel consultants will get back to you with a tailor-made proposal within 24 hours.</p>
+                        
+                        <div class="enquiry-bullets">
+                            <div class="bullet-item">
+                                <i class="fa-solid fa-check" style="color: #4f46e5; background: #eef2ff; padding: 6px; border-radius: 50%; font-size: 12px;"></i>
+                                <div>
+                                    <h5 style="margin: 0 0 4px 0; font-size: 15px;">Tailor-Made Travel Arrangements</h5>
+                                    <p style="margin: 0; font-size: 13px; color: #64748b;">Flights, hotels, transfers, and activities customized just for you.</p>
+                                </div>
+                            </div>
+                            <div class="bullet-item">
+                                <i class="fa-solid fa-check" style="color: #4f46e5; background: #eef2ff; padding: 6px; border-radius: 50%; font-size: 12px;"></i>
+                                <div>
+                                    <h5 style="margin: 0 0 4px 0; font-size: 15px;">Expert Destination Advice</h5>
+                                    <p style="margin: 0; font-size: 13px; color: #64748b;">Insider knowledge and recommendations from local experts.</p>
+                                </div>
+                            </div>
+                            <div class="bullet-item">
+                                <i class="fa-solid fa-check" style="color: #4f46e5; background: #eef2ff; padding: 6px; border-radius: 50%; font-size: 12px;"></i>
+                                <div>
+                                    <h5 style="margin: 0 0 4px 0; font-size: 15px;">Dedicated 24/7 Concierge</h5>
+                                    <p style="margin: 0; font-size: 13px; color: #64748b;">Assistance anytime, anywhere during your entire vacation.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Review Card Embedded -->
+                        <div class="embedded-review">
+                            <div class="stars" style="color: #f59e0b; font-size: 12px; margin-bottom: 8px;">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p style="font-size: 14px; font-style: italic; color: #4b5563; margin-bottom: 16px;">"The custom itinerary they built for our honeymoon to Greece was absolutely flawless. Everything was taken care of!"</p>
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User" style="width: 40px; height: 40px; border-radius: 50%;">
+                                <div>
+                                    <h6 style="margin: 0 0 2px 0; font-size: 14px;">Amanda Richards</h6>
+                                    <span style="font-size: 12px; color: #94a3b8;">Custom Tour to Greece</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Form -->
+                    <div class="enquiry-form-wrapper gsap-fade-up">
+                        <h3 style="font-size: 24px; margin-bottom: 8px; color: #0f172a;">Custom Trip Enquiry</h3>
+                        <p style="font-size: 14px; color: #64748b; margin-bottom: 24px;">Please provide as much detail as possible so we can better assist you.</p>
+                        
+                        <form class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Full Name *</label>
+                                    <div class="input-with-icon">
+                                        <i class="fa-regular fa-user"></i>
+                                        <input type="text" placeholder="John Doe" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email Address *</label>
+                                    <div class="input-with-icon">
+                                        <i class="fa-regular fa-envelope"></i>
+                                        <input type="email" placeholder="john@example.com" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Phone Number *</label>
+                                    <div class="input-with-icon">
+                                        <i class="fa-solid fa-phone"></i>
+                                        <input type="tel" placeholder="+1 (555) 000-0000" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Destination of Interest</label>
+                                    <div class="input-with-icon">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <input type="text" placeholder="e.g. Paris, France">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Approx. Travel Date</label>
+                                    <div class="input-with-icon">
+                                        <i class="fa-regular fa-calendar"></i>
+                                        <input type="text" placeholder="MM/YYYY or specific dates">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Number of Travellers</label>
+                                    <div class="input-with-icon">
+                                        <i class="fa-solid fa-user-group"></i>
+                                        <input type="text" placeholder="e.g. 2 Adults, 2 Children">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Estimated Budget</label>
+                                    <div class="input-with-icon">
+                                        <i class="fa-solid fa-wallet"></i>
+                                        <select>
+                                            <option>Select a range...</option>
+                                            <option>$1,000 - $3,000</option>
+                                            <option>$3,000 - $5,000</option>
+                                            <option>$5,000 - $10,000</option>
+                                            <option>$10,000+</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Specific Requests or Preferences</label>
+                                <textarea placeholder="Tell us about any specific hotels, flight classes, dietary requirements, or activities you're interested in..." rows="4"></textarea>
+                            </div>
+                            
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 16px;">
+                                <button type="submit" class="btn btn-primary" style="background: #f59e0b; border-color: #f59e0b; padding: 14px 32px; box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);">Send Enquiry <i class="fa-solid fa-paper-plane" style="margin-left: 8px;"></i></button>
+                                <span style="font-size: 12px; color: #94a3b8;"><i class="fa-solid fa-lock" style="margin-right: 4px;"></i> Your information is safe and secure.</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flagship Studio -->
+        <section class="section" style="background-color: #f8fafc;">
+            <div class="container">
+                <div class="section-header text-center gsap-fade-up">
+                    <span class="section-subtitle">VISIT US IN PERSON</span>
+                    <h2>Find Our Flagship Studio</h2>
+                    <p style="max-width: 600px; margin: 0 auto;">Drop by our luxurious travel studio to discuss your plans over a cup of artisan coffee.</p>
+                </div>
+                
+                <div class="studio-layout">
+                    <!-- Map Graphic -->
+                    <div class="studio-map gsap-fade-up" style="position: relative; border-radius: 20px; overflow: hidden; background: #0f172a; height: 100%;">
+                        <!-- Simulated Map UI -->
+                        <div style="position: absolute; inset: 0; opacity: 0.1; background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+                        <div style="position: absolute; top: 20px; left: 20px; color: white; font-size: 12px; font-weight: 600;"><i class="fa-solid fa-location-arrow"></i> Stackly HQ, San Francisco</div>
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                            <div style="width: 48px; height: 48px; background: #f59e0b; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; color: white; margin: 0 auto 12px; box-shadow: 0 0 0 10px rgba(245,158,11,0.2), 0 0 0 20px rgba(245,158,11,0.1);">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <div style="background: white; padding: 12px 20px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
+                                <h5 style="margin: 0 0 4px 0; color: #0f172a; font-size: 14px;">STACKLY STUDIOS</h5>
+                                <p style="margin: 0; font-size: 12px; color: #64748b;">789 Market St, San Francisco</p>
+                            </div>
+                        </div>
+                        <div style="position: absolute; bottom: 20px; right: 20px;">
+                            <button class="btn btn-primary" style="background: #0ea5e9; border-color: #0ea5e9; border-radius: 50px; font-size: 13px; padding: 8px 16px;"><i class="fa-solid fa-location-crosshairs" style="margin-right: 6px;"></i> Get Directions</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Studio Info -->
+                    <div class="studio-info gsap-fade-up" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.03);">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800" alt="Studio" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div style="padding: 32px;">
+                            <div class="info-item" style="display: flex; gap: 16px; margin-bottom: 24px;">
+                                <div style="width: 40px; height: 40px; background: #eef2ff; color: #4f46e5; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><i class="fa-solid fa-location-dot"></i></div>
+                                <div>
+                                    <h5 style="font-size: 15px; margin: 0 0 4px 0; color: #0f172a;">Office Address</h5>
+                                    <p style="font-size: 14px; color: #64748b; margin: 0;">789 Market Street, Suite 400<br>San Francisco, CA 94103, USA</p>
+                                </div>
+                            </div>
+                            <div class="info-item" style="display: flex; gap: 16px; margin-bottom: 24px;">
+                                <div style="width: 40px; height: 40px; background: #eef2ff; color: #4f46e5; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><i class="fa-regular fa-clock"></i></div>
+                                <div>
+                                    <h5 style="font-size: 15px; margin: 0 0 4px 0; color: #0f172a;">Working Hours</h5>
+                                    <p style="font-size: 14px; color: #64748b; margin: 0;">Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 2:00 PM (By Appointment)</p>
+                                </div>
+                            </div>
+                            <div class="info-item" style="display: flex; gap: 16px; margin-bottom: 32px;">
+                                <div style="width: 40px; height: 40px; background: #eef2ff; color: #4f46e5; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><i class="fa-solid fa-train-subway"></i></div>
+                                <div>
+                                    <h5 style="font-size: 15px; margin: 0 0 4px 0; color: #0f172a;">Metro Station & Parking</h5>
+                                    <p style="font-size: 14px; color: #64748b; margin: 0;">Powell St Station is a 2-minute walk.<br>Valet parking available at the building entrance.</p>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" style="background: #0f172a; width: 100%; padding: 14px;"><i class="fa-regular fa-calendar-check" style="margin-right: 8px;"></i> Schedule an In-Person Consultation</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Plan With Us -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header text-center gsap-fade-up">
+                    <span class="section-subtitle">THE STACKLY EXPERIENCE</span>
+                    <h2>Why Plan With STACKLY Expeditions</h2>
+                    <p style="max-width: 600px; margin: 0 auto;">We don't just book trips; we orchestrate seamless journeys that become the stories of a lifetime.</p>
+                </div>
+                <div class="grid-4 gsap-stagger-group">
+                    
+        <div class="gsap-item" style="background: white; padding: 32px 24px; border-radius: 16px; border: 1px solid #f1f5f9; text-align: left; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
+            <div style="width: 48px; height: 48px; background: #eef2ff; color: #4f46e5; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 20px;"><i class="fa-solid fa-compass"></i></div>
+            <h4 style="font-size: 16px; margin-bottom: 12px; color: #0f172a;">Personalized Trips</h4>
+            <p style="font-size: 13px; color: #64748b; line-height: 1.6; margin: 0;">Every itinerary is meticulously crafted around your interests, pace, and preferences to ensure a flawless journey.</p>
+        </div>
+    
+        <div class="gsap-item" style="background: white; padding: 32px 24px; border-radius: 16px; border: 1px solid #f1f5f9; text-align: left; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
+            <div style="width: 48px; height: 48px; background: #eef2ff; color: #4f46e5; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 20px;"><i class="fa-solid fa-map-location-dot"></i></div>
+            <h4 style="font-size: 16px; margin-bottom: 12px; color: #0f172a;">Expert Guides</h4>
+            <p style="font-size: 13px; color: #64748b; line-height: 1.6; margin: 0;">Explore destinations with our vetted, knowledgeable local guides who provide authentic and insightful experiences.</p>
+        </div>
+    
+        <div class="gsap-item" style="background: white; padding: 32px 24px; border-radius: 16px; border: 1px solid #f1f5f9; text-align: left; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
+            <div style="width: 48px; height: 48px; background: #eef2ff; color: #4f46e5; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 20px;"><i class="fa-solid fa-headset"></i></div>
+            <h4 style="font-size: 16px; margin-bottom: 12px; color: #0f172a;">24/7 Global Support</h4>
+            <p style="font-size: 13px; color: #64748b; line-height: 1.6; margin: 0;">Travel with peace of mind knowing our dedicated concierge team is available around the clock to assist you anywhere.</p>
+        </div>
+    
+        <div class="gsap-item" style="background: white; padding: 32px 24px; border-radius: 16px; border: 1px solid #f1f5f9; text-align: left; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
+            <div style="width: 48px; height: 48px; background: #eef2ff; color: #4f46e5; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 20px;"><i class="fa-solid fa-calendar-check"></i></div>
+            <h4 style="font-size: 16px; margin-bottom: 12px; color: #0f172a;">Easy Booking</h4>
+            <p style="font-size: 13px; color: #64748b; line-height: 1.6; margin: 0;">Our streamlined booking process, secure payments, and transparent pricing make planning your trip completely stress-free.</p>
+        </div>
+    
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section" style="background-color: #f8fafc;">
+            <div class="container" style="max-width: 800px;">
+                <div class="section-header text-center gsap-fade-up">
+                    <span class="section-subtitle">COMMON QUERIES</span>
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Find quick answers to the most common questions our guests ask us before booking.</p>
+                </div>
+                
+                <div class="faq-container gsap-stagger-group">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item gsap-item active">
+                        <div class="faq-header">
+                            <h4 style="font-size: 16px; font-weight: 600; margin: 0;">How do I begin customizing a package?</h4>
+                            <div class="faq-icon"><i class="fa-solid fa-minus"></i></div>
+                        </div>
+                        <div class="faq-content">
+                            <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin: 0; padding-bottom: 20px;">Simply fill out the custom enquiry form above with your basic preferences. One of our dedicated travel experts will review your request and contact you within 24 hours to schedule a detailed phone or video consultation to craft your perfect itinerary.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 2 -->
+                    <div class="faq-item gsap-item">
+                        <div class="faq-header">
+                            <h4 style="font-size: 16px; font-weight: 600; margin: 0;">Are your itineraries fully customizable?</h4>
+                            <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                        </div>
+                        <div class="faq-content">
+                            <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin: 0; padding-bottom: 20px;">Yes, absolutely. Every aspect of your trip—from flights and luxury accommodations to private transfers and exclusive excursions—can be tailored to your specific taste, pace, and budget.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 3 -->
+                    <div class="faq-item gsap-item">
+                        <div class="faq-header">
+                            <h4 style="font-size: 16px; font-weight: 600; margin: 0;">What is your cancellation policy?</h4>
+                            <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                        </div>
+                        <div class="faq-content">
+                            <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin: 0; padding-bottom: 20px;">Cancellation policies vary depending on the specific hotels, airlines, and activities booked. However, we always prioritize booking flexible rates for our clients and will clearly outline all cancellation terms before you make any payment.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 4 -->
+                    <div class="faq-item gsap-item">
+                        <div class="faq-header">
+                            <h4 style="font-size: 16px; font-weight: 600; margin: 0;">Do you provide travel insurance?</h4>
+                            <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                        </div>
+                        <div class="faq-content">
+                            <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin: 0; padding-bottom: 20px;">We highly recommend travel insurance. We partner with top-tier insurance providers and can seamlessly add a comprehensive policy to your package that covers cancellations, medical emergencies, and lost luggage.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 5 -->
+                    <div class="faq-item gsap-item">
+                        <div class="faq-header">
+                            <h4 style="font-size: 16px; font-weight: 600; margin: 0;">What if I face an emergency during my trip?</h4>
+                            <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                        </div>
+                        <div class="faq-content">
+                            <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin: 0; padding-bottom: 20px;">You will have access to a dedicated 24/7 concierge line. Whether it's a missed flight, a medical issue, or a last-minute restaurant reservation, our global team is always awake and ready to assist you instantly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom CTA -->
+        <section class="contact-cta-banner gsap-fade-up" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); position: relative; padding: 100px 0; background-size: cover; background-position: center; text-align: center;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(15,23,42,0.8), rgba(15,23,42,0.6));"></div>
+            <div class="container" style="position: relative; z-index: 10;">
+                <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); padding: 6px 16px; border-radius: 20px; color: white; font-size: 12px; font-weight: 700; margin-bottom: 24px; display: inline-block;">YOUR NEXT ADVENTURE AWAITS</span>
+                <h2 style="color: white; font-size: 40px; margin-bottom: 24px;">Ready to Explore the World?</h2>
+                <p style="color: rgba(255,255,255,0.8); font-size: 18px; margin: 0 auto 32px; max-width: 600px;">Don't wait to make your dream vacation a reality. Discover our curated tours or speak with an expert today.</p>
+                <div style="display: flex; gap: 16px; justify-content: center;">
+                    <a href="#" class="btn btn-primary" style="background: #f59e0b; border-color: #f59e0b; padding: 14px 32px;">Explore Tours <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></a>
+                    <a href="#" class="btn btn-outline" style="background: white; color: #0f172a; border: none; padding: 14px 32px;"><i class="fa-regular fa-comment-dots" style="margin-right: 8px; color: #4f46e5;"></i> Contact an Expert</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="assets/logo.webp" alt="Stackly Logo" style="height: 40px; width: auto;">
+                    </a>
+                    <p class="brand-desc">Effortless luxury exploration and handcrafted travel experiences worldwide. Turning dream itineraries into lifelong memories.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-solid fa-earth-americas"></i></a>
+                        <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+                        <a href="#"><i class="fa-solid fa-plane"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="tourpackages.html">Tour Packages</a></li>
+                        <li><a href="hotels.html">Hotels</a></li>
+                        <li><a href="flights.html">Flights</a></li>
+                        <li><a href="activities.html">Activities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-col">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Booking Guide</a></li>
+                        <li><a href="#">Safety Information</a></li>
+                        <li><a href="#">Travel Insurance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fa-regular fa-envelope"></i> concierge@travelgo.com</li>
+                        <li><i class="fa-solid fa-phone"></i> +1 (800) 872-8354</li>
+                        <li><i class="fa-solid fa-location-dot"></i> San Francisco & Geneva</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    &copy; 2026. Stackly. All rights reserved. Effortless luxury exploration.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="destinations.html">Destinations</a>
+                    <a href="tourpackages.html">Packages</a>
+                    <a href="hotels.html">Stays</a>
+                    <a href="experiences.html">Experiences</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <!-- GSAP Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/animation.js"></script>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

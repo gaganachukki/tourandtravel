@@ -1,0 +1,288 @@
+
+/* Contact CSS */
+.contact-hero {
+    position: relative;
+    padding: 160px 0 160px; /* Extra bottom padding for overlapping cards */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    margin-top: -88px;
+    min-height: 70vh;
+}
+
+.contact-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(15,23,42,0.8), rgba(15,23,42,0.4));
+}
+
+.contact-hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-badge {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(4px);
+}
+
+.contact-hero h1 {
+    font-size: 56px;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.contact-hero p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 40px;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.hero-features {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    padding: 12px 24px;
+    border-radius: 50px;
+    display: inline-flex;
+}
+
+/* Overlapping Cards */
+.contact-cards-section {
+    position: relative;
+    margin-top: -80px;
+    z-index: 20;
+    margin-bottom: 60px;
+}
+
+.contact-card {
+    background: white;
+    padding: 32px 24px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    text-align: left;
+    border: 1px solid #f1f5f9;
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    background: #eef2ff;
+    color: #4f46e5;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.contact-card h4 {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0 0 8px 0;
+}
+
+.contact-val {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 16px;
+    word-break: break-word;
+}
+
+.contact-link {
+    font-size: 13px;
+    color: #4f46e5;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Enquiry Form */
+.enquiry-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.enquiry-bullets {
+    margin-bottom: 40px;
+}
+
+.bullet-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.embedded-review {
+    background: #f8fafc;
+    padding: 24px;
+    border-radius: 16px;
+    border-left: 4px solid #f59e0b;
+}
+
+.enquiry-form-wrapper {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+    border: 1px solid #f1f5f9;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.form-group {
+    flex: 1;
+    margin-bottom: 16px;
+}
+.form-row .form-group {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 8px;
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 16px;
+    color: #94a3b8;
+}
+
+.input-with-icon input, .input-with-icon select {
+    width: 100%;
+    padding: 12px 16px 12px 40px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #0f172a;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-with-icon select {
+    appearance: none;
+    background: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E") no-repeat right 16px center;
+    background-size: 10px;
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #0f172a;
+    outline: none;
+    resize: vertical;
+}
+
+.input-with-icon input:focus, .form-group textarea:focus, .input-with-icon select:focus {
+    border-color: #4f46e5;
+}
+
+/* Studio Layout */
+.studio-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    height: 400px;
+}
+
+/* FAQ */
+.faq-container {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+}
+
+.faq-item {
+    border-bottom: 1px solid #f1f5f9;
+}
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-header {
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: #0f172a;
+}
+
+.faq-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #eef2ff;
+    color: #4f46e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    transition: transform 0.3s;
+}
+
+.faq-content {
+    padding: 0 24px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-content {
+    max-height: 200px;
+}
+
+.faq-item.active .faq-header {
+    color: #4f46e5;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}

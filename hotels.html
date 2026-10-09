@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STACKLY - Tour & Travel Booking</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/hotels.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.webp" alt="Stackly Logo" style="height: 40px; width: auto;">
+            </a>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="tourpackages.html">Tour Packages</a></li>
+                    <li><a href="hotels.html">Hotels</a></li>
+                    <li><a href="flights.html">Flights</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="login.html" class="login-link">Login</a>
+                <a href="booknow.html" class="btn btn-primary btn-shadow">Book Now</a>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Hotels Hero Section -->
+        <section class="hotel-hero gsap-hero" style="background-image: url('https://images.unsplash.com/photo-1542314831-c6a4d14b4ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');">
+            <div class="hotel-hero-overlay"></div>
+            <div class="container hotel-hero-content">
+                <span class="hotel-badge">A LUXURY RETREAT WAITS</span>
+                <h1>Find Your Perfect Stay</h1>
+                <p>Discover world-class accommodations ranging from lavish resorts to cozy boutique hotels around the globe.</p>
+                
+                <div class="hotel-search-bar">
+                    <div class="hotel-search-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div class="hotel-search-text">
+                            <label>Location</label>
+                            <input type="text" placeholder="Where do you want to stay?">
+                        </div>
+                    </div>
+                    <div class="hotel-search-divider"></div>
+                    <div class="hotel-search-item">
+                        <i class="fa-regular fa-calendar"></i>
+                        <div class="hotel-search-text">
+                            <label>Check in</label>
+                            <input type="text" placeholder="Add dates">
+                        </div>
+                    </div>
+                    <div class="hotel-search-divider"></div>
+                    <div class="hotel-search-item">
+                        <i class="fa-regular fa-calendar"></i>
+                        <div class="hotel-search-text">
+                            <label>Check out</label>
+                            <input type="text" placeholder="Add dates">
+                        </div>
+                    </div>
+                    <div class="hotel-search-divider"></div>
+                    <div class="hotel-search-item">
+                        <i class="fa-regular fa-user"></i>
+                        <div class="hotel-search-text">
+                            <label>Guests</label>
+                            <input type="text" placeholder="2 Adults, 1 Room">
+                        </div>
+                    </div>
+                    <button class="btn hotel-search-btn">Search</button>
+                </div>
+                
+                <div class="hotel-filters">
+                    <span class="filter-pill active">All</span>
+                    <span class="filter-pill">Villas</span>
+                    <span class="filter-pill">Resorts</span>
+                    <span class="filter-pill">Hotels</span>
+                    <span class="filter-pill">Apartments</span>
+                    <span class="filter-pill">Guest Houses</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Hotel Destinations -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header flex-header gsap-fade-up">
+                    <div>
+                        <span class="section-subtitle">POPULAR LOCATIONS</span>
+                        <h2>Top Hotel Destinations</h2>
+                        <p>Explore the most breathtaking cities with premium luxury stays and exclusive resorts.</p>
+                    </div>
+                    <a href="#" style="color: #0f172a; font-weight: 700; text-decoration: underline;">See All Destinations</a>
+                </div>
+                <div class="grid-3 gsap-stagger-group">
+                    
+        <div class="top-dest-card gsap-item" style="position: relative; border-radius: 16px; overflow: hidden; height: 280px; cursor: pointer;">
+            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" alt="Dubai">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0) 70%);"></div>
+            
+            <div style="position: absolute; top: 16px; right: 16px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); color: white; padding: 4px 10px; border-radius: 12px; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 4px;">
+                <i class="fa-solid fa-star" style="color: #f59e0b;"></i> 4.8
+            </div>
+            
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: white;">
+                <h3 style="font-size: 24px; margin-bottom: 8px;">Dubai</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 14px; color: rgba(255,255,255,0.8);"><i class="fa-solid fa-hotel" style="margin-right: 6px;"></i>1,240 Hotels</span>
+                    <i class="fa-solid fa-arrow-right" style="color: white;"></i>
+                </div>
+            </div>
+        </div>
+    
+        <div class="top-dest-card gsap-item" style="position: relative; border-radius: 16px; overflow: hidden; height: 280px; cursor: pointer;">
+            <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=600" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" alt="Maldives">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0) 70%);"></div>
+            
+            <div style="position: absolute; top: 16px; right: 16px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); color: white; padding: 4px 10px; border-radius: 12px; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 4px;">
+                <i class="fa-solid fa-star" style="color: #f59e0b;"></i> 4.9
+            </div>
+            
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: white;">
+                <h3 style="font-size: 24px; margin-bottom: 8px;">Maldives</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 14px; color: rgba(255,255,255,0.8);"><i class="fa-solid fa-hotel" style="margin-right: 6px;"></i>320 Hotels</span>
+                    <i class="fa-solid fa-arrow-right" style="color: white;"></i>
+                </div>
+            </div>
+        </div>
+    
+        <div class="top-dest-card gsap-item" style="position: relative; border-radius: 16px; overflow: hidden; height: 280px; cursor: pointer;">
+            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" alt="Paris">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0) 70%);"></div>
+            
+            <div style="position: absolute; top: 16px; right: 16px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); color: white; padding: 4px 10px; border-radius: 12px; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 4px;">
+                <i class="fa-solid fa-star" style="color: #f59e0b;"></i> 4.7
+            </div>
+            
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: white;">
+                <h3 style="font-size: 24px; margin-bottom: 8px;">Paris</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 14px; color: rgba(255,255,255,0.8);"><i class="fa-solid fa-hotel" style="margin-right: 6px;"></i>2,150 Hotels</span>
+                    <i class="fa-solid fa-arrow-right" style="color: white;"></i>
+                </div>
+            </div>
+        </div>
+    
+        <div class="top-dest-card gsap-item" style="position: relative; border-radius: 16px; overflow: hidden; height: 280px; cursor: pointer;">
+            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" alt="Bali">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0) 70%);"></div>
+            
+            <div style="position: absolute; top: 16px; right: 16px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); color: white; padding: 4px 10px; border-radius: 12px; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 4px;">
+                <i class="fa-solid fa-star" style="color: #f59e0b;"></i> 4.8
+            </div>
+            
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: white;">
+                <h3 style="font-size: 24px; margin-bottom: 8px;">Bali</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 14px; color: rgba(255,255,255,0.8);"><i class="fa-solid fa-hotel" style="margin-right: 6px;"></i>890 Hotels</span>
+                    <i class="fa-solid fa-arrow-right" style="color: white;"></i>
+                </div>
+            </div>
+        </div>
+    
+        <div class="top-dest-card gsap-item" style="position: relative; border-radius: 16px; overflow: hidden; height: 280px; cursor: pointer;">
+            <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?w=600" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" alt="Swiss Alps">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0) 70%);"></div>
+            
+            <div style="position: absolute; top: 16px; right: 16px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); color: white; padding: 4px 10px; border-radius: 12px; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 4px;">
+                <i class="fa-solid fa-star" style="color: #f59e0b;"></i> 4.9
+            </div>
+            
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: white;">
+                <h3 style="font-size: 24px; margin-bottom: 8px;">Swiss Alps</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 14px; color: rgba(255,255,255,0.8);"><i class="fa-solid fa-hotel" style="margin-right: 6px;"></i>450 Hotels</span>
+                    <i class="fa-solid fa-arrow-right" style="color: white;"></i>
+                </div>
+            </div>
+        </div>
+    
+        <div class="top-dest-card gsap-item" style="position: relative; border-radius: 16px; overflow: hidden; height: 280px; cursor: pointer;">
+            <img src="https://images.unsplash.com/photo-1516483638261-f40af5eb54aa?w=600" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" alt="Amalfi Coast">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0) 70%);"></div>
+            
+            <div style="position: absolute; top: 16px; right: 16px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); color: white; padding: 4px 10px; border-radius: 12px; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 4px;">
+                <i class="fa-solid fa-star" style="color: #f59e0b;"></i> 4.9
+            </div>
+            
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: white;">
+                <h3 style="font-size: 24px; margin-bottom: 8px;">Amalfi Coast</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 14px; color: rgba(255,255,255,0.8);"><i class="fa-solid fa-hotel" style="margin-right: 6px;"></i>180 Hotels</span>
+                    <i class="fa-solid fa-arrow-right" style="color: white;"></i>
+                </div>
+            </div>
+        </div>
+    
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Luxury Hotels & Resorts -->
+        <section class="section" style="background-color: #f8fafc;">
+            <div class="container">
+                <div class="section-header flex-header gsap-fade-up">
+                    <div>
+                        <span class="section-subtitle">EXCLUSIVE STAYS</span>
+                        <h2>Featured Luxury Hotels & Resorts</h2>
+                        <p>Experience the pinnacle of comfort with our curated selection of premier accommodations worldwide.</p>
+                    </div>
+                    <div class="filter-tabs" style="display: flex; gap: 8px;">
+                        <span class="tab active" style="font-weight: 600; padding: 8px 16px; background: #0f172a; color: white; border-radius: 20px; cursor: pointer;">All</span>
+                        <span class="tab" style="font-weight: 600; padding: 8px 16px; color: #4b5563; border: 1px solid #cbd5e1; border-radius: 20px; cursor: pointer;">Dubai</span>
+                        <span class="tab" style="font-weight: 600; padding: 8px 16px; color: #4b5563; border: 1px solid #cbd5e1; border-radius: 20px; cursor: pointer;">Maldives</span>
+                        <span class="tab" style="font-weight: 600; padding: 8px 16px; color: #4b5563; border: 1px solid #cbd5e1; border-radius: 20px; cursor: pointer;">Paris</span>
+                    </div>
+                </div>
+                <div class="grid-3 gsap-stagger-group">
+                    
+        <div class="card gsap-item" style="border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border-radius: 16px; overflow: hidden; background: white;">
+            <div class="card-img" style="height: 220px; position: relative;">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500" alt="The Ritz-Carlton Reserve" style="width: 100%; height: 100%; object-fit: cover;">
+                <button class="like-btn" style="position: absolute; top: 12px; right: 12px; background: white; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; color: #cbd5e1;"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="card-content" style="padding: 24px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                    <div style="font-size: 13px; font-weight: 700; color: #f59e0b; margin-bottom: 4px;"><i class="fa-solid fa-star"></i> 5.0 <span style="color: #94a3b8; font-weight: 400;">(1.2k reviews)</span></div>
+                </div>
+                <h3 style="font-size: 18px; margin: 0 0 8px 0; color: #0f172a;">The Ritz-Carlton Reserve</h3>
+                <p style="color: #64748b; font-size: 14px; margin-bottom: 16px;"><i class="fa-solid fa-location-dot" style="margin-right: 4px;"></i> Bali, Indonesia</p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+                    <span style="background: #f1f5f9; color: #4b5563; font-size: 12px; padding: 4px 10px; border-radius: 6px;">Free Wifi</span>
+                    <span style="background: #f1f5f9; color: #4b5563; font-size: 12px; padding: 4px 10px; border-radius: 6px;">Pool</span>
+                    <span style="background: #f1f5f9; color: #4b5563; font-size: 12px; padding: 4px 10px; border-radius: 6px;">Spa</span>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 20px;">
+                    <div>
+                        <div style="font-size: 22px; font-weight: 800; color: #0f172a;">$450 <span style="font-size: 14px; font-weight: 400; color: #64748b;">/night</span></div>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-sm" style="background: #0f172a; padding: 10px 20px; border-radius: 8px;">Book Now</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="card gsap-item" style="border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border-radius: 16px; overflow: hidden; background: white;">
+            <div class="card-img" style="height: 220px; position: relative;">
+                <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500" alt="Burj Al Arab Jumeirah" style="width: 100%; height: 100%; object-fit: cover;">
+                <button class="like-btn" style="position: absolute; top: 12px; right: 12px; background: white; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; color: #cbd5e1;"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="card-content" style="padding: 24px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                    <div style="font-size: 13px; font-weight: 700; color: #f59e0b; margin-bottom: 4px;"><i class="fa-solid fa-star"></i> 4.9 <span style="color: #94a3b8; font-weight: 400;">(2.4k reviews)</span></div>
+                </div>
+                <h3 style="font-size: 18px; margin: 0 0 8px 0; color: #0f172a;">Burj Al Arab Jumeirah</h3>
+                <p style="color: #64748b; font-size: 14px; margin-bottom: 16px;"><i class="fa-solid fa-location-dot" style="margin-right: 4px;"></i> Dubai, UAE</p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+                    <span style="background: #f1f5f9; color: #4b5563; font-size: 12px; padding: 4px 10px; border-radius: 6px;">Free Wifi</span>
+                    <span style="background: #f1f5f9; color: #4b5563; font-size: 12px; padding: 4px 10px; border-radius: 6px;">Pool</span>
+                    <span style="background: #f1f5f9; color: #4b5563; font-size: 12px; padding: 4px 10px; border-radius: 6px;">Spa</span>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 20px;">
+                    <div>
+                        <div style="font-size: 22px; font-weight: 800; color: #0f172a;">$1,200 <span style="font-size: 14px; font-weight: 400; color: #64748b;">/night</span></div>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-sm" style="background: #0f172a; padding: 10px 20px; border-radius: 8px;">Book Now</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="card gsap-item" style="border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border-radius: 16px; overflow: hidden; background: white;">
+            <div class="card-img" style="height: 220px; position: relative;">
+                <img src="https://images.unsplash.com/photo-1551882547-ff40c0d12c56?w=500" alt="Four Seasons Hotel George V" style="width: 100%; height: 100%; object-fit: cover;">
+                <button class="like-btn" style="position: absolute; top: 12px; right: 12px; background: white; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; color: #cbd5e1;"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="card-content" style="padding: 24px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                    <div style="font-size: 13px; font-weight: 700; color: #f59e0b; margin-bottom: 4px;"><i class="fa-solid fa-star"></i> 4.8 <span style="color: #94a3b8; font-weight: 400;">(850 reviews)</span></div>
+                </div>
+                <h3 style="font-size: 18px; margin: 0 0 8px 0; color: #0f172a;">Four Seasons Hotel George V</h3>
+                <p style="color: #64748b; font-size: 14px; margin-bottom: 16px;"><i class="fa-solid fa-location-dot" style="margin-right: 4px;"></i> Paris, France</p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+                    <span style="background: #f1f5f9; color: #4b5563; font-size: 12px; padding: 4px 10px; border-radius: 6px;">Free Wifi</span>
+                    <span style="background: #f1f5f9; color: #4b5563; font-size: 12px; padding: 4px 10px; border-radius: 6px;">Pool</span>
+                    <span style="background: #f1f5f9; color: #4b5563; font-size: 12px; padding: 4px 10px; border-radius: 6px;">Spa</span>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 20px;">
+                    <div>
+                        <div style="font-size: 22px; font-weight: 800; color: #0f172a;">$950 <span style="font-size: 14px; font-weight: 400; color: #64748b;">/night</span></div>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-sm" style="background: #0f172a; padding: 10px 20px; border-radius: 8px;">Book Now</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="card gsap-item" style="border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border-radius: 16px; overflow: hidden; background: white;">
+            <div class="card-img" style="height: 220px; position: relative;">
+                <img src="https://images.unsplash.com/photo-1430285561322-780f2f672322?w=500" alt="Soneva Fushi Resort" style="width: 100%; height: 100%; object-fit: cover;">
+                <button class="like-btn" style="position: absolute; top: 12px; right: 12px; background: white; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; color: #cbd5e1;"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="card-content" style="padding: 24px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                    <div style="font-size: 13px; font-weight: 700; color: #f59e0b; margin-bottom: 4px;"><i class="fa-solid fa-star"></i> 5.0 <span style="color: #94a3b8; font-weight: 400;">(430 reviews)</span></div>
+                </div>
+                <h3 style="font-size: 18px; margin: 0 0 8px 0; color: #0f172a;">Soneva Fushi Resort</h3>
+                <p style="color: #64748b; font-size: 14px; margin-bottom: 16px;"><i class="fa-solid fa-location-dot" style="margin-right: 4px;"></i> Maldives</p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+                    <span style="background: #f1f5f9; color: #4b5563; font-size: 12px; padding: 4px 10px; border-radius: 6px;">Free Wifi</span>
+                    <span style="background: #f1f5f9; color: #4b5563; font-size: 12px; padding: 4px 10px; border-radius: 6px;">Pool</span>
+                    <span style="background: #f1f5f9; color: #4b5563; font-size: 12px; padding: 4px 10px; border-radius: 6px;">Spa</span>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 20px;">
+                    <div>
+                        <div style="font-size: 22px; font-weight: 800; color: #0f172a;">$1,800 <span style="font-size: 14px; font-weight: 400; color: #64748b;">/night</span></div>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-sm" style="background: #0f172a; padding: 10px 20px; border-radius: 8px;">Book Now</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="card gsap-item" style="border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border-radius: 16px; overflow: hidden; background: white;">
+            <div class="card-img" style="height: 220px; position: relative;">
+                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500" alt="The Alpina Gstaad" style="width: 100%; height: 100%; object-fit: cover;">
+                <button class="like-btn" style="position: absolute; top: 12px; right: 12px; background: white; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; color: #cbd5e1;"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="card-content" style="padding: 24px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                    <div style="font-size: 13px; font-weight: 700; color: #f59e0b; margin-bottom: 4px;"><i class="fa-solid fa-star"></i> 4.9 <span style="color: #94a3b8; font-weight: 400;">(310 reviews)</span></div>
+                </div>
+                <h3 style="font-size: 18px; margin: 0 0 8px 0; color: #0f172a;">The Alpina Gstaad</h3>
+                <p style="color: #64748b; font-size: 14px; margin-bottom: 16px;"><i class="fa-solid fa-location-dot" style="margin-right: 4px;"></i> Gstaad, Switzerland</p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+                    <span style="background: #f1f5f9; color: #4b5563; font-size: 12px; padding: 4px 10px; border-radius: 6px;">Free Wifi</span>
+                    <span style="background: #f1f5f9; color: #4b5563; font-size: 12px; padding: 4px 10px; border-radius: 6px;">Pool</span>
+                    <span style="background: #f1f5f9; color: #4b5563; font-size: 12px; padding: 4px 10px; border-radius: 6px;">Spa</span>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 20px;">
+                    <div>
+                        <div style="font-size: 22px; font-weight: 800; color: #0f172a;">$850 <span style="font-size: 14px; font-weight: 400; color: #64748b;">/night</span></div>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-sm" style="background: #0f172a; padding: 10px 20px; border-radius: 8px;">Book Now</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="card gsap-item" style="border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border-radius: 16px; overflow: hidden; background: white;">
+            <div class="card-img" style="height: 220px; position: relative;">
+                <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=500" alt="Aman Tokyo" style="width: 100%; height: 100%; object-fit: cover;">
+                <button class="like-btn" style="position: absolute; top: 12px; right: 12px; background: white; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; color: #cbd5e1;"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="card-content" style="padding: 24px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                    <div style="font-size: 13px; font-weight: 700; color: #f59e0b; margin-bottom: 4px;"><i class="fa-solid fa-star"></i> 4.9 <span style="color: #94a3b8; font-weight: 400;">(620 reviews)</span></div>
+                </div>
+                <h3 style="font-size: 18px; margin: 0 0 8px 0; color: #0f172a;">Aman Tokyo</h3>
+                <p style="color: #64748b; font-size: 14px; margin-bottom: 16px;"><i class="fa-solid fa-location-dot" style="margin-right: 4px;"></i> Tokyo, Japan</p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+                    <span style="background: #f1f5f9; color: #4b5563; font-size: 12px; padding: 4px 10px; border-radius: 6px;">Free Wifi</span>
+                    <span style="background: #f1f5f9; color: #4b5563; font-size: 12px; padding: 4px 10px; border-radius: 6px;">Pool</span>
+                    <span style="background: #f1f5f9; color: #4b5563; font-size: 12px; padding: 4px 10px; border-radius: 6px;">Spa</span>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 20px;">
+                    <div>
+                        <div style="font-size: 22px; font-weight: 800; color: #0f172a;">$1,100 <span style="font-size: 14px; font-weight: 400; color: #64748b;">/night</span></div>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-sm" style="background: #0f172a; padding: 10px 20px; border-radius: 8px;">Book Now</a>
+                </div>
+            </div>
+        </div>
+    
+                </div>
+            </div>
+        </section>
+
+        <!-- Browse by Property Type -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header text-center gsap-fade-up">
+                    <span class="section-subtitle">FIND YOUR FIT</span>
+                    <h2>Browse by Property Type</h2>
+                    <p style="max-width: 600px; margin: 0 auto;">From intimate guest houses to sprawling villas, discover exactly what you're looking for.</p>
+                </div>
+                <div class="hotel-categories-grid gsap-stagger-group">
+                    
+        <div class="prop-type-card gsap-item" style="position: relative; width: 160px; height: 180px; border-radius: 16px; overflow: hidden; cursor: pointer; flex-shrink: 0;">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=300" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" alt="Villas">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.8), rgba(15,23,42,0.2));"></div>
+            <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 16px; color: white; text-align: center;">
+                <div style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
+                    <i class="fa-solid fa-building" style="font-size: 14px;"></i>
+                </div>
+                <h4 style="font-size: 15px; margin: 0 0 4px 0;">Villas</h4>
+                <p style="font-size: 12px; color: rgba(255,255,255,0.8); margin: 0;">2,430 properties</p>
+            </div>
+        </div>
+    
+        <div class="prop-type-card gsap-item" style="position: relative; width: 160px; height: 180px; border-radius: 16px; overflow: hidden; cursor: pointer; flex-shrink: 0;">
+            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=300" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" alt="Apartments">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.8), rgba(15,23,42,0.2));"></div>
+            <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 16px; color: white; text-align: center;">
+                <div style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
+                    <i class="fa-solid fa-building" style="font-size: 14px;"></i>
+                </div>
+                <h4 style="font-size: 15px; margin: 0 0 4px 0;">Apartments</h4>
+                <p style="font-size: 12px; color: rgba(255,255,255,0.8); margin: 0;">14,500 properties</p>
+            </div>
+        </div>
+    
+        <div class="prop-type-card gsap-item" style="position: relative; width: 160px; height: 180px; border-radius: 16px; overflow: hidden; cursor: pointer; flex-shrink: 0;">
+            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=300" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" alt="Resorts">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.8), rgba(15,23,42,0.2));"></div>
+            <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 16px; color: white; text-align: center;">
+                <div style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
+                    <i class="fa-solid fa-building" style="font-size: 14px;"></i>
+                </div>
+                <h4 style="font-size: 15px; margin: 0 0 4px 0;">Resorts</h4>
+                <p style="font-size: 12px; color: rgba(255,255,255,0.8); margin: 0;">1,200 properties</p>
+            </div>
+        </div>
+    
+        <div class="prop-type-card gsap-item" style="position: relative; width: 160px; height: 180px; border-radius: 16px; overflow: hidden; cursor: pointer; flex-shrink: 0;">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=300" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" alt="Hotels">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.8), rgba(15,23,42,0.2));"></div>
+            <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 16px; color: white; text-align: center;">
+                <div style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
+                    <i class="fa-solid fa-building" style="font-size: 14px;"></i>
+                </div>
+                <h4 style="font-size: 15px; margin: 0 0 4px 0;">Hotels</h4>
+                <p style="font-size: 12px; color: rgba(255,255,255,0.8); margin: 0;">8,940 properties</p>
+            </div>
+        </div>
+    
+        <div class="prop-type-card gsap-item" style="position: relative; width: 160px; height: 180px; border-radius: 16px; overflow: hidden; cursor: pointer; flex-shrink: 0;">
+            <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?w=300" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" alt="Guest Houses">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.8), rgba(15,23,42,0.2));"></div>
+            <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 16px; color: white; text-align: center;">
+                <div style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
+                    <i class="fa-solid fa-building" style="font-size: 14px;"></i>
+                </div>
+                <h4 style="font-size: 15px; margin: 0 0 4px 0;">Guest Houses</h4>
+                <p style="font-size: 12px; color: rgba(255,255,255,0.8); margin: 0;">3,210 properties</p>
+            </div>
+        </div>
+    
+        <div class="prop-type-card gsap-item" style="position: relative; width: 160px; height: 180px; border-radius: 16px; overflow: hidden; cursor: pointer; flex-shrink: 0;">
+            <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=300" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" alt="Cabins">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.8), rgba(15,23,42,0.2));"></div>
+            <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 16px; color: white; text-align: center;">
+                <div style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
+                    <i class="fa-solid fa-building" style="font-size: 14px;"></i>
+                </div>
+                <h4 style="font-size: 15px; margin: 0 0 4px 0;">Cabins</h4>
+                <p style="font-size: 12px; color: rgba(255,255,255,0.8); margin: 0;">850 properties</p>
+            </div>
+        </div>
+    
+                </div>
+            </div>
+        </section>
+
+        <!-- Escape to Luxury Banner -->
+        <section class="section">
+            <div class="container">
+                <div class="hotel-promo-banner gsap-fade-up" style="background-image: url('https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+                    <div class="hotel-promo-overlay"></div>
+                    <div class="hotel-promo-content">
+                        <div>
+                            <span class="promo-badge" style="background: rgba(255,255,255,0.2); padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; color: white; display: inline-block; margin-bottom: 16px;">EXCLUSIVE OFFER</span>
+                            <h2 style="color: white; font-size: 36px; margin-bottom: 16px;">Escape to Luxury: Save up to 30% on<br>Premier Suites</h2>
+                            <p style="color: rgba(255,255,255,0.8); font-size: 16px; margin-bottom: 24px; max-width: 600px;">Book your next stay directly with us and unlock extraordinary savings at handpicked five-star hotels across the globe.</p>
+                            <div style="display: flex; gap: 24px; color: white; font-size: 14px; margin-bottom: 32px;">
+                                <span><i class="fa-solid fa-check" style="color: #f59e0b; margin-right: 8px;"></i> Complimentary Breakfast</span>
+                                <span><i class="fa-solid fa-check" style="color: #f59e0b; margin-right: 8px;"></i> Flexible Cancellation</span>
+                                <span><i class="fa-solid fa-check" style="color: #f59e0b; margin-right: 8px;"></i> VIP Welcome Amenities</span>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-shadow" style="background: #f59e0b; border-color: #f59e0b; color: #fff; padding: 14px 32px;">Claim Your Offer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Book With Us -->
+        <section class="section" style="background-color: #f8fafc;">
+            <div class="container">
+                <div class="section-header text-center gsap-fade-up">
+                    <span class="section-subtitle">THE STACKLY ADVANTAGE</span>
+                    <h2>Why Book Your Stay With Stackly</h2>
+                    <p style="max-width: 600px; margin: 0 auto;">We guarantee the best prices, premium selections, and unmatched customer service for every stay.</p>
+                </div>
+                <div class="grid-4 gsap-stagger-group">
+                    
+        <div class="tp-feature-card gsap-item" style="background: white; padding: 32px 24px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); text-align: left;">
+            <div class="tp-feature-icon" style="width: 48px; height: 48px; background: #eef2ff; color: #6366f1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px;"><i class="fa-solid fa-tag"></i></div>
+            <h4 style="font-size: 18px; margin-bottom: 12px; color: #0f172a;">Best Rate Guarantee</h4>
+            <p style="font-size: 14px; color: #64748b; line-height: 1.6;">If you find a lower rate on another website, we will match it and give you an extra 10% discount.</p>
+        </div>
+    
+        <div class="tp-feature-card gsap-item" style="background: white; padding: 32px 24px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); text-align: left;">
+            <div class="tp-feature-icon" style="width: 48px; height: 48px; background: #eef2ff; color: #6366f1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px;"><i class="fa-solid fa-calendar-check"></i></div>
+            <h4 style="font-size: 18px; margin-bottom: 12px; color: #0f172a;">Flexible Booking Options</h4>
+            <p style="font-size: 14px; color: #64748b; line-height: 1.6;">Enjoy peace of mind with free cancellation and easy modification options on thousands of hotels.</p>
+        </div>
+    
+        <div class="tp-feature-card gsap-item" style="background: white; padding: 32px 24px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); text-align: left;">
+            <div class="tp-feature-icon" style="width: 48px; height: 48px; background: #eef2ff; color: #6366f1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px;"><i class="fa-solid fa-headset"></i></div>
+            <h4 style="font-size: 18px; margin-bottom: 12px; color: #0f172a;">24/7 Dedicated Support</h4>
+            <p style="font-size: 14px; color: #64748b; line-height: 1.6;">Our customer service team is available around the clock to assist you with any questions or issues.</p>
+        </div>
+    
+        <div class="tp-feature-card gsap-item" style="background: white; padding: 32px 24px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); text-align: left;">
+            <div class="tp-feature-icon" style="width: 48px; height: 48px; background: #eef2ff; color: #6366f1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px;"><i class="fa-solid fa-medal"></i></div>
+            <h4 style="font-size: 18px; margin-bottom: 12px; color: #0f172a;">Verified Guest Reviews</h4>
+            <p style="font-size: 14px; color: #64748b; line-height: 1.6;">Make informed decisions based on genuine reviews from guests who have actually stayed at the properties.</p>
+        </div>
+    
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header text-center gsap-fade-up">
+                    <span class="section-subtitle">GUEST REVIEWS</span>
+                    <h2>Distinguished Guest Chronicles</h2>
+                    <p style="max-width: 600px; margin: 0 auto;">Hear from travelers who found their perfect home away from home with us.</p>
+                </div>
+                <div class="grid-3 gsap-stagger-group">
+                    
+        <div class="tp-review-card gsap-item" style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #f1f5f9; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
+            <div class="tp-review-stars" style="color: #f59e0b; font-size: 14px; margin-bottom: 16px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p class="tp-review-text" style="font-size: 15px; color: #4b5563; line-height: 1.6; font-style: italic; margin-bottom: 24px;">"The booking process was incredibly smooth, and the resort in Maldives was exactly as described. Best vacation ever!"</p>
+            <div class="tp-review-user" style="display: flex; align-items: center; gap: 12px;">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Jenkins" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover;">
+                <div>
+                    <h5 style="font-size: 15px; margin: 0 0 4px 0;">Sarah Jenkins</h5>
+                    <span style="font-size: 13px; color: #64748b;">Stayed at Soneva Fushi</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="tp-review-card gsap-item" style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #f1f5f9; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
+            <div class="tp-review-stars" style="color: #f59e0b; font-size: 14px; margin-bottom: 16px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p class="tp-review-text" style="font-size: 15px; color: #4b5563; line-height: 1.6; font-style: italic; margin-bottom: 24px;">"Stackly helped me find a last-minute luxury hotel in Paris during fashion week. The rate was unbeatable and the service was stellar."</p>
+            <div class="tp-review-user" style="display: flex; align-items: center; gap: 12px;">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover;">
+                <div>
+                    <h5 style="font-size: 15px; margin: 0 0 4px 0;">Michael Chen</h5>
+                    <span style="font-size: 13px; color: #64748b;">Stayed at Four Seasons</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="tp-review-card gsap-item" style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #f1f5f9; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
+            <div class="tp-review-stars" style="color: #f59e0b; font-size: 14px; margin-bottom: 16px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p class="tp-review-text" style="font-size: 15px; color: #4b5563; line-height: 1.6; font-style: italic; margin-bottom: 24px;">"I rely on the verified reviews here to book my business trips. Always accurate, and the customer support is highly responsive."</p>
+            <div class="tp-review-user" style="display: flex; align-items: center; gap: 12px;">
+                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma Watson" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover;">
+                <div>
+                    <h5 style="font-size: 15px; margin: 0 0 4px 0;">Emma Watson</h5>
+                    <span style="font-size: 13px; color: #64748b;">Stayed at Aman Tokyo</span>
+                </div>
+            </div>
+        </div>
+    
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom CTA -->
+        <section class="hotel-cta-banner gsap-fade-up" style="background-image: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+            <div class="hotel-cta-overlay"></div>
+            <div class="container hotel-cta-content" style="text-align: center;">
+                <span class="section-subtitle" style="color: #f59e0b; margin-bottom: 16px; display: block;">TIME TO RELAX</span>
+                <h2 style="color: white; font-size: 40px; margin-bottom: 24px;">Ready for an Unforgettable Escape?</h2>
+                <p style="color: rgba(255,255,255,0.8); font-size: 18px; margin: 0 auto 32px; max-width: 600px;">Let us help you discover the perfect resort or hotel for your next vacation, business trip, or weekend getaway.</p>
+                <div style="display: flex; gap: 16px; justify-content: center;">
+                    <a href="#" class="btn btn-primary" style="background: #f59e0b; border-color: #f59e0b; box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4); padding: 14px 32px;">Book Now</a>
+                    <a href="#" class="btn btn-outline" style="border-color: rgba(255,255,255,0.3); color: white; padding: 14px 32px;">Contact Support</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="assets/logo.webp" alt="Stackly Logo" style="height: 40px; width: auto;">
+                    </a>
+                    <p class="brand-desc">Effortless luxury exploration and handcrafted travel experiences worldwide. Turning dream itineraries into lifelong memories.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-solid fa-earth-americas"></i></a>
+                        <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+                        <a href="#"><i class="fa-solid fa-plane"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="tourpackages.html">Tour Packages</a></li>
+                        <li><a href="hotels.html">Hotels</a></li>
+                        <li><a href="flights.html">Flights</a></li>
+                        <li><a href="activities.html">Activities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-col">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Booking Guide</a></li>
+                        <li><a href="#">Safety Information</a></li>
+                        <li><a href="#">Travel Insurance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fa-regular fa-envelope"></i> concierge@travelgo.com</li>
+                        <li><i class="fa-solid fa-phone"></i> +1 (800) 872-8354</li>
+                        <li><i class="fa-solid fa-location-dot"></i> San Francisco & Geneva</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    &copy; 2026. Stackly. All rights reserved. Effortless luxury exploration.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="destinations.html">Destinations</a>
+                    <a href="tourpackages.html">Packages</a>
+                    <a href="hotels.html">Stays</a>
+                    <a href="experiences.html">Experiences</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <!-- GSAP Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/animation.js"></script>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

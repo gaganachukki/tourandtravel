@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STACKLY - Tour & Travel Booking</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/index.css">\n    <link rel="stylesheet" href="css/flights.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.webp" alt="Stackly Logo" style="height: 40px; width: auto;">
+            </a>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="tourpackages.html">Tour Packages</a></li>
+                    <li><a href="hotels.html">Hotels</a></li>
+                    <li><a href="flights.html">Flights</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="login.html" class="login-link">Login</a>
+                <a href="booknow.html" class="btn btn-primary btn-shadow">Book Now</a>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Flights Hero Section -->
+        <section class="flight-hero gsap-hero" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');">
+            <div class="flight-hero-overlay"></div>
+            <div class="container flight-hero-content">
+                <span class="flight-badge">SEAMLESS CONNECTIONS</span>
+                <h1>Fly Beyond the Horizon</h1>
+                <p>Search and compare flights across 500+ airlines to globally connected destinations. Best verified prices, guaranteed.</p>
+                
+                <div class="flight-search-box">
+                    <div class="search-top">
+                        <div class="trip-types">
+                            <label class="radio-label"><input type="radio" name="trip" checked> <span>Round Trip</span></label>
+                            <label class="radio-label"><input type="radio" name="trip"> <span>One Way</span></label>
+                            <label class="radio-label"><input type="radio" name="trip"> <span>Multi-City</span></label>
+                        </div>
+                        <div class="passenger-class">
+                            <span>1 Adult</span> <i class="fa-solid fa-circle" style="font-size: 4px; margin: 0 8px;"></i> <span>Economy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="search-middle">
+                        <div class="input-group from-to">
+                            <div class="input-field">
+                                <label>From</label>
+                                <input type="text" value="Tirupati (TIR)" style="font-weight: 700; font-size: 16px; color: #0f172a;">
+                                <span class="sub-text">Tirupati Airport, India</span>
+                            </div>
+                            <div class="swap-btn"><i class="fa-solid fa-right-left"></i></div>
+                            <div class="input-field">
+                                <label>To</label>
+                                <input type="text" value="Dubai (DXB)" style="font-weight: 700; font-size: 16px; color: #0f172a;">
+                                <span class="sub-text">Dubai Intl Airport, UAE</span>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group dates">
+                            <div class="input-field">
+                                <label>Depart</label>
+                                <input type="text" value="15 Oct 2026" style="font-weight: 700; font-size: 16px; color: #0f172a;">
+                                <span class="sub-text">Thursday</span>
+                            </div>
+                            <div class="input-field">
+                                <label>Return</label>
+                                <input type="text" value="22 Oct 2026" style="font-weight: 700; font-size: 16px; color: #0f172a;">
+                                <span class="sub-text">Thursday</span>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group passengers">
+                            <div class="input-field">
+                                <label>Travellers & Class</label>
+                                <input type="text" value="1 Adult, Economy" style="font-weight: 700; font-size: 16px; color: #0f172a;">
+                                <span class="sub-text">Economy/Premium Economy</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="search-bottom">
+                        <div class="checkbox-group">
+                            <label><input type="checkbox"> Non-Stop Flights</label>
+                            <label><input type="checkbox"> Student Fares</label>
+                            <label><input type="checkbox"> Armed Forces</label>
+                        </div>
+                        <button class="btn btn-primary" style="background: #0f172a; padding: 14px 32px; font-weight: 600;">Search Flights</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Flight Deals -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header flex-header gsap-fade-up">
+                    <div>
+                        <span class="section-subtitle">SPECIAL OFFERS</span>
+                        <h2>Popular Flight Deals</h2>
+                        <p>Incredible fares rounded up just for you. Grab them before they're gone.</p>
+                    </div>
+                    <a href="#" style="color: #0f172a; font-weight: 700; text-decoration: underline;">See All Deals</a>
+                </div>
+                <div class="grid-4 gsap-stagger-group">
+                    
+        <div class="flight-deal-card gsap-item">
+            <div class="card-img" style="height: 160px; position: relative;">
+                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400" alt="Tirupati (TIR) to Dubai (DXB)" style="width: 100%; height: 100%; object-fit: cover;">
+                <div style="position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); color: white; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 700;">4h 30m</div>
+            </div>
+            <div class="card-content" style="padding: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                    <h3 style="font-size: 16px; margin: 0; line-height: 1.4;">Tirupati (TIR) to Dubai (DXB)</h3>
+                    <span style="font-size: 11px; background: #eef2ff; color: #4f46e5; padding: 4px 8px; border-radius: 4px; font-weight: 600;">1 Stop</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; padding-top: 16px; border-top: 1px dashed #e2e8f0;">
+                    <div>
+                        <div style="font-size: 12px; color: #94a3b8; text-decoration: line-through; margin-bottom: 2px;">₹18,500</div>
+                        <div style="font-size: 20px; font-weight: 800; color: #0f172a;">₹12,499</div>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-sm" style="font-size: 13px; padding: 8px 16px; border-radius: 8px;">Book Flight</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="flight-deal-card gsap-item">
+            <div class="card-img" style="height: 160px; position: relative;">
+                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400" alt="Delhi (DEL) to London (LHR)" style="width: 100%; height: 100%; object-fit: cover;">
+                <div style="position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); color: white; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 700;">9h 15m</div>
+            </div>
+            <div class="card-content" style="padding: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                    <h3 style="font-size: 16px; margin: 0; line-height: 1.4;">Delhi (DEL) to London (LHR)</h3>
+                    <span style="font-size: 11px; background: #eef2ff; color: #4f46e5; padding: 4px 8px; border-radius: 4px; font-weight: 600;">Non-stop</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; padding-top: 16px; border-top: 1px dashed #e2e8f0;">
+                    <div>
+                        <div style="font-size: 12px; color: #94a3b8; text-decoration: line-through; margin-bottom: 2px;">₹45,200</div>
+                        <div style="font-size: 20px; font-weight: 800; color: #0f172a;">₹38,900</div>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-sm" style="font-size: 13px; padding: 8px 16px; border-radius: 8px;">Book Flight</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="flight-deal-card gsap-item">
+            <div class="card-img" style="height: 160px; position: relative;">
+                <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400" alt="Mumbai (BOM) to Bali (DPS)" style="width: 100%; height: 100%; object-fit: cover;">
+                <div style="position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); color: white; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 700;">8h 45m</div>
+            </div>
+            <div class="card-content" style="padding: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                    <h3 style="font-size: 16px; margin: 0; line-height: 1.4;">Mumbai (BOM) to Bali (DPS)</h3>
+                    <span style="font-size: 11px; background: #eef2ff; color: #4f46e5; padding: 4px 8px; border-radius: 4px; font-weight: 600;">1 Stop</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; padding-top: 16px; border-top: 1px dashed #e2e8f0;">
+                    <div>
+                        <div style="font-size: 12px; color: #94a3b8; text-decoration: line-through; margin-bottom: 2px;">₹28,400</div>
+                        <div style="font-size: 20px; font-weight: 800; color: #0f172a;">₹22,500</div>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-sm" style="font-size: 13px; padding: 8px 16px; border-radius: 8px;">Book Flight</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="flight-deal-card gsap-item">
+            <div class="card-img" style="height: 160px; position: relative;">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400" alt="Bangalore (BLR) to Paris (CDG)" style="width: 100%; height: 100%; object-fit: cover;">
+                <div style="position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); color: white; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 700;">10h 30m</div>
+            </div>
+            <div class="card-content" style="padding: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                    <h3 style="font-size: 16px; margin: 0; line-height: 1.4;">Bangalore (BLR) to Paris (CDG)</h3>
+                    <span style="font-size: 11px; background: #eef2ff; color: #4f46e5; padding: 4px 8px; border-radius: 4px; font-weight: 600;">1 Stop</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; padding-top: 16px; border-top: 1px dashed #e2e8f0;">
+                    <div>
+                        <div style="font-size: 12px; color: #94a3b8; text-decoration: line-through; margin-bottom: 2px;">₹42,000</div>
+                        <div style="font-size: 20px; font-weight: 800; color: #0f172a;">₹36,150</div>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-sm" style="font-size: 13px; padding: 8px 16px; border-radius: 8px;">Book Flight</a>
+                </div>
+            </div>
+        </div>
+    
+                </div>
+            </div>
+        </section>
+
+        <!-- Flight Results Section -->
+        <section class="section" style="background-color: #f8fafc; padding-top: 40px;">
+            <div class="container">
+                <div class="results-header gsap-fade-up">
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <div style="background: #eef2ff; color: #4f46e5; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px;">
+                            <i class="fa-solid fa-plane-departure"></i>
+                        </div>
+                        <div>
+                            <h2 style="font-size: 24px; margin: 0 0 4px 0; color: #0f172a;">Tirupati (TIR) to Dubai (DXB)</h2>
+                            <p style="margin: 0; color: #64748b; font-size: 14px;">15 Oct 2026 - 22 Oct 2026 • 1 Adult, Economy</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 12px;">
+                        <button class="btn btn-outline" style="background: white; border-color: #cbd5e1; color: #4b5563;"><i class="fa-regular fa-bell" style="margin-right: 8px;"></i> Price Alert</button>
+                    </div>
+                </div>
+                
+                <div class="results-layout">
+                    <!-- Sidebar Filters -->
+                    <aside class="results-sidebar gsap-fade-up">
+                        <div class="filter-box">
+                            <div class="filter-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                <h3 style="font-size: 16px; margin: 0;">Filters</h3>
+                                <span style="font-size: 13px; color: #f59e0b; cursor: pointer; font-weight: 600;">Reset All</span>
+                            </div>
+                            
+                            <!-- Stops -->
+                            <div class="filter-section">
+                                <h4>Stops</h4>
+                                <label class="filter-check"><input type="checkbox"> <span>Non-Stop</span> <span class="count">₹14k</span></label>
+                                <label class="filter-check"><input type="checkbox" checked> <span>1 Stop</span> <span class="count">₹12k</span></label>
+                                <label class="filter-check"><input type="checkbox"> <span>2+ Stops</span> <span class="count">₹11k</span></label>
+                            </div>
+                            
+                            <!-- Airlines -->
+                            <div class="filter-section">
+                                <h4>Airlines</h4>
+                                <label class="filter-check"><input type="checkbox" checked> <span>IndiGo</span> <span class="count">₹12k</span></label>
+                                <label class="filter-check"><input type="checkbox"> <span>Air India</span> <span class="count">₹14k</span></label>
+                                <label class="filter-check"><input type="checkbox"> <span>Emirates</span> <span class="count">₹18k</span></label>
+                                <label class="filter-check"><input type="checkbox"> <span>Vistara</span> <span class="count">₹15k</span></label>
+                            </div>
+                            
+                            <!-- Departure Time -->
+                            <div class="filter-section">
+                                <h4>Departure Time</h4>
+                                <div class="time-grid">
+                                    <div class="time-box active">
+                                        <i class="fa-solid fa-sun" style="color: #f59e0b;"></i>
+                                        <span>Morning</span>
+                                        <small>06:00 - 12:00</small>
+                                    </div>
+                                    <div class="time-box">
+                                        <i class="fa-solid fa-cloud-sun" style="color: #0f172a;"></i>
+                                        <span>Afternoon</span>
+                                        <small>12:00 - 18:00</small>
+                                    </div>
+                                    <div class="time-box">
+                                        <i class="fa-solid fa-moon" style="color: #0f172a;"></i>
+                                        <span>Evening</span>
+                                        <small>18:00 - 24:00</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                    
+                    <!-- Main Results -->
+                    <div class="results-main">
+                        <div class="results-sort-tabs gsap-fade-up">
+                            <div class="sort-tab active">
+                                <span class="title">Cheapest</span>
+                                <span class="price">₹12,499 • 7h 30m</span>
+                            </div>
+                            <div class="sort-tab">
+                                <span class="title">Fastest</span>
+                                <span class="price">₹16,200 • 4h 15m</span>
+                            </div>
+                            <div class="sort-tab">
+                                <span class="title">Best</span>
+                                <span class="price">₹14,500 • 5h 20m</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flight-results-list gsap-stagger-group">
+                            
+        <div class="flight-result-card gsap-item">
+            <div style="position: absolute; top: -12px; right: 24px; background: #f59e0b; color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 12px; box-shadow: 0 4px 10px rgba(245,158,11,0.3);">CHEAPEST</div>
+            <div class="flight-main-info">
+                <div class="airline-info">
+                    <div class="airline-logo" style="background: #f1f5f9; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #4f46e5; font-size: 18px;">6E</div>
+                    <div>
+                        <h4 style="margin: 0 0 2px 0; font-size: 15px; color: #0f172a;">IndiGo</h4>
+                        <span style="font-size: 12px; color: #64748b;">6E-1452</span>
+                    </div>
+                </div>
+                
+                <div class="flight-time-info">
+                    <div class="time-block text-right">
+                        <div class="time">06:30</div>
+                        <div class="airport">TIR</div>
+                    </div>
+                    
+                    <div class="flight-duration">
+                        <span class="dur-text">7h 30m</span>
+                        <div class="dur-line">
+                            <span class="dot"></span>
+                            <span class="line"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <span class="stops-text">1 Stop via HYD</span>
+                    </div>
+                    
+                    <div class="time-block text-left">
+                        <div class="time">14:00</div>
+                        <div class="airport">DXB</div>
+                    </div>
+                </div>
+                
+                <div class="flight-price-info">
+                    <div style="text-align: right; margin-bottom: 12px;">
+                        <div style="font-size: 22px; font-weight: 800; color: #0f172a;">₹12,499</div>
+                        <div style="font-size: 12px; color: #64748b;">per adult</div>
+                    </div>
+                    <button class="btn btn-primary" style="background: #0f172a; width: 100%; border-radius: 8px; padding: 10px;">View Flight</button>
+                </div>
+            </div>
+            
+            <div class="flight-footer">
+                <div style="display: flex; gap: 16px; font-size: 12px; color: #64748b;">
+                    <span style="color: #10b981;"><i class="fa-solid fa-check" style="margin-right: 4px;"></i> Partially Refundable</span>
+                    <span><i class="fa-solid fa-suitcase" style="margin-right: 4px;"></i> 15kg Cabin, 7kg Hand</span>
+                </div>
+                <a href="#" style="font-size: 13px; color: #4f46e5; font-weight: 600;">Flight Details <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 4px;"></i></a>
+            </div>
+        </div>
+    
+        <div class="flight-result-card gsap-item">
+            
+            <div class="flight-main-info">
+                <div class="airline-info">
+                    <div class="airline-logo" style="background: #f1f5f9; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #4f46e5; font-size: 18px;">AI</div>
+                    <div>
+                        <h4 style="margin: 0 0 2px 0; font-size: 15px; color: #0f172a;">Air India</h4>
+                        <span style="font-size: 12px; color: #64748b;">AI-902</span>
+                    </div>
+                </div>
+                
+                <div class="flight-time-info">
+                    <div class="time-block text-right">
+                        <div class="time">09:15</div>
+                        <div class="airport">TIR</div>
+                    </div>
+                    
+                    <div class="flight-duration">
+                        <span class="dur-text">8h 45m</span>
+                        <div class="dur-line">
+                            <span class="dot"></span>
+                            <span class="line"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <span class="stops-text">1 Stop via DEL</span>
+                    </div>
+                    
+                    <div class="time-block text-left">
+                        <div class="time">18:00</div>
+                        <div class="airport">DXB</div>
+                    </div>
+                </div>
+                
+                <div class="flight-price-info">
+                    <div style="text-align: right; margin-bottom: 12px;">
+                        <div style="font-size: 22px; font-weight: 800; color: #0f172a;">₹14,500</div>
+                        <div style="font-size: 12px; color: #64748b;">per adult</div>
+                    </div>
+                    <button class="btn btn-primary" style="background: #0f172a; width: 100%; border-radius: 8px; padding: 10px;">View Flight</button>
+                </div>
+            </div>
+            
+            <div class="flight-footer">
+                <div style="display: flex; gap: 16px; font-size: 12px; color: #64748b;">
+                    <span style="color: #10b981;"><i class="fa-solid fa-check" style="margin-right: 4px;"></i> Partially Refundable</span>
+                    <span><i class="fa-solid fa-suitcase" style="margin-right: 4px;"></i> 15kg Cabin, 7kg Hand</span>
+                </div>
+                <a href="#" style="font-size: 13px; color: #4f46e5; font-weight: 600;">Flight Details <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 4px;"></i></a>
+            </div>
+        </div>
+    
+        <div class="flight-result-card gsap-item">
+            <div style="position: absolute; top: -12px; right: 24px; background: #f59e0b; color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 12px; box-shadow: 0 4px 10px rgba(245,158,11,0.3);">FASTEST</div>
+            <div class="flight-main-info">
+                <div class="airline-info">
+                    <div class="airline-logo" style="background: #f1f5f9; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #4f46e5; font-size: 18px;">EK</div>
+                    <div>
+                        <h4 style="margin: 0 0 2px 0; font-size: 15px; color: #0f172a;">Emirates</h4>
+                        <span style="font-size: 12px; color: #64748b;">EK-501</span>
+                    </div>
+                </div>
+                
+                <div class="flight-time-info">
+                    <div class="time-block text-right">
+                        <div class="time">11:30</div>
+                        <div class="airport">TIR</div>
+                    </div>
+                    
+                    <div class="flight-duration">
+                        <span class="dur-text">4h 15m</span>
+                        <div class="dur-line">
+                            <span class="dot"></span>
+                            <span class="line"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <span class="stops-text">Non-stop</span>
+                    </div>
+                    
+                    <div class="time-block text-left">
+                        <div class="time">15:45</div>
+                        <div class="airport">DXB</div>
+                    </div>
+                </div>
+                
+                <div class="flight-price-info">
+                    <div style="text-align: right; margin-bottom: 12px;">
+                        <div style="font-size: 22px; font-weight: 800; color: #0f172a;">₹18,200</div>
+                        <div style="font-size: 12px; color: #64748b;">per adult</div>
+                    </div>
+                    <button class="btn btn-primary" style="background: #0f172a; width: 100%; border-radius: 8px; padding: 10px;">View Flight</button>
+                </div>
+            </div>
+            
+            <div class="flight-footer">
+                <div style="display: flex; gap: 16px; font-size: 12px; color: #64748b;">
+                    <span style="color: #10b981;"><i class="fa-solid fa-check" style="margin-right: 4px;"></i> Partially Refundable</span>
+                    <span><i class="fa-solid fa-suitcase" style="margin-right: 4px;"></i> 15kg Cabin, 7kg Hand</span>
+                </div>
+                <a href="#" style="font-size: 13px; color: #4f46e5; font-weight: 600;">Flight Details <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 4px;"></i></a>
+            </div>
+        </div>
+    
+        <div class="flight-result-card gsap-item">
+            
+            <div class="flight-main-info">
+                <div class="airline-info">
+                    <div class="airline-logo" style="background: #f1f5f9; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #4f46e5; font-size: 18px;">UK</div>
+                    <div>
+                        <h4 style="margin: 0 0 2px 0; font-size: 15px; color: #0f172a;">Vistara</h4>
+                        <span style="font-size: 12px; color: #64748b;">UK-882</span>
+                    </div>
+                </div>
+                
+                <div class="flight-time-info">
+                    <div class="time-block text-right">
+                        <div class="time">14:00</div>
+                        <div class="airport">TIR</div>
+                    </div>
+                    
+                    <div class="flight-duration">
+                        <span class="dur-text">6h 20m</span>
+                        <div class="dur-line">
+                            <span class="dot"></span>
+                            <span class="line"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <span class="stops-text">1 Stop via BOM</span>
+                    </div>
+                    
+                    <div class="time-block text-left">
+                        <div class="time">20:20</div>
+                        <div class="airport">DXB</div>
+                    </div>
+                </div>
+                
+                <div class="flight-price-info">
+                    <div style="text-align: right; margin-bottom: 12px;">
+                        <div style="font-size: 22px; font-weight: 800; color: #0f172a;">₹16,900</div>
+                        <div style="font-size: 12px; color: #64748b;">per adult</div>
+                    </div>
+                    <button class="btn btn-primary" style="background: #0f172a; width: 100%; border-radius: 8px; padding: 10px;">View Flight</button>
+                </div>
+            </div>
+            
+            <div class="flight-footer">
+                <div style="display: flex; gap: 16px; font-size: 12px; color: #64748b;">
+                    <span style="color: #10b981;"><i class="fa-solid fa-check" style="margin-right: 4px;"></i> Partially Refundable</span>
+                    <span><i class="fa-solid fa-suitcase" style="margin-right: 4px;"></i> 15kg Cabin, 7kg Hand</span>
+                </div>
+                <a href="#" style="font-size: 13px; color: #4f46e5; font-weight: 600;">Flight Details <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 4px;"></i></a>
+            </div>
+        </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 100% Fare Transparency -->
+        <section class="section" style="background-color: #f5f3ff;">
+            <div class="container">
+                <div class="section-header flex-header gsap-fade-up">
+                    <div>
+                        <span class="section-subtitle" style="color: #8b5cf6;">THE STACKLY PROMISE</span>
+                        <h2>100% Fare Transparency - What You See Is What You Pay</h2>
+                        <p>No hidden fees, no last-minute surprises. We guarantee honest pricing from search to checkout.</p>
+                    </div>
+                    <div style="background: white; padding: 12px 24px; border-radius: 50px; display: flex; align-items: center; gap: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                        <i class="fa-solid fa-shield-halved" style="color: #f59e0b; font-size: 24px;"></i>
+                        <span style="font-weight: 700; color: #0f172a;">Secure & Verified Payments</span>
+                    </div>
+                </div>
+                <div class="grid-4 gsap-stagger-group">
+                    
+        <div class="gsap-item" style="background: white; padding: 32px 24px; border-radius: 16px; border: 1px solid #e2e8f0; text-align: left;">
+            <div style="width: 40px; height: 40px; background: #eef2ff; color: #4f46e5; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 20px;"><i class="fa-solid fa-receipt"></i></div>
+            <h4 style="font-size: 16px; margin-bottom: 12px; color: #0f172a;">No Hidden Fees</h4>
+            <p style="font-size: 13px; color: #64748b; line-height: 1.6; margin: 0;">The price you see initially is exactly what you pay at the final checkout step. No surprises.</p>
+        </div>
+    
+        <div class="gsap-item" style="background: white; padding: 32px 24px; border-radius: 16px; border: 1px solid #e2e8f0; text-align: left;">
+            <div style="width: 40px; height: 40px; background: #eef2ff; color: #4f46e5; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 20px;"><i class="fa-solid fa-calculator"></i></div>
+            <h4 style="font-size: 16px; margin-bottom: 12px; color: #0f172a;">Taxes & Surcharges Included</h4>
+            <p style="font-size: 13px; color: #64748b; line-height: 1.6; margin: 0;">All government taxes, airport fees, and airline surcharges are bundled upfront.</p>
+        </div>
+    
+        <div class="gsap-item" style="background: white; padding: 32px 24px; border-radius: 16px; border: 1px solid #e2e8f0; text-align: left;">
+            <div style="width: 40px; height: 40px; background: #eef2ff; color: #4f46e5; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 20px;"><i class="fa-solid fa-suitcase-rolling"></i></div>
+            <h4 style="font-size: 16px; margin-bottom: 12px; color: #0f172a;">Baggage Policy Clear</h4>
+            <p style="font-size: 13px; color: #64748b; line-height: 1.6; margin: 0;">Cabin and check-in baggage allowances are prominently displayed before booking.</p>
+        </div>
+    
+        <div class="gsap-item" style="background: white; padding: 32px 24px; border-radius: 16px; border: 1px solid #e2e8f0; text-align: left;">
+            <div style="width: 40px; height: 40px; background: #eef2ff; color: #4f46e5; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 20px;"><i class="fa-solid fa-credit-card"></i></div>
+            <h4 style="font-size: 16px; margin-bottom: 12px; color: #0f172a;">Zero Payment Gateway Fees</h4>
+            <p style="font-size: 13px; color: #64748b; line-height: 1.6; margin: 0;">We absorb all credit card and payment processing fees so you don't have to.</p>
+        </div>
+    
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Fly With Stackly -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header text-center gsap-fade-up">
+                    <span class="section-subtitle">OUR ADVANTAGE</span>
+                    <h2>Why Fly With STACKLY?</h2>
+                    <p style="max-width: 600px; margin: 0 auto;">Discover why millions of travelers trust us for their domestic and international journeys.</p>
+                </div>
+                <div class="grid-4 gsap-stagger-group">
+                    
+        <div class="gsap-item" style="background: white; padding: 32px 24px; border-radius: 16px; border: 1px solid #e2e8f0; text-align: left;">
+            <div style="width: 40px; height: 40px; background: #eef2ff; color: #4f46e5; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 20px;"><i class="fa-solid fa-shield"></i></div>
+            <h4 style="font-size: 16px; margin-bottom: 12px; color: #0f172a;">Best Price Guarantee</h4>
+            <p style="font-size: 13px; color: #64748b; line-height: 1.6; margin: 0;">If you find a cheaper flight within 24 hours, we refund the difference.</p>
+        </div>
+    
+        <div class="gsap-item" style="background: white; padding: 32px 24px; border-radius: 16px; border: 1px solid #e2e8f0; text-align: left;">
+            <div style="width: 40px; height: 40px; background: #eef2ff; color: #4f46e5; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 20px;"><i class="fa-solid fa-lock"></i></div>
+            <h4 style="font-size: 16px; margin-bottom: 12px; color: #0f172a;">Encrypted Payments</h4>
+            <p style="font-size: 13px; color: #64748b; line-height: 1.6; margin: 0;">Your transactions are secured with military-grade 256-bit encryption.</p>
+        </div>
+    
+        <div class="gsap-item" style="background: white; padding: 32px 24px; border-radius: 16px; border: 1px solid #e2e8f0; text-align: left;">
+            <div style="width: 40px; height: 40px; background: #eef2ff; color: #4f46e5; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 20px;"><i class="fa-solid fa-headset"></i></div>
+            <h4 style="font-size: 16px; margin-bottom: 12px; color: #0f172a;">24/7 Priority Support</h4>
+            <p style="font-size: 13px; color: #64748b; line-height: 1.6; margin: 0;">Dedicated flight experts ready to assist you with cancellations or changes.</p>
+        </div>
+    
+        <div class="gsap-item" style="background: white; padding: 32px 24px; border-radius: 16px; border: 1px solid #e2e8f0; text-align: left;">
+            <div style="width: 40px; height: 40px; background: #eef2ff; color: #4f46e5; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 20px;"><i class="fa-solid fa-bolt"></i></div>
+            <h4 style="font-size: 16px; margin-bottom: 12px; color: #0f172a;">Instant Ticket Issuance</h4>
+            <p style="font-size: 13px; color: #64748b; line-height: 1.6; margin: 0;">Receive your confirmed PNR and e-ticket within seconds of payment.</p>
+        </div>
+    
+                </div>
+            </div>
+        </section>
+        
+        <!-- Popular Flight Destinations -->
+        <section class="section" style="background-color: #f8fafc;">
+            <div class="container">
+                <div class="section-header flex-header gsap-fade-up">
+                    <div>
+                        <span class="section-subtitle">TOP CONNECTIONS</span>
+                        <h2>Popular Flight Destinations</h2>
+                        <p>High demand routes with amazing discounts currently available on our platform.</p>
+                    </div>
+                    <a href="#" style="color: #0f172a; font-weight: 700; text-decoration: underline;">See All Flight Destinations</a>
+                </div>
+                <div class="grid-3 gsap-stagger-group">
+                    
+        <div class="gsap-item" style="position: relative; border-radius: 16px; overflow: hidden; height: 240px; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" alt="Delhi">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0) 60%);"></div>
+            <div style="position: absolute; top: 16px; left: 16px; background: rgba(245,158,11,0.9); color: white; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 700;">DOMESTIC</div>
+            
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; display: flex; justify-content: space-between; align-items: flex-end; color: white;">
+                <div>
+                    <h3 style="font-size: 24px; margin: 0 0 4px 0;">Delhi</h3>
+                    <span style="font-size: 13px; color: rgba(255,255,255,0.8);">Popular Destination</span>
+                </div>
+                <div style="text-align: right;">
+                    <span style="font-size: 11px; color: rgba(255,255,255,0.8); display: block; margin-bottom: 2px;">Flights from</span>
+                    <span style="font-size: 18px; font-weight: 800;">₹4,500</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="gsap-item" style="position: relative; border-radius: 16px; overflow: hidden; height: 240px; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" alt="Mumbai">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0) 60%);"></div>
+            <div style="position: absolute; top: 16px; left: 16px; background: rgba(245,158,11,0.9); color: white; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 700;">DOMESTIC</div>
+            
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; display: flex; justify-content: space-between; align-items: flex-end; color: white;">
+                <div>
+                    <h3 style="font-size: 24px; margin: 0 0 4px 0;">Mumbai</h3>
+                    <span style="font-size: 13px; color: rgba(255,255,255,0.8);">Popular Destination</span>
+                </div>
+                <div style="text-align: right;">
+                    <span style="font-size: 11px; color: rgba(255,255,255,0.8); display: block; margin-bottom: 2px;">Flights from</span>
+                    <span style="font-size: 18px; font-weight: 800;">₹5,200</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="gsap-item" style="position: relative; border-radius: 16px; overflow: hidden; height: 240px; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=500" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" alt="Goa">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0) 60%);"></div>
+            <div style="position: absolute; top: 16px; left: 16px; background: rgba(245,158,11,0.9); color: white; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 700;">DOMESTIC</div>
+            
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; display: flex; justify-content: space-between; align-items: flex-end; color: white;">
+                <div>
+                    <h3 style="font-size: 24px; margin: 0 0 4px 0;">Goa</h3>
+                    <span style="font-size: 13px; color: rgba(255,255,255,0.8);">Popular Destination</span>
+                </div>
+                <div style="text-align: right;">
+                    <span style="font-size: 11px; color: rgba(255,255,255,0.8); display: block; margin-bottom: 2px;">Flights from</span>
+                    <span style="font-size: 18px; font-weight: 800;">₹3,800</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="gsap-item" style="position: relative; border-radius: 16px; overflow: hidden; height: 240px; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" alt="Dubai">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0) 60%);"></div>
+            <div style="position: absolute; top: 16px; left: 16px; background: rgba(245,158,11,0.9); color: white; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 700;">INTERNATIONAL</div>
+            
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; display: flex; justify-content: space-between; align-items: flex-end; color: white;">
+                <div>
+                    <h3 style="font-size: 24px; margin: 0 0 4px 0;">Dubai</h3>
+                    <span style="font-size: 13px; color: rgba(255,255,255,0.8);">Popular Destination</span>
+                </div>
+                <div style="text-align: right;">
+                    <span style="font-size: 11px; color: rgba(255,255,255,0.8); display: block; margin-bottom: 2px;">Flights from</span>
+                    <span style="font-size: 18px; font-weight: 800;">₹12,499</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="gsap-item" style="position: relative; border-radius: 16px; overflow: hidden; height: 240px; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=500" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" alt="Singapore">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0) 60%);"></div>
+            <div style="position: absolute; top: 16px; left: 16px; background: rgba(245,158,11,0.9); color: white; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 700;">INTERNATIONAL</div>
+            
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; display: flex; justify-content: space-between; align-items: flex-end; color: white;">
+                <div>
+                    <h3 style="font-size: 24px; margin: 0 0 4px 0;">Singapore</h3>
+                    <span style="font-size: 13px; color: rgba(255,255,255,0.8);">Popular Destination</span>
+                </div>
+                <div style="text-align: right;">
+                    <span style="font-size: 11px; color: rgba(255,255,255,0.8); display: block; margin-bottom: 2px;">Flights from</span>
+                    <span style="font-size: 18px; font-weight: 800;">₹15,200</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="gsap-item" style="position: relative; border-radius: 16px; overflow: hidden; height: 240px; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <img src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?w=500" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" alt="Srinagar">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0) 60%);"></div>
+            <div style="position: absolute; top: 16px; left: 16px; background: rgba(245,158,11,0.9); color: white; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 700;">DOMESTIC</div>
+            
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; display: flex; justify-content: space-between; align-items: flex-end; color: white;">
+                <div>
+                    <h3 style="font-size: 24px; margin: 0 0 4px 0;">Srinagar</h3>
+                    <span style="font-size: 13px; color: rgba(255,255,255,0.8);">Popular Destination</span>
+                </div>
+                <div style="text-align: right;">
+                    <span style="font-size: 11px; color: rgba(255,255,255,0.8); display: block; margin-bottom: 2px;">Flights from</span>
+                    <span style="font-size: 18px; font-weight: 800;">₹6,400</span>
+                </div>
+            </div>
+        </div>
+    
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="assets/logo.webp" alt="Stackly Logo" style="height: 40px; width: auto;">
+                    </a>
+                    <p class="brand-desc">Effortless luxury exploration and handcrafted travel experiences worldwide. Turning dream itineraries into lifelong memories.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-solid fa-earth-americas"></i></a>
+                        <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+                        <a href="#"><i class="fa-solid fa-plane"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="tourpackages.html">Tour Packages</a></li>
+                        <li><a href="hotels.html">Hotels</a></li>
+                        <li><a href="flights.html">Flights</a></li>
+                        <li><a href="activities.html">Activities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-col">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Booking Guide</a></li>
+                        <li><a href="#">Safety Information</a></li>
+                        <li><a href="#">Travel Insurance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fa-regular fa-envelope"></i> concierge@travelgo.com</li>
+                        <li><i class="fa-solid fa-phone"></i> +1 (800) 872-8354</li>
+                        <li><i class="fa-solid fa-location-dot"></i> San Francisco & Geneva</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    &copy; 2026. Stackly. All rights reserved. Effortless luxury exploration.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="destinations.html">Destinations</a>
+                    <a href="tourpackages.html">Packages</a>
+                    <a href="hotels.html">Stays</a>
+                    <a href="experiences.html">Experiences</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <!-- GSAP Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/animation.js"></script>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
