@@ -3,115 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STACKLY - Tour & Travel Booking</title>
+    <title>404 - Uncharted Territory | STACKLY Tour & Travel</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
+    <!-- Base & Custom CSS -->
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/404.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container header-container">
-            <a href="index.html" class="logo">
-                <img src="assets/logo.webp" alt="Stackly Logo" style="height: 40px; width: auto;">
-            </a>
-            <nav class="navbar">
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="destinations.html">Destinations</a></li>
-                    <li><a href="tourpackages.html">Tour Packages</a></li>
-                    <li><a href="hotels.html">Hotels</a></li>
-                    <li><a href="flights.html">Flights</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <a href="login.html" class="login-link">Login</a>
-                <a href="booknow.html" class="btn btn-primary btn-shadow">Book Now</a>
-            </div>
-        </div>
-    </header>
-    <main style="min-height: 50vh; display: flex; align-items: center; justify-content: center; background-color: #f8fafc;">
-        <h1 style="font-family: 'Plus Jakarta Sans', sans-serif; color: #0f172a; font-size: 48px;">404 PAGE</h1>
-    </main>
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <img src="assets/logo.webp" alt="Stackly Logo" style="height: 40px; width: auto;">
-                    </a>
-                    <p class="brand-desc">Effortless luxury exploration and handcrafted travel experiences worldwide. Turning dream itineraries into lifelong memories.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fa-solid fa-earth-americas"></i></a>
-                        <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
-                        <a href="#"><i class="fa-solid fa-plane"></i></a>
+    <!-- Main 404 Error Section -->
+    <main class="notfound-section">
+        <div class="notfound-container">
+            <!-- 2-Column Main Section -->
+            <div class="notfound-main-grid">
+                <!-- Left Column: Scenic Illustration Card -->
+                <div class="notfound-visual-card gsap-fade-up">
+                    <div class="illustration-viewport">
+                        <!-- Top Floating Badge -->
+                        <div class="badge-coords">
+                            <span class="dot"></span>
+                            <span>Coordinates Missing</span>
+                        </div>
+
+                        <!-- Vector Travel Adventure Scene -->
+                        <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Sky & Sunset Gradients -->
+                            <defs>
+                                <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="400" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#FFFBEB"/>
+                                    <stop offset="40%" stop-color="#FEF3C7"/>
+                                    <stop offset="70%" stop-color="#FDE68A"/>
+                                    <stop offset="100%" stop-color="#E2E8F0"/>
+                                </linearGradient>
+                                <linearGradient id="sunGlow" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0%" stop-color="#FBBF24" stop-opacity="0.8"/>
+                                    <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+                                </linearGradient>
+                                <linearGradient id="mountainBack" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#64748B"/>
+                                    <stop offset="100%" stop-color="#334155"/>
+                                </linearGradient>
+                                <linearGradient id="mountainMid" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#334155"/>
+                                    <stop offset="100%" stop-color="#1E293B"/>
+                                </linearGradient>
+                                <linearGradient id="mountainFront" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#1E293B"/>
+                                    <stop offset="100%" stop-color="#0F172A"/>
+                                </linearGradient>
+                                <linearGradient id="hillLeft" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#334155"/>
+                                    <stop offset="100%" stop-color="#1E293B"/>
+                                </linearGradient>
+                                <linearGradient id="hillRight" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#475569"/>
+                                    <stop offset="100%" stop-color="#1E293B"/>
+                                </linearGradient>
+                                <linearGradient id="pathGrad" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#F8FAFC"/>
+                                    <stop offset="100%" stop-color="#E2E8F0"/>
+                                </linearGradient>
+                                <linearGradient id="pinGlow" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0%" stop-color="#FDE68A"/>
+                                    <stop offset="100%" stop-color="#F59E0B"/>
+                                </linearGradient>
+                            </defs>
+
+                            <!-- Sky Background -->
+                            <rect width="600" height="400" fill="url(#skyGrad)"/>
+
+                            <!-- Ambient Sun Burst -->
+                            <circle cx="460" cy="120" r="110" fill="url(#sunGlow)"/>
+
+                            <!-- Distant Clouds -->
+                            <path d="M50 90 C 80 80, 120 80, 140 95 C 160 85, 200 85, 220 100 L 220 120 L 50 120 Z" fill="#FFFFFF" fill-opacity="0.45"/>
+                            <path d="M340 70 C 370 60, 420 60, 450 75 C 470 65, 520 65, 550 80 L 550 110 L 340 110 Z" fill="#FFFFFF" fill-opacity="0.35"/>
+
+                            <!-- Distant Mountains -->
+                            <path d="M0 240 L110 160 L240 250 L390 140 L530 230 L600 190 L600 400 L0 400 Z" fill="url(#mountainBack)" opacity="0.65"/>
+                            <!-- Midground Hills -->
+                            <path d="M0 260 L90 200 L210 270 L340 180 L480 260 L600 210 L600 400 L0 400 Z" fill="url(#mountainMid)" opacity="0.85"/>
+
+                            <!-- Rolling Foreground Hills (Left & Right) -->
+                            <path d="M0 280 C 120 260, 220 310, 260 400 L 0 400 Z" fill="url(#hillLeft)"/>
+                            <path d="M600 240 C 480 230, 360 280, 300 400 L 600 400 Z" fill="url(#hillRight)"/>
+
+                            <!-- Golden Hilltop Destination Marker (Floating Anim) -->
+                            <g class="anim-pin">
+                                <circle cx="460" cy="130" r="28" fill="#FBBF24" fill-opacity="0.3"/>
+                                <path d="M460 95 C 446 95, 435 106, 435 120 C 435 138, 460 165, 460 165 C 460 165, 485 138, 485 120 C 485 106, 474 95, 460 95 Z" fill="url(#pinGlow)"/>
+                                <circle cx="460" cy="120" r="8" fill="#FFFFFF"/>
+                            </g>
+
+                            <!-- Winding Fork Pathways -->
+                            <!-- Main Path -->
+                            <path d="M260 400 L 290 290 L 320 290 L 380 400 Z" fill="url(#pathGrad)"/>
+                            <!-- Left Fork Branch -->
+                            <path d="M290 290 C 260 270, 200 270, 160 280 L 175 295 C 220 285, 270 285, 295 300 Z" fill="url(#pathGrad)"/>
+                            <!-- Right Fork Branch to Destination Hill -->
+                            <path d="M320 290 C 370 260, 420 240, 460 170 L 472 176 C 430 250, 380 270, 315 300 Z" fill="url(#pathGrad)"/>
+
+                            <!-- Wooden Road Signpost at the Fork -->
+                            <rect x="302" y="275" width="4" height="35" fill="#475569" rx="1"/>
+                            <!-- Sign Left -->
+                            <polygon points="265,270 295,270 300,277 295,284 265,284 262,277" fill="#CBD5E1"/>
+                            <!-- Sign Right -->
+                            <polygon points="305,262 335,262 340,269 335,276 305,276 308,269" fill="#E2E8F0"/>
+
+                            <!-- Traveler Standing With Map -->
+                            <!-- Shadow -->
+                            <ellipse cx="250" cy="370" rx="16" ry="5" fill="#0F172A" fill-opacity="0.4"/>
+                            
+                            <!-- Traveler Body -->
+                            <!-- Legs & Shoes -->
+                            <rect x="242" y="315" width="6" height="50" fill="#1E293B" rx="2"/>
+                            <rect x="252" y="315" width="6" height="50" fill="#1E293B" rx="2"/>
+                            <ellipse cx="244" cy="366" rx="4" ry="2.5" fill="#0F172A"/>
+                            <ellipse cx="256" cy="366" rx="4" ry="2.5" fill="#0F172A"/>
+
+                            <!-- Torso / Jacket -->
+                            <rect x="238" y="270" width="24" height="48" fill="#334155" rx="5"/>
+                            <!-- Backpack -->
+                            <rect x="233" y="272" width="8" height="32" fill="#0D9488" rx="3"/>
+                            <!-- Head & Hair -->
+                            <circle cx="250" cy="256" r="8" fill="#F87171"/>
+                            <path d="M243 255 C 243 250, 257 250, 257 255 Z" fill="#0F172A"/>
+
+                            <!-- Map held in hands -->
+                            <polygon points="256,275 272,270 274,286 258,290" fill="#FEF08A" stroke="#CA8A04" stroke-width="0.8"/>
+
+                            <!-- Vintage Suitcase Beside Traveler -->
+                            <ellipse cx="282" cy="375" rx="14" ry="4" fill="#0F172A" fill-opacity="0.3"/>
+                            <rect x="272" y="344" width="22" height="30" fill="#B45309" rx="3"/>
+                            <rect x="276" y="344" width="3" height="30" fill="#78350F"/>
+                            <rect x="287" y="344" width="3" height="30" fill="#78350F"/>
+                            <rect x="280" y="340" width="6" height="5" fill="#451A03" rx="1"/>
+
+                            <!-- Floating Origami Paper Plane -->
+                            <g class="anim-plane" transform="translate(360, 110)">
+                                <polygon points="0,0 30,-12 18,16" fill="#FFFFFF"/>
+                                <polygon points="0,0 30,-12 12,-4" fill="#E2E8F0"/>
+                                <polygon points="12,-4 30,-12 18,16" fill="#CBD5E1"/>
+                            </g>
+                        </svg>
+
+                        <!-- Bottom Floating Badge -->
+                        <div class="badge-disrupted">
+                            <i class="fa-solid fa-compass"></i>
+                            <span>Route Disrupted</span>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="footer-links-col">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="destinations.html">Destinations</a></li>
-                        <li><a href="tourpackages.html">Tour Packages</a></li>
-                        <li><a href="hotels.html">Hotels</a></li>
-                        <li><a href="flights.html">Flights</a></li>
-                        <li><a href="activities.html">Activities</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links-col">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Booking Guide</a></li>
-                        <li><a href="#">Safety Information</a></li>
-                        <li><a href="#">Travel Insurance</a></li>
-                    </ul>
-                </div>
 
-                <div class="footer-contact-col">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li><i class="fa-regular fa-envelope"></i> concierge@travelgo.com</li>
-                        <li><i class="fa-solid fa-phone"></i> +1 (800) 872-8354</li>
-                        <li><i class="fa-solid fa-location-dot"></i> San Francisco & Geneva</li>
-                    </ul>
+                <!-- Right Column: Error Headings & Actions -->
+                <div class="notfound-text-content gsap-fade-up">
+                    <!-- Pill Tag -->
+                    <div class="uncharted-tag">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <span>Uncharted Territory</span>
+                    </div>
+
+                    <!-- Main Heading -->
+                    <h1 class="notfound-heading">
+                        Oops! Your Journey Took a<br>Wrong Turn
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p class="notfound-subtitle">
+                        The page you’re looking for seems to have wandered off into the mist. Let’s calibrate your compass and get you back on track.
+                    </p>
+
+                    <!-- Search Input Bar -->
+                    <form class="notfound-search-bar" onsubmit="event.preventDefault(); window.location.href='tourpackages.html';">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search destinations, tours, or luxury stays...">
+                        <button type="submit" class="btn-search-submit">
+                            <span>Search</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </form>
+
+                    <!-- Trending Tags Row -->
+                    <div class="trending-tags-row">
+                        <span class="trending-label">TRENDING:</span>
+                        <a href="destinations.html" class="trending-pill">Bali Overwater Villas</a>
+                        <a href="tourpackages.html" class="trending-pill">Swiss Alps Heli-Trek</a>
+                        <a href="destinations.html" class="trending-pill">Amalfi Charters</a>
+                        <a href="tourpackages.html" class="trending-pill">Kyoto Heritage</a>
+                    </div>
+
+                    <!-- Action CTA Buttons -->
+                    <div class="notfound-actions">
+                        <a href="index.html" class="btn-back-home">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Back to Homepage</span>
+                        </a>
+                        <a href="tourpackages.html" class="btn-explore-packages">
+                            <span>Explore Tour Packages</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-copyright">
-                    &copy; 2026. Stackly. All rights reserved. Effortless luxury exploration.
+
+            <!-- Bottom Assistance Concierge Banner -->
+            <div class="notfound-assistance-banner gsap-fade-up">
+                <div class="assistance-left">
+                    <div class="concierge-avatar-box">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <div class="assistance-text">
+                        <h4>Need Immediate Travel Assistance?</h4>
+                        <p>Our 24/7 dedicated concierge is standing by to reroute your booking, reissue passes, or locate your bespoke itinerary.</p>
+                    </div>
                 </div>
-                <div class="footer-bottom-links">
-                    <a href="destinations.html">Destinations</a>
-                    <a href="tourpackages.html">Packages</a>
-                    <a href="hotels.html">Stays</a>
-                    <a href="experiences.html">Experiences</a>
-                    <a href="about.html">About Us</a>
-                    <a href="contact.html">Contact</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
+                <div class="assistance-right">
+                    <a href="tel:18004824684" class="btn-concierge-phone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+1 (800) 482-GO-VIP</span>
+                    </a>
+                    <a href="https://wa.me/" target="_blank" class="btn-whatsapp-chat">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>Live WhatsApp Chat</span>
+                    </a>
                 </div>
             </div>
         </div>
-    </footer>
+    </main>
 
-    
     <!-- GSAP Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="js/animation.js"></script>
-
     <script src="js/script.js"></script>
+
+    <!-- Page Specific Apple-Style GSAP Cascade -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof gsap !== 'undefined') {
+                const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+                // 1. Entrance of Left Visual Card
+                tl.from('.notfound-visual-card', {
+                    x: -30,
+                    opacity: 0,
+                    duration: 1,
+                    clearProps: 'all'
+                })
+                .from('.badge-coords, .badge-disrupted', {
+                    scale: 0.85,
+                    opacity: 0,
+                    stagger: 0.15,
+                    duration: 0.6,
+                    clearProps: 'all'
+                }, '-=0.6');
+
+                // 2. Cascade of Right Text & Interactive Controls
+                tl.from('.uncharted-tag', {
+                    y: 15,
+                    opacity: 0,
+                    duration: 0.5,
+                    clearProps: 'all'
+                }, '-=0.8')
+                .from('.notfound-heading', {
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.65,
+                    clearProps: 'all'
+                }, '-=0.6')
+                .from('.notfound-subtitle', {
+                    y: 15,
+                    opacity: 0,
+                    duration: 0.55,
+                    clearProps: 'all'
+                }, '-=0.5')
+                .from('.notfound-search-bar', {
+                    y: 15,
+                    opacity: 0,
+                    duration: 0.5,
+                    clearProps: 'all'
+                }, '-=0.4')
+                .from('.trending-tags-row .trending-pill', {
+                    y: 10,
+                    opacity: 0,
+                    stagger: 0.08,
+                    duration: 0.45,
+                    clearProps: 'all'
+                }, '-=0.3')
+                .from('.notfound-actions .btn-back-home, .notfound-actions .btn-explore-packages', {
+                    y: 15,
+                    opacity: 0,
+                    stagger: 0.1,
+                    duration: 0.5,
+                    clearProps: 'all'
+                }, '-=0.3');
+
+                // 3. Bottom Assistance Banner Slide-Up
+                tl.from('.notfound-assistance-banner', {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
+                    clearProps: 'all'
+                }, '-=0.4');
+            }
+        });
+    </script>
 </body>
 </html>

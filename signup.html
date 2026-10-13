@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Your Journey | STACKLY Private Access</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="signup-body">
+    <div class="signup-split-wrapper">
+        <!-- Left Hero / Brand Visual Panel -->
+        <div class="signup-visual-panel">
+            <div class="signup-visual-bg"></div>
+            <div class="signup-visual-overlay"></div>
+            
+            <!-- Brand Logo at Top Left -->
+            <div class="visual-brand-header">
+                <a href="index.html" class="visual-logo">
+                    <img src="assets/logo.webp" alt="Stackly Logo">
+                </a>
+            </div>
+
+            <!-- Privileges Glass Card -->
+            <div class="visual-privilege-card">
+                <div class="privilege-badge-tag">
+                    <span class="privilege-dot"></span>
+                    <span>Exclusive Voyage Circle</span>
+                </div>
+                
+                <h3 class="privilege-heading">Unlock Exclusive Voyage Privileges</h3>
+                
+                <ul class="privilege-checklist">
+                    <li class="privilege-item">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Up to 25% preferential member rates on 500+ handpicked stays</span>
+                    </li>
+                    <li class="privilege-item">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Dedicated 24/7 personal travel concierge & priority flight handling</span>
+                    </li>
+                    <li class="privilege-item">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Complimentary room upgrades & bespoke local itinerary guides</span>
+                    </li>
+                </ul>
+                
+                <div class="privilege-card-footer">
+                    <div class="partner-note">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Accredited Global Virtuoso Partner</span>
+                    </div>
+                    <div class="concierge-rating">
+                        <span>★ 4.98</span> Concierge Rating
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Form Panel -->
+        <div class="signup-form-panel">
+            <!-- Top Navigation Link -->
+            <div class="panel-top-bar">
+                <span>Already a member?</span>
+                <a href="login.html">Sign In</a>
+            </div>
+
+            <!-- Form Content Box -->
+            <div class="signup-content-box">
+                <!-- Discerning Community Badge -->
+                <div class="community-badge">
+                    <i class="fa-solid fa-compass"></i>
+                    <span>Join 42,000+ Discerning Travelers</span>
+                </div>
+
+                <!-- Title & Description -->
+                <h1 class="signup-heading">Start Your Journey</h1>
+                <p class="signup-subheading">
+                    Create your account and explore amazing destinations with curated itineraries.
+                </p>
+
+                <!-- Single Sign-On Auth Buttons -->
+                <div class="sso-auth-grid">
+                    <button type="button" class="btn-sso auth-provider-google" onclick="window.location.href='404.html'">
+                        <svg class="sso-icon" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17Z"/>
+                            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24Z"/>
+                            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 10.03 0 12s.45 3.82 1.25 5.42l4.03-3.15Z"/>
+                            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98Z"/>
+                        </svg>
+                        <span>Continue with Google</span>
+                    </button>
+                    <button type="button" class="btn-sso auth-provider-apple" onclick="window.location.href='404.html'">
+                        <i class="fa-brands fa-apple sso-icon" style="font-size: 19px; color: #000;"></i>
+                        <span>Continue with Apple</span>
+                    </button>
+                </div>
+
+                <!-- Divider -->
+                <div class="auth-divider">
+                    <span class="divider-line"></span>
+                    <span class="divider-text">OR REGISTER WITH EMAIL</span>
+                    <span class="divider-line"></span>
+                </div>
+
+                <!-- Signup Form -->
+                <form class="signup-form" id="signupForm" onsubmit="event.preventDefault(); window.location.href='userdashboard.html';">
+                    <!-- Full Name -->
+                    <div class="input-block">
+                        <label for="fullName">Full Name</label>
+                        <div class="input-container">
+                            <i class="fa-regular fa-user input-prefix"></i>
+                            <input type="text" id="fullName" placeholder="Enter your full name" required>
+                        </div>
+                    </div>
+
+                    <!-- Email Address -->
+                    <div class="input-block">
+                        <label for="signupEmail">Email Address</label>
+                        <div class="input-container">
+                            <i class="fa-regular fa-envelope input-prefix"></i>
+                            <input type="email" id="signupEmail" placeholder="name@example.com" required>
+                        </div>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="input-block">
+                        <label for="phoneNumber">Phone Number</label>
+                        <div class="phone-input-container">
+                            <div class="phone-country-select" id="countryCodeBtn">
+                                <i class="fa-solid fa-phone phone-icon"></i>
+                                <span>+1 (US)</span>
+                                <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                            </div>
+                            <input type="tel" id="phoneNumber" class="phone-number-field" placeholder="(555) 000-0000" required>
+                        </div>
+                    </div>
+
+                    <!-- Create Password -->
+                    <div class="input-block">
+                        <div class="input-header-row">
+                            <label for="createPassword">Create Password</label>
+                            <span class="status-indicator strong" id="passwordStrengthLabel" style="display: none;">
+                                <span class="dot"></span> Strong Password
+                            </span>
+                        </div>
+                        <div class="input-container">
+                            <i class="fa-solid fa-lock input-prefix"></i>
+                            <input type="password" id="createPassword" placeholder="••••••••••••" required>
+                            <button type="button" class="toggle-password-btn" id="toggleCreatePass" aria-label="Toggle password visibility">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
+                        <!-- Password Strength Segment Bars -->
+                        <div class="password-strength-bars">
+                            <div class="strength-bar"></div>
+                            <div class="strength-bar"></div>
+                            <div class="strength-bar"></div>
+                            <div class="strength-bar"></div>
+                        </div>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="input-block">
+                        <div class="input-header-row">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <span class="status-indicator match" id="passwordMatchLabel" style="display: none;">
+                                <i class="fa-solid fa-check"></i> Passwords Match
+                            </span>
+                        </div>
+                        <div class="input-container">
+                            <i class="fa-solid fa-arrows-rotate input-prefix"></i>
+                            <input type="password" id="confirmPassword" placeholder="••••••••••••" required>
+                            <button type="button" class="toggle-password-btn" id="toggleConfirmPass" aria-label="Toggle password visibility">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Terms & Conditions Checkbox -->
+                    <div class="form-checkbox-row">
+                        <label class="custom-check-label">
+                            <input type="checkbox" checked id="termsConsent" required>
+                            <span class="check-box-indicator"></span>
+                            <span class="check-text">
+                                I agree to the <a href="404.html">Terms of Service</a> and <a href="404.html">Privacy Policy</a>, and consent to receive curated travel dispatches.
+                            </span>
+                        </label>
+                    </div>
+
+                    <!-- Submit CTA Button -->
+                    <button type="submit" class="btn-signup-submit" id="btnSubmitSignup">
+                        <span>Create Account</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </form>
+
+                <!-- Bottom Sign In Prompt -->
+                <div class="bottom-signin-prompt">
+                    Already have an account? <a href="login.html">Sign In</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GSAP Animations & Interactive Logic -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // Password Visibility Toggles
+        function setupPasswordToggle(btnId, inputId) {
+            const btn = document.getElementById(btnId);
+            const input = document.getElementById(inputId);
+            if (btn && input) {
+                btn.addEventListener('click', () => {
+                    const isPass = input.type === 'password';
+                    input.type = isPass ? 'text' : 'password';
+                    const icon = btn.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-eye', !isPass);
+                        icon.classList.toggle('fa-eye-slash', isPass);
+                    }
+                });
+            }
+        }
+
+        setupPasswordToggle('toggleCreatePass', 'createPassword');
+        setupPasswordToggle('toggleConfirmPass', 'confirmPassword');
+
+        // Dynamic Password Match Check
+        const pass1 = document.getElementById('createPassword');
+        const pass2 = document.getElementById('confirmPassword');
+        const matchLabel = document.getElementById('passwordMatchLabel');
+
+        function checkPasswordMatch() {
+            if (!matchLabel || !pass1 || !pass2) return;
+            if (pass1.value && pass2.value && pass1.value === pass2.value) {
+                matchLabel.innerHTML = '<i class="fa-solid fa-check"></i> Passwords Match';
+                matchLabel.style.color = '#0d9488';
+                matchLabel.style.display = 'inline-flex';
+            } else if (pass2.value) {
+                matchLabel.innerHTML = '<i class="fa-solid fa-xmark"></i> Passwords Do Not Match';
+                matchLabel.style.color = '#ef4444';
+                matchLabel.style.display = 'inline-flex';
+            } else {
+                matchLabel.style.display = 'none';
+            }
+        }
+
+        if (pass1 && pass2) {
+            pass1.addEventListener('input', checkPasswordMatch);
+            pass2.addEventListener('input', checkPasswordMatch);
+        }
+
+        // Live Password Strength Meter
+        const strengthLabel = document.getElementById('passwordStrengthLabel');
+        const strengthBars = document.querySelectorAll('.password-strength-bars .strength-bar');
+
+        if (pass1) {
+            pass1.addEventListener('input', () => {
+                const len = pass1.value.length;
+                if (len === 0) {
+                    if (strengthLabel) strengthLabel.style.display = 'none';
+                    strengthBars.forEach(b => b.classList.remove('active'));
+                } else {
+                    if (strengthLabel) {
+                        strengthLabel.style.display = 'inline-flex';
+                        if (len >= 8) {
+                            strengthLabel.innerHTML = '<span class="dot"></span> Strong Password';
+                            strengthLabel.style.color = '#0d9488';
+                        } else if (len >= 5) {
+                            strengthLabel.innerHTML = '<span class="dot" style="background:#f59e0b"></span> Moderate Password';
+                            strengthLabel.style.color = '#f59e0b';
+                        } else {
+                            strengthLabel.innerHTML = '<span class="dot" style="background:#ef4444"></span> Weak Password';
+                            strengthLabel.style.color = '#ef4444';
+                        }
+                    }
+                    const activeCount = len >= 10 ? 4 : len >= 7 ? 3 : len >= 4 ? 2 : 1;
+                    strengthBars.forEach((bar, idx) => {
+                        bar.classList.toggle('active', idx < activeCount);
+                    });
+                }
+            });
+        }
+
+        // Apple-style GSAP Entrance Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof gsap !== 'undefined') {
+                const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+                // Left visual panel smooth scale & fade in
+                tl.from('.signup-visual-panel', {
+                    opacity: 0,
+                    duration: 1.1
+                })
+                .from('.signup-visual-bg', {
+                    scale: 1.08,
+                    duration: 1.8,
+                    ease: 'power2.out'
+                }, '-=1.1')
+                .from('.visual-brand-header', {
+                    y: -20,
+                    opacity: 0,
+                    duration: 0.7
+                }, '-=1.2')
+                .from('.visual-privilege-card', {
+                    y: 35,
+                    opacity: 0,
+                    duration: 0.9,
+                    clearProps: 'all'
+                }, '-=0.9')
+                .from('.privilege-item', {
+                    x: -15,
+                    opacity: 0,
+                    stagger: 0.1,
+                    duration: 0.5,
+                    clearProps: 'all'
+                }, '-=0.5');
+
+                // Right panel Apple-like staggered cascade
+                tl.from('.panel-top-bar', {
+                    y: -15,
+                    opacity: 0,
+                    duration: 0.5
+                }, '-=1.1')
+                .from('.community-badge', {
+                    scale: 0.92,
+                    y: 10,
+                    opacity: 0,
+                    duration: 0.45
+                }, '-=0.8')
+                .from('.signup-heading', {
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.65
+                }, '-=0.6')
+                .from('.signup-subheading', {
+                    y: 15,
+                    opacity: 0,
+                    duration: 0.55,
+                    clearProps: 'all'
+                }, '-=0.5')
+                .from('.sso-auth-grid .btn-sso', {
+                    y: 15,
+                    opacity: 0,
+                    stagger: 0.1,
+                    duration: 0.45,
+                    clearProps: 'all'
+                }, '-=0.4')
+                .from('.auth-divider', {
+                    scaleX: 0.92,
+                    opacity: 0,
+                    duration: 0.35,
+                    clearProps: 'all'
+                }, '-=0.35')
+                .from('.signup-form .input-block', {
+                    y: 15,
+                    opacity: 0,
+                    stagger: 0.08,
+                    duration: 0.45,
+                    clearProps: 'all'
+                }, '-=0.3')
+                .from('.form-checkbox-row, .btn-signup-submit', {
+                    y: 15,
+                    opacity: 0,
+                    stagger: 0.1,
+                    duration: 0.45,
+                    clearProps: 'all'
+                }, '-=0.2')
+                .from('.bottom-signin-prompt', {
+                    y: 10,
+                    opacity: 0,
+                    duration: 0.5,
+                    clearProps: 'all'
+                }, '-=0.2');
+            }
+        });
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>

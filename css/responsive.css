@@ -1,0 +1,1247 @@
+/* ==========================================================================
+   STACKLY TOUR & TRAVEL BOOKING - MASTER RESPONSIVE STYLESHEET
+   Breakpoints: 320px -> 360px -> 375px -> 390px -> 414px -> 430px -> 480px -> 768px -> 1024px -> 1280px -> 1440px
+   ========================================================================== */
+
+/* Prevent horizontal overflow globally across all devices */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --------------------------------------------------------------------------
+   0. MOBILE NAVIGATION DRAWER & ANIMATED HAMBURGER (Base Styles)
+   -------------------------------------------------------------------------- */
+.mobile-nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40px;
+    height: 40px;
+    padding: 10px 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    border-radius: 8px;
+    transition: background-color 0.25s ease;
+}
+
+.mobile-nav-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.hamburger-bar {
+    display: block;
+    width: 24px;
+    height: 2.5px;
+    background-color: var(--secondary-color, #0f172a);
+    border-radius: 3px;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.25s ease,
+                background-color 0.25s ease;
+    transform-origin: center;
+}
+
+/* Animated Transformation to 'X' (Closing tag animation) */
+.mobile-nav-toggle.is-active .bar-top {
+    transform: translateY(7.5px) rotate(45deg);
+    background-color: var(--primary-color, #f26a1d);
+}
+
+.mobile-nav-toggle.is-active .bar-middle {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.mobile-nav-toggle.is-active .bar-bottom {
+    transform: translateY(-7.5px) rotate(-45deg);
+    background-color: var(--primary-color, #f26a1d);
+}
+
+/* Slide-in Mobile Drawer */
+.mobile-nav-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 320px;
+    max-width: 86vw;
+    height: 100vh;
+    height: 100dvh;
+    background: #ffffff;
+    z-index: 1002;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: none;
+}
+
+.mobile-nav-drawer.open {
+    transform: translateX(0);
+    box-shadow: -15px 0 45px rgba(15, 23, 42, 0.18);
+}
+
+/* Backdrop Overlay */
+.mobile-nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.mobile-nav-backdrop.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Drawer Internal Header */
+.mobile-drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.mobile-drawer-close {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-drawer-close:hover {
+    background: #fee2e2;
+    color: #ef4444;
+    border-color: #fca5a5;
+    transform: rotate(90deg);
+}
+
+/* Drawer Links */
+.mobile-drawer-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mobile-nav-links li a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+    font-size: 15px;
+    font-weight: 600;
+    color: #334155;
+    transition: all 0.25s ease;
+}
+
+.mobile-nav-links li a i {
+    font-size: 16px;
+    width: 22px;
+    color: #94a3b8;
+    transition: color 0.25s ease;
+}
+
+.mobile-nav-links li a:hover,
+.mobile-nav-links li a.active {
+    background: #fff7ed;
+    color: var(--primary-color, #f26a1d);
+}
+
+.mobile-nav-links li a:hover i,
+.mobile-nav-links li a.active i {
+    color: var(--primary-color, #f26a1d);
+}
+
+/* Drawer Action Buttons */
+.mobile-drawer-actions {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-drawer {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: 15px;
+    gap: 8px;
+}
+
+.btn-outline-drawer {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: 15px;
+    gap: 8px;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    color: #0f172a;
+    border-radius: 50px;
+    font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-outline-drawer:hover {
+    background: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+/* Prevent Background Scroll when Mobile Menu is Open */
+body.mobile-menu-active {
+    overflow: hidden !important;
+    touch-action: none;
+}
+
+/* --------------------------------------------------------------------------
+   1. SCREEN >= 1440px (Large Desktops & 4K Displays)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1380px;
+    }
+    
+    .hero {
+        min-height: 85vh;
+        padding: 130px 0 160px;
+    }
+    
+    .hero h1 {
+        font-size: 64px;
+        line-height: 1.15;
+    }
+    
+    .dest-hero h1,
+    .tp-hero h1,
+    .hotel-hero h1,
+    .flight-hero h1 {
+        font-size: 60px;
+    }
+    
+    .grid-3 {
+        gap: 36px;
+    }
+    
+    .grid-4 {
+        gap: 32px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   2. SCREEN <= 1280px (Laptops & Standard Desktops)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1280px) {
+    .container {
+        max-width: 1180px;
+        padding: 0 24px;
+    }
+    
+    .nav-links {
+        gap: 24px;
+    }
+    
+    .grid-3, .grid-4 {
+        gap: 24px;
+    }
+    
+    .footer-grid {
+        gap: 36px;
+    }
+    
+    .tp-search-bar, .hotel-search-bar {
+        padding: 10px;
+    }
+    
+    .search-input {
+        padding: 0 14px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   3. SCREEN <= 1024px (Tablets Landscape & Small Laptops)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    /* Header & Mobile Toggle */
+    .navbar,
+    .header-actions {
+        display: none !important;
+    }
+    
+    .mobile-nav-toggle {
+        display: flex;
+    }
+    
+    .header {
+        padding: 16px 0;
+    }
+    
+    .header-container {
+        position: relative;
+    }
+
+    /* Layout Grids */
+    .grid-4,
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .travel-style-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px;
+    }
+
+    .tour-packages-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px;
+    }
+
+    .mini-dest-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 20px;
+    }
+    
+    /* Hero sections */
+    .hero {
+        padding: 80px 0 100px;
+        min-height: auto;
+    }
+    
+    .hero h1 {
+        font-size: 46px;
+    }
+    
+    .dest-hero, .tp-hero, .hotel-hero, .flight-hero, .contact-hero {
+        padding: 120px 0 80px;
+    }
+    
+    .dest-hero h1, .tp-hero h1, .hotel-hero h1, .flight-hero h1, .contact-hero h1 {
+        font-size: 42px;
+    }
+    
+    /* Index Search Widget */
+    .search-inputs {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+    
+    .footer-brand {
+        grid-column: span 2;
+    }
+    
+    .brand-desc {
+        max-width: 100%;
+    }
+
+    /* Flights Layout */
+    .search-middle {
+        flex-direction: column;
+    }
+    
+    .flight-route {
+        width: 100%;
+    }
+    
+    .flight-dates {
+        width: 100%;
+    }
+
+    /* Contact Page */
+    .contact-main-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    /* Tour Packages Featured Grid */
+    .tp-featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tp-featured-item.large {
+        grid-column: span 2;
+        grid-row: span 1;
+        height: 280px;
+    }
+
+    /* Dashboards Responsive */
+    .dashboard-layout,
+    .app-container {
+        position: relative;
+    }
+    
+    .sidebar,
+    .dashboard-sidebar {
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        z-index: 1050 !important;
+        transform: translateX(-100%) !important;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.4) !important;
+    }
+    
+    .sidebar.open,
+    .dashboard-sidebar.sidebar-open {
+        transform: translateX(0) !important;
+    }
+    
+    .mobile-toggle-btn {
+        display: flex !important;
+    }
+
+    .close-sidebar-btn {
+        display: block !important;
+    }
+    
+    .main-wrapper,
+    .dashboard-main {
+        margin-left: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Table Scroll Wrapper */
+    .table-responsive,
+    .admin-table-card,
+    .data-table-container,
+    .bookings-table-wrapper {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        max-width: 100%;
+    }
+
+    .admin-table,
+    .dashboard-table {
+        min-width: 640px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   4. SCREEN <= 768px (Tablets Portrait & Large Handhelds)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .section {
+        padding: 60px 0;
+    }
+    
+    /* Typography */
+    .hero h1 {
+        font-size: 38px;
+        line-height: 1.2;
+    }
+    
+    .dest-hero h1, .tp-hero h1, .hotel-hero h1, .flight-hero h1, .contact-hero h1 {
+        font-size: 34px;
+        line-height: 1.25;
+    }
+    
+    h2 {
+        font-size: 28px !important;
+    }
+
+    /* Grids to Single Column */
+    .grid-3, .grid-4, .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .travel-style-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+    }
+
+    .mini-dest-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px;
+    }
+
+    .tour-packages-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px;
+    }
+
+    .filter-tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .filter-tabs .tab {
+        white-space: nowrap;
+    }
+
+    /* Card Padding Protection */
+    .card-body,
+    .card-content {
+        padding: 20px !important;
+    }
+    
+    .testimonial-card,
+    .tp-review-card {
+        padding: 26px 22px !important;
+    }
+    
+    .step-box {
+        padding: 22px 18px !important;
+    }
+    
+    .section-header.flex-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    /* Index Search Form */
+    .search-widget,
+    .hero-search {
+        border-radius: 20px !important;
+        padding: 20px 16px !important;
+        width: 100% !important;
+    }
+    
+    .search-form {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 14px !important;
+    }
+    
+    .search-form .divider {
+        display: none !important;
+    }
+    
+    .search-submit-btn {
+        width: 100% !important;
+        margin-top: 8px !important;
+    }
+
+    .hero-indicators {
+        bottom: 16px !important;
+    }
+
+    .hero-actions {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 28px;
+    }
+    
+    .hero-trust-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .trust-sep {
+        display: none;
+    }
+
+    .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 32px;
+    }
+    
+    .filter-tabs {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        gap: 8px;
+        padding-bottom: 6px;
+        scrollbar-width: none;
+        width: 100%;
+    }
+    
+    .filter-tabs::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .filter-tabs button {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .promo-banner {
+        padding: 36px 20px !important;
+        border-radius: 20px !important;
+    }
+
+    /* Destinations Search */
+    .dest-search {
+        flex-direction: column;
+        border-radius: 20px;
+        padding: 16px;
+        gap: 12px;
+    }
+    
+    .dest-search .search-input {
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+        padding: 8px 0;
+        width: 100%;
+    }
+    
+    .dest-search-btn {
+        width: 100%;
+        border-radius: 12px;
+        height: 48px;
+    }
+
+    /* Tour Packages Search Bar */
+    .tp-search-bar {
+        flex-direction: column;
+        border-radius: 20px;
+        padding: 16px;
+        gap: 12px;
+    }
+    
+    .tp-search-divider {
+        display: none;
+    }
+    
+    .tp-search-item {
+        width: 100%;
+        padding: 8px 0;
+        border-bottom: 1px solid #f1f5f9;
+    }
+    
+    .tp-search-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 14px;
+        border-radius: 12px;
+    }
+
+    /* Hotel Search Bar */
+    .hotel-search-bar {
+        flex-direction: column;
+        border-radius: 20px;
+        padding: 16px;
+        gap: 12px;
+    }
+    
+    .hotel-search-divider {
+        display: none;
+    }
+    
+    .hotel-search-item {
+        width: 100%;
+        padding: 8px 0;
+        border-bottom: 1px solid #f1f5f9;
+    }
+    
+    .hotel-search-btn {
+        width: 100%;
+        padding: 14px;
+        border-radius: 12px;
+    }
+
+    /* Flights Search Box */
+    .flight-search-box {
+        padding: 18px;
+        border-radius: 16px;
+    }
+    
+    .search-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .trip-types {
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+    
+    .search-bottom {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .checkbox-group {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    
+    .flight-result-card .flight-main-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    
+    .flight-result-card .flight-price-info {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #f1f5f9;
+        padding-top: 14px;
+    }
+    
+    .flight-result-card .flight-price-info div {
+        text-align: left !important;
+        margin-bottom: 0 !important;
+    }
+    
+    .flight-result-card .flight-price-info button {
+        width: auto !important;
+        padding: 10px 20px !important;
+    }
+
+    /* Contact Page */
+    .contact-cards-section {
+        margin-top: -40px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .enquiry-form-wrapper {
+        padding: 24px;
+    }
+
+    /* Horizontal Filter Pills with Touch Momentum */
+    .dest-filters,
+    .hotel-filters,
+    .search-tabs,
+    .trending-tags-row {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px;
+        gap: 8px;
+        scrollbar-width: none;
+    }
+    
+    .dest-filters::-webkit-scrollbar,
+    .hotel-filters::-webkit-scrollbar,
+    .search-tabs::-webkit-scrollbar,
+    .trending-tags-row::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .filter-pill, .trending-pill, .tab-btn {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    /* Promo Banners */
+    .promo-content h2, .tp-cta-content h2, .hotel-cta-content h2, .contact-cta-banner h2 {
+        font-size: 32px !important;
+    }
+    
+    .promo-actions, .tp-cta-content div:last-child, .hotel-cta-content div:last-child {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .promo-actions a, .tp-cta-content a, .hotel-cta-content a {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Newsletter Box */
+    .newsletter-form-inline {
+        flex-direction: column;
+        gap: 12px !important;
+    }
+    
+    .newsletter-form-inline button {
+        width: 100%;
+    }
+    
+    .newsletter-box {
+        padding: 30px 20px !important;
+    }
+
+    /* Footer Bottom */
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+    
+    .footer-bottom-links {
+        justify-content: center;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   5. SCREEN <= 480px (Standard & Large Mobile Phones)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .section {
+        padding: 50px 0;
+    }
+
+    .hero h1,
+    main h1 {
+        font-size: 32px !important;
+        text-align: center;
+    }
+    
+    .dest-hero h1, .tp-hero h1, .hotel-hero h1, .flight-hero h1, .contact-hero h1 {
+        font-size: 30px;
+    }
+    
+    .dest-hero p, .tp-hero p, .hotel-hero p, .flight-hero p, .contact-hero p, .hero p {
+        font-size: 15px;
+        margin-bottom: 28px;
+    }
+
+    /* Card Sizing */
+    .card-content,
+    .card-body {
+        padding: 16px !important;
+    }
+    
+    .testimonial-card,
+    .tp-review-card {
+        padding: 22px 18px !important;
+    }
+    
+    .contact-card {
+        padding: 24px 18px !important;
+    }
+    
+    .card-footer {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 12px;
+    }
+    
+    .card-footer .btn, .card-footer .view-link {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .card-footer div:last-child {
+        width: 100%;
+    }
+    
+    .card-footer div:last-child a {
+        flex: 1;
+        text-align: center;
+    }
+
+    /* Destination & Package Cards */
+    .mini-dest-grid,
+    .tour-packages-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+    }
+    
+    .dest-card-intl .mini-card-img-wrap img,
+    .domestic-card .domestic-card-img-wrap img {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    /* Modals Responsive Full-width */
+    .modal-dialog,
+    .booking-modal-content,
+    .ticket-modal-content,
+    .export-modal-content {
+        width: 95% !important;
+        max-width: 95% !important;
+        margin: 16px auto !important;
+        padding: 20px 16px !important;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .modal-actions button,
+    .modal-actions a {
+        width: 100%;
+    }
+
+    /* Login & Signup Full Viewport Form */
+    .login-form-panel, .signup-form-panel {
+        padding: 24px 16px !important;
+    }
+    
+    .login-heading, .signup-heading {
+        font-size: 28px !important;
+    }
+    
+    .login-subheading, .signup-subheading {
+        font-size: 14px !important;
+    }
+    
+    .form-group-row {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+    
+    .sso-auth-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .hero-actions {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 12px !important;
+    }
+    
+    .btn-hero-explore,
+    .btn-hero-watch {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .feature-card {
+        padding: 26px 20px !important;
+        border-radius: 16px !important;
+    }
+
+    /* Hero Indicators Compact Mobile */
+    .hero-indicators {
+        bottom: 12px !important;
+        padding: 4px 10px !important;
+        gap: 6px !important;
+    }
+    
+    .hero-dot {
+        width: 8px !important;
+        height: 8px !important;
+    }
+    
+    .hero-dot.active {
+        width: 22px !important;
+    }
+
+    /* 404 Page */
+    .notfound-heading {
+        font-size: 26px !important;
+        line-height: 1.25 !important;
+    }
+    
+    .notfound-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-back-home, .btn-explore-packages {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   6. SCREEN <= 430px (iPhone 14/15/16 Pro Max - 430px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 430px) {
+    .header .logo img {
+        height: 36px !important;
+    }
+    
+    .hero-badge, .dest-badge, .tp-badge, .hotel-badge, .flight-badge, .contact-badge {
+        font-size: 11px;
+        padding: 5px 12px;
+    }
+    
+    .flight-time-info {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .time-block .time {
+        font-size: 16px !important;
+    }
+    
+    .dur-text, .stops-text {
+        font-size: 10px !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   7. SCREEN <= 414px (iPhone Plus / XR - 414px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 414px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .btn {
+        padding: 12px 22px;
+        font-size: 14px;
+    }
+    
+    .card-badges .badge {
+        font-size: 11px;
+        padding: 3px 8px;
+    }
+    
+    .flight-deal-card .card-content {
+        padding: 14px;
+    }
+    
+    .hero h1 {
+        font-size: 30px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   8. SCREEN <= 390px (iPhone 12/13/14/15 - 390px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 390px) {
+    .dest-hero h1, .tp-hero h1, .hotel-hero h1, .flight-hero h1, .contact-hero h1 {
+        font-size: 28px;
+    }
+    
+    .hero-features {
+        flex-direction: column;
+        border-radius: 16px;
+        padding: 12px 16px;
+        gap: 8px;
+        display: flex;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-actions .btn {
+        width: 100%;
+    }
+    
+    .flight-deal-card .price {
+        font-size: 17px !important;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   9. SCREEN <= 375px (iPhone SE 2/3, iPhone 6/7/8 - 375px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 375px) {
+    .container {
+        padding: 0 14px;
+    }
+    
+    .header .logo img {
+        height: 34px !important;
+    }
+    
+    .mobile-nav-toggle {
+        width: 36px;
+        height: 36px;
+        padding: 8px 6px;
+    }
+    
+    .mobile-nav-drawer {
+        width: 290px;
+    }
+    
+    .hero h1 {
+        font-size: 27px;
+    }
+    
+    .dest-hero h1, .tp-hero h1, .hotel-hero h1, .flight-hero h1, .contact-hero h1 {
+        font-size: 26px;
+    }
+    
+    .section-subtitle {
+        font-size: 11px;
+        letter-spacing: 0.5px;
+    }
+    
+    .card-img {
+        height: 180px !important;
+    }
+    
+    .card-body,
+    .card-content {
+        padding: 14px !important;
+    }
+    
+    .testimonial-card,
+    .tp-review-card {
+        padding: 18px 14px !important;
+    }
+    
+    .btn-sm {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   10. SCREEN <= 360px (Galaxy A / Android Standard - 360px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 360px) {
+    .container {
+        padding: 0 12px;
+    }
+    
+    .hero h1 {
+        font-size: 25px;
+    }
+    
+    .dest-hero h1, .tp-hero h1, .hotel-hero h1, .flight-hero h1, .contact-hero h1 {
+        font-size: 24px;
+    }
+    
+    .search-input label, .tp-search-text label, .hotel-search-text label {
+        font-size: 11px;
+    }
+    
+    .search-input input, .tp-search-text input, .hotel-search-text input {
+        font-size: 13px;
+    }
+    
+    .tab-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    
+    .badge {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   11. SCREEN <= 320px (Compact Mobile / iPhone SE 1st gen - 320px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 320px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .header .logo img {
+        height: 30px !important;
+    }
+    
+    .hero h1,
+    main h1 {
+        font-size: 22px !important;
+    }
+    
+    .dest-hero h1, .tp-hero h1, .hotel-hero h1, .flight-hero h1, .contact-hero h1 {
+        font-size: 22px;
+    }
+    
+    .hero {
+        padding: 50px 0 70px;
+    }
+    
+    .dest-hero, .tp-hero, .hotel-hero, .flight-hero, .contact-hero {
+        padding: 90px 0 50px;
+    }
+    
+    .btn {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+    
+    .card-header h3 {
+        font-size: 16px !important;
+    }
+    
+    .card-content p {
+        font-size: 13px !important;
+    }
+    
+    .card-body,
+    .card-content {
+        padding: 12px !important;
+    }
+    
+    .testimonial-card,
+    .tp-review-card {
+        padding: 16px 12px !important;
+    }
+    
+    .mobile-nav-drawer {
+        width: 270px;
+    }
+    
+    .mobile-drawer-header {
+        padding: 16px;
+    }
+    
+    .mobile-drawer-body {
+        padding: 16px;
+    }
+    
+    .mobile-nav-links li a {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+}

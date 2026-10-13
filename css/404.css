@@ -1,0 +1,537 @@
+/* ==========================================================================
+   STACKLY TOUR & TRAVEL - 404 UNCHARTED TERRITORY
+   Exact Figma Design Implementation
+   ========================================================================== */
+
+/* Main 404 Section Wrapper (Full Viewport Centered) */
+.notfound-section {
+    min-height: 100vh;
+    background-color: #fcfdfd;
+    background-image: 
+        radial-gradient(circle at 10% 15%, rgba(254, 243, 199, 0.5) 0%, transparent 45%),
+        radial-gradient(circle at 90% 85%, rgba(224, 231, 255, 0.5) 0%, transparent 45%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.notfound-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+}
+
+/* 2-Column Main Content Grid */
+.notfound-main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 56px;
+    align-items: center;
+    margin-bottom: 56px;
+}
+
+/* ==========================================================================
+   LEFT COLUMN: SCENIC ILLUSTRATION CARD
+   ========================================================================== */
+.notfound-visual-card {
+    position: relative;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 12px;
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.notfound-visual-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 32px 70px rgba(15, 23, 42, 0.12);
+}
+
+.illustration-viewport {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #fef3c7 0%, #ffedd5 30%, #e2e8f0 70%, #cbd5e1 100%);
+}
+
+.illustration-viewport svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Illustration Badges */
+.badge-coords {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 5;
+}
+
+.badge-coords .dot {
+    width: 6px;
+    height: 6px;
+    background: #f59e0b;
+    border-radius: 50%;
+    animation: blinkDot 2s infinite ease-in-out;
+}
+
+@keyframes blinkDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.badge-disrupted {
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #1e293b;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    z-index: 5;
+}
+
+.badge-disrupted i {
+    color: #f59e0b;
+    font-size: 12px;
+    animation: compassWiggle 4s ease-in-out infinite;
+}
+
+@keyframes compassWiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(20deg); }
+    75% { transform: rotate(-20deg); }
+}
+
+/* Floating Elements in SVG */
+.anim-plane {
+    animation: planeFly 6s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes planeFly {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(12px, -15px) rotate(4deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.anim-pin {
+    animation: pinFloat 3.5s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+@keyframes pinFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: ERROR HEADINGS & ACTIONS
+   ========================================================================== */
+.notfound-text-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Pill Tag */
+.uncharted-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #fef3c7;
+    color: #92400e;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    width: fit-content;
+}
+
+.uncharted-tag i {
+    font-size: 11px;
+}
+
+/* Main Heading */
+.notfound-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+/* Subtitle */
+.notfound-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: #64748b;
+    margin-bottom: 28px;
+    max-width: 520px;
+}
+
+/* Search Bar Pill */
+.notfound-search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 50px;
+    padding: 6px 8px 6px 20px;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+    transition: all 0.25s ease;
+    margin-bottom: 20px;
+}
+
+.notfound-search-bar:focus-within {
+    border-color: #0f172a;
+    box-shadow: 0 6px 25px rgba(15, 23, 42, 0.08);
+}
+
+.notfound-search-bar i {
+    color: #94a3b8;
+    font-size: 15px;
+    margin-right: 12px;
+}
+
+.notfound-search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    color: #0f172a;
+}
+
+.notfound-search-bar input::placeholder {
+    color: #94a3b8;
+}
+
+.btn-search-submit {
+    background: #0f172a;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 22px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-search-submit:hover {
+    background: #1e293b;
+    transform: translateX(2px);
+}
+
+/* Trending Tags Row */
+.trending-tags-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 32px;
+}
+
+.trending-label {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    margin-right: 4px;
+}
+
+.trending-pill {
+    background: #f1f5f9;
+    color: #475569;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.trending-pill:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+    transform: translateY(-1px);
+}
+
+/* Action CTA Buttons */
+.notfound-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #0f172a;
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14.5px;
+    font-weight: 700;
+    padding: 14px 26px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
+}
+
+.btn-back-home:hover {
+    background: #1e293b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.22);
+}
+
+.btn-explore-packages {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    color: #0f172a;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14.5px;
+    font-weight: 700;
+    padding: 14px 26px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.btn-explore-packages:hover {
+    border-color: #cbd5e1;
+    background: #f8fafc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.btn-explore-packages i {
+    font-size: 13px;
+    transition: transform 0.2s ease;
+}
+
+.btn-explore-packages:hover i {
+    transform: translateX(4px);
+}
+
+/* ==========================================================================
+   BOTTOM ASSISTANCE CONCIERGE BANNER
+   ========================================================================== */
+.notfound-assistance-banner {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 28px 36px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 40px rgba(15, 23, 42, 0.04);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.assistance-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 620px;
+}
+
+.concierge-avatar-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: #ffedd5;
+    color: #c2410c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.assistance-text h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+}
+
+.assistance-text p {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: #64748b;
+    margin: 0;
+}
+
+.assistance-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.btn-concierge-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 11px 18px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #0f172a;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-concierge-phone:hover {
+    border-color: #cbd5e1;
+    background: #f8fafc;
+    transform: translateY(-1px);
+}
+
+.btn-concierge-phone i {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.btn-whatsapp-chat {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f59e0b;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+}
+
+.btn-whatsapp-chat:hover {
+    background: #d97706;
+    transform: translateY(-1.5px);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
+}
+
+.btn-whatsapp-chat i {
+    font-size: 15px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 992px) {
+    .notfound-main-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .illustration-viewport {
+        height: 320px;
+    }
+    
+    .notfound-heading {
+        font-size: 36px;
+    }
+    
+    .notfound-assistance-banner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .assistance-right {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .notfound-heading {
+        font-size: 28px;
+    }
+    
+    .illustration-viewport {
+        height: 250px;
+    }
+    
+    .notfound-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-back-home,
+    .btn-explore-packages {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .assistance-right {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-concierge-phone,
+    .btn-whatsapp-chat {
+        width: 100%;
+        justify-content: center;
+    }
+}

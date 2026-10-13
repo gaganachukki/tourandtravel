@@ -1,5 +1,6 @@
+/* Destinations Page CSS - Matching Figma UI/UX Design */
 
-/* Destinations CSS */
+/* Hero Section */
 .dest-hero {
     position: relative;
     padding: 180px 0 140px;
@@ -11,7 +12,7 @@
     justify-content: center;
     text-align: center;
     color: white;
-    margin-top: -88px; /* Offset sticky header if needed */
+    margin-top: -88px;
 }
 
 .dest-hero-overlay {
@@ -122,6 +123,7 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s;
+    color: white;
 }
 
 .filter-pill:hover, .filter-pill.active {
@@ -139,15 +141,631 @@
     background-color: #f4f7fc;
 }
 
-.style-card:hover img {
-    transform: scale(1.05);
+/* ==========================================================================
+   Find Your Travel Style Cards (Figma Spec)
+   ========================================================================== */
+.travel-style-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
 }
 
-.mini-card:hover {
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    border-color: transparent;
-    transform: translateY(-2px);
+.style-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 230px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    display: block;
+    text-decoration: none;
 }
+
+.style-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.16);
+}
+
+.style-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.style-card:hover img {
+    transform: scale(1.08);
+}
+
+.style-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.45) 50%, rgba(15, 23, 42, 0) 100%);
+    z-index: 1;
+}
+
+.style-card-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: #ffffff;
+}
+
+.style-card-info h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 4px 0;
+    font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+}
+
+.style-card-info p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    font-weight: 500;
+}
+
+.style-card-arrow {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.style-card:hover .style-card-arrow {
+    background: var(--primary-color, #f26a1d);
+    transform: rotate(45deg);
+}
+
+/* ==========================================================================
+   International Destinations Grid & Cards (Figma Spec)
+   ========================================================================== */
 .mini-dest-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 24px;
+}
+
+.mini-card,
+.dest-card-intl {
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 12px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    box-sizing: border-box;
+}
+
+.mini-card:hover,
+.dest-card-intl:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+    border-color: #e2e8f0;
+}
+
+.mini-card-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 130px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.mini-card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.mini-card:hover .mini-card-img-wrap img,
+.dest-card-intl:hover .mini-card-img-wrap img {
+    transform: scale(1.06);
+}
+
+.mini-card-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: #ffffff;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.mini-card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 0 4px 4px;
+}
+
+.mini-card-body h4 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 6px 0;
+    font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+}
+
+.mini-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mini-card-footer span {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.mini-card-footer .arrow-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #f8fafc;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    transition: all 0.25s ease;
+}
+
+.mini-card:hover .arrow-icon,
+.dest-card-intl:hover .arrow-icon {
+    background: var(--primary-color, #f26a1d);
+    color: #ffffff;
+    transform: translateX(2px);
+}
+
+/* ==========================================================================
+   Domestic Wonders Grid & Cards (Figma Spec)
+   ========================================================================== */
+.domestic-card {
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    box-sizing: border-box;
+}
+
+.domestic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+    border-color: #e2e8f0;
+}
+
+.domestic-card-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+}
+
+.domestic-card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.domestic-card:hover .domestic-card-img-wrap img {
+    transform: scale(1.06);
+}
+
+.domestic-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(15, 23, 42, 0.72);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: #ffffff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.domestic-card-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.domestic-card-body h4 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 4px 0;
+    font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+}
+
+.domestic-card-body p {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0 0 12px 0;
+}
+
+.domestic-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid #f8fafc;
+}
+
+.domestic-card-footer .explore-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-color, #f26a1d);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.domestic-card-footer .explore-link i {
+    font-size: 11px;
+    transition: transform 0.2s ease;
+}
+
+.domestic-card:hover .explore-link i {
+    transform: translateX(3px);
+}
+
+/* ==========================================================================
+   Filter Tabs
+   ========================================================================== */
+.filter-tabs {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-tabs .tab {
+    font-weight: 600;
+    padding: 8px 18px;
+    color: #4b5563;
+    border: 1px solid #cbd5e1;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13.5px;
+    transition: all 0.25s ease;
+}
+
+.filter-tabs .tab:hover {
+    border-color: #0f172a;
+    color: #0f172a;
+}
+
+.filter-tabs .tab.active {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+}
+
+/* ==========================================================================
+   Featured All-Inclusive Package Cards
+   ========================================================================== */
+.packages-section {
+    background-color: #f8faff;
+}
+
+.package-featured-card {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.05);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.package-featured-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
+}
+
+.package-featured-img {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.package-featured-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.package-featured-card:hover .package-featured-img img {
+    transform: scale(1.06);
+}
+
+.package-rating-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.package-featured-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.package-amenities-row {
+    display: flex;
+    gap: 10px;
+    margin: 16px 0;
+}
+
+.amenity-item {
+    text-align: center;
+    background: #f8fafc;
+    padding: 8px 6px;
+    border-radius: 8px;
+    flex: 1;
+}
+
+.amenity-item i {
+    color: var(--primary-color, #f26a1d);
+    font-size: 15px;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.amenity-item span {
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.package-duration-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(15, 23, 42, 0.78);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.package-location-pill {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    background: rgba(15, 23, 42, 0.78);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.package-location-pill i {
+    color: #f59e0b;
+}
+
+.package-body-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.package-category-tag {
+    font-size: 12.5px;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.package-rating {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.package-rating i {
+    color: #f59e0b;
+}
+
+.package-rating span {
+    font-weight: 400;
+    color: #94a3b8;
+}
+
+.package-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.35;
+    margin: 0 0 14px 0;
+    font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+}
+
+.package-desc {
+    color: #64748b;
+    font-size: 13.5px;
+    line-height: 1.55;
+    margin: 0 0 20px 0;
+}
+
+.package-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 16px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.package-price-wrap .price-old {
+    font-size: 12.5px;
+    color: #94a3b8;
+    text-decoration: line-through;
+    margin-bottom: 2px;
+}
+
+.package-price-wrap .price-current {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f172a;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.package-price-wrap .price-current span {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: #64748b;
+}
+
+.package-card-btn {
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.package-card-btn:hover {
+    background: var(--primary-color, #f26a1d);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(242, 106, 29, 0.3);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints for Destinations
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .travel-style-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .mini-dest-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .travel-style-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .mini-dest-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .filter-tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .filter-tabs .tab {
+        white-space: nowrap;
+    }
+    .package-amenities-row {
+        gap: 6px;
+    }
+    .amenity-item {
+        padding: 6px 4px;
+    }
+    .amenity-item span {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mini-dest-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .dest-card-intl, .domestic-card {
+        max-width: 100%;
+    }
 }

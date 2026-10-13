@@ -3,115 +3,372 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STACKLY - Tour & Travel Booking</title>
+    <title>Member Login | STACKLY Private Access</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container header-container">
-            <a href="index.html" class="logo">
-                <img src="assets/logo.webp" alt="Stackly Logo" style="height: 40px; width: auto;">
-            </a>
-            <nav class="navbar">
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="destinations.html">Destinations</a></li>
-                    <li><a href="tourpackages.html">Tour Packages</a></li>
-                    <li><a href="hotels.html">Hotels</a></li>
-                    <li><a href="flights.html">Flights</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <a href="login.html" class="login-link">Login</a>
-                <a href="booknow.html" class="btn btn-primary btn-shadow">Book Now</a>
+<body class="login-body">
+    <div class="login-split-wrapper">
+        <!-- Left Hero / Brand Visual Panel -->
+        <div class="login-visual-panel">
+            <div class="login-visual-bg"></div>
+            <div class="login-visual-overlay"></div>
+            
+            <!-- Brand Logo at Top Left -->
+            <div class="visual-brand-header">
+                <a href="index.html" class="visual-logo">
+                    <img src="assets/logo.webp" alt="Stackly Logo">
+                </a>
             </div>
-        </div>
-    </header>
-    <main style="min-height: 50vh; display: flex; align-items: center; justify-content: center; background-color: #f8fafc;">
-        <h1 style="font-family: 'Plus Jakarta Sans', sans-serif; color: #0f172a; font-size: 48px;">LOGIN PAGE</h1>
-    </main>
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <img src="assets/logo.webp" alt="Stackly Logo" style="height: 40px; width: auto;">
-                    </a>
-                    <p class="brand-desc">Effortless luxury exploration and handcrafted travel experiences worldwide. Turning dream itineraries into lifelong memories.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fa-solid fa-earth-americas"></i></a>
-                        <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
-                        <a href="#"><i class="fa-solid fa-plane"></i></a>
+
+            <!-- Central Subtle Decorative Emblem -->
+            <div class="visual-center-target">
+                <div class="target-ring">
+                    <i class="fa-solid fa-compass"></i>
+                </div>
+            </div>
+
+            <!-- Testimonial Quote Glass Card -->
+            <div class="visual-quote-card">
+                <div class="quote-rating-row">
+                    <div class="quote-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="quote-rating-label">Bespoke Concierge Rating 4.98/5</span>
+                </div>
+                
+                <blockquote class="quote-text">
+                    “The real voyage of discovery consists not in seeking new landscapes, but in having new eyes.”
+                </blockquote>
+                
+                <div class="quote-footer">
+                    <div class="quote-author">
+                        MARCEL PROUST — À LA RECHERCHE DU TEMPS PERDU
+                    </div>
+                    <div class="quote-badge">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Trusted by 65,000+ Voyagers</span>
                     </div>
                 </div>
-                
-                <div class="footer-links-col">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="destinations.html">Destinations</a></li>
-                        <li><a href="tourpackages.html">Tour Packages</a></li>
-                        <li><a href="hotels.html">Hotels</a></li>
-                        <li><a href="flights.html">Flights</a></li>
-                        <li><a href="activities.html">Activities</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links-col">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Booking Guide</a></li>
-                        <li><a href="#">Safety Information</a></li>
-                        <li><a href="#">Travel Insurance</a></li>
-                    </ul>
-                </div>
+            </div>
+        </div>
 
-                <div class="footer-contact-col">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li><i class="fa-regular fa-envelope"></i> concierge@travelgo.com</li>
-                        <li><i class="fa-solid fa-phone"></i> +1 (800) 872-8354</li>
-                        <li><i class="fa-solid fa-location-dot"></i> San Francisco & Geneva</li>
-                    </ul>
+        <!-- Right Form Panel -->
+        <div class="login-form-panel">
+            <!-- Top Utility Bar -->
+            <div class="panel-top-nav">
+                <a href="tourpackages.html" class="nav-back-link">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Return to Itineraries</span>
+                </a>
+                <div class="nav-help-link">
+                    <span>🎧 Need assistance?</span>
+                    <a href="contact.html">Contact Concierge 24/7</a>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-copyright">
-                    &copy; 2026. Stackly. All rights reserved. Effortless luxury exploration.
+
+            <!-- Form Content Box -->
+            <div class="login-content-box">
+                <!-- Member Access Badge -->
+                <div class="member-access-badge">
+                    <span class="badge-dot"></span>
+                    <span>Private Member Access</span>
                 </div>
-                <div class="footer-bottom-links">
-                    <a href="destinations.html">Destinations</a>
-                    <a href="tourpackages.html">Packages</a>
-                    <a href="hotels.html">Stays</a>
-                    <a href="experiences.html">Experiences</a>
-                    <a href="about.html">About Us</a>
-                    <a href="contact.html">Contact</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
+
+                <!-- Title & Description -->
+                <h1 class="login-heading">Welcome Back!</h1>
+                <p class="login-subheading">
+                    Sign in to continue your bespoke travel journey, manage reservations, and access private member itineraries.
+                </p>
+
+                <!-- Single Sign-On Auth Buttons -->
+                <div class="sso-auth-grid">
+                    <button type="button" class="btn-sso auth-provider-google" onclick="window.location.href='404.html'">
+                        <svg class="sso-icon" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17Z"/>
+                            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24Z"/>
+                            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 10.03 0 12s.45 3.82 1.25 5.42l4.03-3.15Z"/>
+                            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98Z"/>
+                        </svg>
+                        <span>Google</span>
+                    </button>
+                    <button type="button" class="btn-sso auth-provider-apple" onclick="window.location.href='404.html'">
+                        <i class="fa-brands fa-apple sso-icon" style="font-size: 19px; color: #000;"></i>
+                        <span>Apple</span>
+                    </button>
+                </div>
+
+                <!-- Divider -->
+                <div class="auth-divider">
+                    <span class="divider-line"></span>
+                    <span class="divider-text">OR SIGN IN WITH EMAIL</span>
+                    <span class="divider-line"></span>
+                </div>
+
+                <!-- Role Selector (Travelers & Admin) -->
+                <div class="role-selector-grid">
+                    <button type="button" class="btn-role active" id="roleTravelerBtn" onclick="selectRole('traveler')">
+                        <i class="fa-solid fa-compass"></i>
+                        <span>Travelers</span>
+                    </button>
+                    <button type="button" class="btn-role" id="roleAdminBtn" onclick="selectRole('admin')">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Admin</span>
+                    </button>
+                </div>
+
+                <!-- Form -->
+                <form class="auth-form" id="memberLoginForm" onsubmit="handleLoginSubmit(event)">
+                    <div class="input-block">
+                        <label for="memberEmail">Email Address</label>
+                        <div class="input-container">
+                            <i class="fa-regular fa-envelope input-prefix"></i>
+                            <input type="email" id="memberEmail" placeholder="name@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="input-block">
+                        <div class="input-header-row">
+                            <label for="memberPassword">Password</label>
+                            <a href="404.html" class="forgot-pass-link">Forgot Password?</a>
+                        </div>
+                        <div class="input-container">
+                            <i class="fa-solid fa-lock input-prefix"></i>
+                            <input type="password" id="memberPassword" placeholder="••••••••••••" required>
+                            <button type="button" class="toggle-password-btn" id="togglePassword" aria-label="Toggle password visibility">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me Option -->
+                    <div class="form-checkbox-row">
+                        <label class="custom-check-label">
+                            <input type="checkbox" checked id="rememberDevice">
+                            <span class="check-box-indicator"></span>
+                            <span class="check-text">Remember my device for 30 days</span>
+                        </label>
+                    </div>
+
+                    <!-- Submit CTA -->
+                    <button type="submit" class="btn-login-submit" id="loginSubmitBtn">
+                        <span id="submitBtnText">Sign In to Traveler Dashboard</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </form>
+
+                <!-- Signup Prompt -->
+                <div class="signup-prompt">
+                    Don't have an account? <a href="signup.html" class="signup-link">Sign Up for Membership</a>
+                </div>
+
+                <!-- Emerald Privilege Box -->
+                <div class="emerald-privilege-card">
+                    <div class="privilege-icon">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <div class="privilege-text">
+                        <strong>Emerald Tier Privileges:</strong> Enjoy direct charter access, private island transfers & zero reservation fees.
+                    </div>
+                </div>
+
+                <!-- Security & Legal Footer -->
+                <div class="auth-security-footer">
+                    <div class="security-guarantee">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>256-bit Bank Grade SSL Encryption</span>
+                        <span class="sep-dot">•</span>
+                        <span>Zero-Spam Pledge</span>
+                    </div>
+                    <div class="auth-legal-links">
+                        <a href="404.html">Privacy Policy</a>
+                        <a href="404.html">Terms of Service</a>
+                        <a href="404.html">Security</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
 
-    
-    <!-- GSAP Animations -->
+    <!-- GSAP Animations & Password Toggle Logic -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="js/animation.js"></script>
+    <script>
+        // Password Visibility Toggle
+        const toggleBtn = document.getElementById('togglePassword');
+        const passInput = document.getElementById('memberPassword');
+        if (toggleBtn && passInput) {
+            toggleBtn.addEventListener('click', () => {
+                const isPassword = passInput.type === 'password';
+                passInput.type = isPassword ? 'text' : 'password';
+                const icon = toggleBtn.querySelector('i');
+                if (icon) {
+                    if (isPassword) {
+                        icon.classList.remove('fa-eye');
+                        icon.classList.add('fa-eye-slash');
+                    } else {
+                        icon.classList.remove('fa-eye-slash');
+                        icon.classList.add('fa-eye');
+                    }
+                }
+            });
+        }
 
+        // Role Switching Logic (Travelers vs Admin)
+        let currentRole = 'traveler';
+
+        function selectRole(role) {
+            currentRole = role;
+            const travelerBtn = document.getElementById('roleTravelerBtn');
+            const adminBtn = document.getElementById('roleAdminBtn');
+            const emailInput = document.getElementById('memberEmail');
+            const submitBtnText = document.getElementById('submitBtnText');
+
+            if (role === 'traveler') {
+                travelerBtn.classList.add('active');
+                adminBtn.classList.remove('active');
+                if (emailInput) {
+                    emailInput.placeholder = 'name@example.com';
+                }
+                if (submitBtnText) {
+                    submitBtnText.textContent = 'Sign In to Traveler Dashboard';
+                }
+            } else {
+                adminBtn.classList.add('active');
+                travelerBtn.classList.remove('active');
+                if (emailInput) {
+                    emailInput.placeholder = 'admin@example.com';
+                }
+                if (submitBtnText) {
+                    submitBtnText.textContent = 'Sign In to Admin Dashboard';
+                }
+            }
+        }
+
+        function handleLoginSubmit(event) {
+            event.preventDefault();
+            if (currentRole === 'traveler') {
+                window.location.href = 'userdashboard.html';
+            } else {
+                window.location.href = 'admindashboard.html';
+            }
+        }
+
+        // Apple-style GSAP Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof gsap !== 'undefined') {
+                const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+                // Left visual panel smooth scale & fade in
+                tl.from('.login-visual-panel', {
+                    opacity: 0,
+                    duration: 1.1
+                })
+                .from('.login-visual-bg', {
+                    scale: 1.08,
+                    duration: 1.8,
+                    ease: 'power2.out'
+                }, '-=1.1')
+                .from('.visual-brand-header, .visual-center-target', {
+                    y: -20,
+                    opacity: 0,
+                    stagger: 0.15,
+                    duration: 0.7
+                }, '-=1.2')
+                .from('.visual-quote-card', {
+                    y: 35,
+                    opacity: 0,
+                    duration: 0.9,
+                    clearProps: 'all'
+                }, '-=0.9');
+
+                // Right panel Apple-like staggered cascade
+                tl.from('.panel-top-nav', {
+                    y: -15,
+                    opacity: 0,
+                    duration: 0.5
+                }, '-=1.1')
+                .from('.member-access-badge', {
+                    scale: 0.92,
+                    y: 10,
+                    opacity: 0,
+                    duration: 0.45
+                }, '-=0.8')
+                .from('.login-heading', {
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.65
+                }, '-=0.6')
+                .from('.login-subheading', {
+                    y: 15,
+                    opacity: 0,
+                    duration: 0.55,
+                    clearProps: 'all'
+                }, '-=0.5')
+                .from('.sso-auth-grid .btn-sso', {
+                    y: 15,
+                    opacity: 0,
+                    stagger: 0.1,
+                    duration: 0.45,
+                    clearProps: 'all'
+                }, '-=0.4')
+                .from('.auth-divider', {
+                    scaleX: 0.92,
+                    opacity: 0,
+                    duration: 0.35,
+                    clearProps: 'all'
+                }, '-=0.35')
+                .from('.role-selector-grid .btn-role', {
+                    y: 15,
+                    opacity: 0,
+                    stagger: 0.1,
+                    duration: 0.45,
+                    clearProps: 'all'
+                }, '-=0.3')
+                .from('.auth-form .input-block', {
+                    y: 15,
+                    opacity: 0,
+                    stagger: 0.1,
+                    duration: 0.45,
+                    clearProps: 'all'
+                }, '-=0.3')
+                .from('.form-checkbox-row, .btn-login-submit', {
+                    y: 15,
+                    opacity: 0,
+                    stagger: 0.1,
+                    duration: 0.45,
+                    clearProps: 'all'
+                }, '-=0.2')
+                .from('.signup-prompt, .emerald-privilege-card, .auth-security-footer', {
+                    y: 15,
+                    opacity: 0,
+                    stagger: 0.1,
+                    duration: 0.55,
+                    clearProps: 'all'
+                }, '-=0.3');
+
+                // Continuous subtle ambient levitation for the compass emblem
+                gsap.to('.visual-center-target', {
+                    y: '-=10',
+                    duration: 3.5,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: 'sine.inOut'
+                });
+            }
+        });
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>

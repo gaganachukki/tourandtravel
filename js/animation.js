@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         gsap.registerPlugin(ScrollTrigger);
 
         // 1. Hero Sections (Index, Destinations, Tour Packages)
-        const heroSelectors = ".contact-hero h1, .contact-hero p, .contact-hero .contact-badge, .contact-hero .hero-actions, .contact-hero .hero-features, .flight-hero h1, .flight-hero p, .flight-hero .flight-badge, .flight-hero .flight-search-box, .hotel-hero h1, .hotel-hero p, .hotel-hero .hotel-badge, .hotel-hero .hotel-search-bar, .hotel-hero .hotel-filters, .hero h1, .hero p, .hero-badge, .hero .search-widget, .dest-hero h1, .dest-hero p, .dest-badge, .dest-search, .dest-filters, .tp-hero h1, .tp-hero p, .tp-badge, .tp-search-bar";
+        const heroSelectors = ".contact-hero h1, .contact-hero p, .contact-hero .contact-badge, .contact-hero .hero-actions, .contact-hero .hero-features, .flight-hero h1, .flight-hero p, .flight-hero .flight-badge, .flight-hero .flight-search-box, .hotel-hero h1, .hotel-hero p, .hotel-hero .hotel-badge, .hotel-hero .hotel-search-bar, .hotel-hero .hotel-filters, .hero h1, .hero p, .hero-badge, .hero .hero-actions, .hero .search-widget, .dest-hero h1, .dest-hero p, .dest-badge, .dest-search, .dest-filters, .tp-hero h1, .tp-hero p, .tp-badge, .tp-search-bar";
         const heroElements = document.querySelectorAll(heroSelectors);
         if (heroElements.length > 0) {
             gsap.from(heroElements, {
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 opacity: 0,
                 duration: 0.8,
                 ease: "power2.out",
-                clearProps: "all"
+                clearProps: "transform,opacity"
             });
         });
 

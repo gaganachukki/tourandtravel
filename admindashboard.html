@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Tour & Travel Booking</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Admin Dashboard CSS -->
+    <link rel="stylesheet" href="css/admindashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- ==========================================================================
+             SIDEBAR NAVIGATION (MATCHING SCREENSHOT 2)
+             ========================================================================== -->
+        <aside class="sidebar" id="sidebar">
+            <!-- Brand Logo -->
+            <div class="sidebar-brand">
+                <a href="index.html" class="brand-link">
+                    <img src="assets/logo.webp" alt="Tour & Travel Booking Logo">
+                </a>
+                <button class="close-sidebar-btn" id="closeSidebarBtn" aria-label="Close Sidebar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Admin Profile Box -->
+            <div class="admin-profile-badge">
+                <div class="admin-avatar-lime">A</div>
+                <div class="admin-info">
+                    <div class="admin-name-row">
+                        <span class="admin-name">Admin</span>
+                        <i class="fa-solid fa-circle-check admin-verify-icon"></i>
+                    </div>
+                    <span class="admin-email">admin@tourtravel.com</span>
+                    <span class="badge-pill-super">SUPER ADMIN</span>
+                </div>
+            </div>
+
+            <!-- Main Nav Section -->
+            <div class="nav-section">
+                <div class="nav-section-title">MAIN</div>
+                <ul class="nav-list">
+                    <li class="nav-item active">
+                        <a href="#dashboard" data-view="dashboard" class="nav-view-btn">
+                            <i class="fa-solid fa-table-columns"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#users" data-view="users" class="nav-view-btn">
+                            <i class="fa-solid fa-users"></i>
+                            <span>Users</span>
+                            <span class="nav-badge-pill">2,548</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#bookings" data-view="bookings" class="nav-view-btn">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <span>Bookings</span>
+                            <span class="nav-badge-pill">3,275</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#packages" data-view="packages" class="nav-view-btn">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <span>Tour Packages</span>
+                            <span class="nav-badge-pill">28</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#reports" data-view="reports" class="nav-view-btn">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- System Section -->
+            <div class="nav-section" style="padding-bottom: 24px;">
+                <div class="nav-section-title">SYSTEM</div>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#customers" data-view="customers" class="nav-view-btn">
+                            <i class="fa-solid fa-user-check"></i>
+                            <span>Current Customer</span>
+                            <span class="nav-badge-pill" style="background: rgba(242, 106, 29, 0.2); color: #fb923c; border: 1px solid rgba(242, 106, 29, 0.35); font-weight: 700;">18 Live</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#settings" data-view="settings" class="nav-view-btn">
+                            <i class="fa-solid fa-gear"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-item-logout">
+                        <a href="login.html">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- ==========================================================================
+             MAIN CONTENT WRAPPER
+             ========================================================================== -->
+        <main class="main-wrapper">
+            <!-- Topbar (Screenshot 2) -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="mobile-toggle-btn" id="openSidebarBtn" aria-label="Open Sidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <span class="topbar-title" id="topbarPageTitle">Admin Dashboard</span>
+                </div>
+
+                <div class="topbar-right">
+                    <!-- Search input -->
+                    <div class="admin-search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search members, bookings, packages..." id="adminSearchInput" onkeyup="filterAdminTable()">
+                    </div>
+
+                    <!-- Notification Bell -->
+                    <div class="notif-btn-wrapper">
+                        <button class="icon-btn-circle" onclick="toggleNotifDropdown()" aria-label="Notifications">
+                            <i class="fa-regular fa-bell"></i>
+                            <span class="notif-badge-red">12</span>
+                        </button>
+                        <!-- Dropdown -->
+                        <div id="adminNotifDropdown" style="display: none; position: absolute; right: 0; top: 50px; width: 320px; background: #ffffff; border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 100;">
+                            <div style="font-weight: 700; color: var(--text-pure); margin-bottom: 10px; display: flex; justify-content: space-between;">
+                                <span>Recent System Alerts</span>
+                                <span style="font-size: 11px; color: var(--accent-orange); font-weight: 700;">12 New</span>
+                            </div>
+                            <div style="font-size: 12px; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px;">
+                                <div style="padding: 10px; background: #f8fafc; border: 1px solid #eef2f6; border-radius: 8px;">
+                                    <strong style="color: var(--text-pure);">New Booking: #TRV-8941</strong>
+                                    <p style="font-size: 11.5px; margin-top: 2px; color: var(--text-secondary);">Gaganachukki booked Bali Nature Escape ($1,850).</p>
+                                </div>
+                                <div style="padding: 10px; background: #f8fafc; border: 1px solid #eef2f6; border-radius: 8px;">
+                                    <strong style="color: var(--text-pure);">Flight Schedule Changed</strong>
+                                    <p style="font-size: 11.5px; margin-top: 2px; color: var(--text-secondary);">Emirates EK-302 departure gate confirmed.</p>
+                                </div>
+                                <div style="padding: 10px; background: #fff7ed; border: 1px solid #fed7aa; border-radius: 8px;">
+                                    <strong style="color: var(--accent-orange);">Revenue Goal Reached</strong>
+                                    <p style="font-size: 11.5px; margin-top: 2px; color: var(--text-secondary);">Monthly target surpassed by +20.4%!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Date Pill (Screenshot 2) -->
+                    <div class="date-pill">
+                        <span>12 Oct 2026</span>
+                        <i class="fa-regular fa-calendar"></i>
+                    </div>
+
+                    <!-- Export Report Button (Screenshot 2) -->
+                    <button class="btn-export-report" onclick="openExportModal()">
+                        <i class="fa-solid fa-download"></i>
+                        <span>Export Report</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Page Body -->
+            <div class="content-body">
+                <!-- ==============================================================
+                     VIEW 1: DASHBOARD OVERVIEW
+                     ============================================================== -->
+                <div class="dashboard-view active" id="view-dashboard">
+                    <!-- Overview Section -->
+                    <div class="overview-header">
+                        <div>
+                            <h2 class="overview-title">Overview</h2>
+                            <p class="overview-subtitle">Welcome back, <strong>Admin!</strong> Here's what's happening today.</p>
+                        </div>
+                    </div>
+
+                    <!-- 5 Metric Cards -->
+                    <section class="metrics-grid-5">
+                        <div class="metric-card">
+                            <div>
+                                <div class="metric-card-header">
+                                    <div class="metric-icon-box metric-icon-purple"><i class="fa-solid fa-users"></i></div>
+                                    <span class="metric-label">Total Members</span>
+                                </div>
+                                <div class="metric-value">2,548</div>
+                            </div>
+                            <div class="metric-trend"><i class="fa-solid fa-arrow-up"></i><span>12.5% vs last month</span></div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div>
+                                <div class="metric-card-header">
+                                    <div class="metric-icon-box metric-icon-lime"><i class="fa-solid fa-arrows-up-down-left-right"></i></div>
+                                    <span class="metric-label">Active Members</span>
+                                </div>
+                                <div class="metric-value">1,842</div>
+                            </div>
+                            <div class="metric-trend"><i class="fa-solid fa-arrow-up"></i><span>15.3% vs last month</span></div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div>
+                                <div class="metric-card-header">
+                                    <div class="metric-icon-box metric-icon-orange"><i class="fa-solid fa-book-open"></i></div>
+                                    <span class="metric-label">Total Programs</span>
+                                </div>
+                                <div class="metric-value">28</div>
+                            </div>
+                            <div class="metric-trend"><i class="fa-solid fa-arrow-up"></i><span>5.6% vs last month</span></div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div>
+                                <div class="metric-card-header">
+                                    <div class="metric-icon-box metric-icon-blue"><i class="fa-regular fa-calendar-days"></i></div>
+                                    <span class="metric-label">Total Bookings</span>
+                                </div>
+                                <div class="metric-value">3,275</div>
+                            </div>
+                            <div class="metric-trend"><i class="fa-solid fa-arrow-up"></i><span>18.7% vs last month</span></div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div>
+                                <div class="metric-card-header">
+                                    <div class="metric-icon-box metric-icon-pink"><i class="fa-solid fa-dollar-sign"></i></div>
+                                    <span class="metric-label">Total Revenue</span>
+                                </div>
+                                <div class="metric-value">$24,580</div>
+                            </div>
+                            <div class="metric-trend"><i class="fa-solid fa-arrow-up"></i><span>20.4% vs last month</span></div>
+                        </div>
+                    </section>
+
+                    <!-- Charts Row -->
+                    <section class="charts-grid" style="margin-top: 24px;">
+                        <!-- Member Growth Chart -->
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <div class="chart-title-group">
+                                    <i class="fa-solid fa-chart-line chart-title-icon"></i>
+                                    <h3 class="chart-title">Member Growth</h3>
+                                </div>
+                                <select class="chart-select-filter" onchange="updateGrowthChart(this.value)">
+                                    <option value="year">This Year</option>
+                                    <option value="6m">Last 6 Months</option>
+                                    <option value="quarter">This Quarter</option>
+                                </select>
+                            </div>
+
+                            <div class="line-chart-container">
+                                <svg class="line-chart-svg" viewBox="0 0 680 220" preserveAspectRatio="none">
+                                    <defs>
+                                        <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" stop-color="#f26a1d" stop-opacity="0.35" />
+                                            <stop offset="100%" stop-color="#f26a1d" stop-opacity="0.0" />
+                                        </linearGradient>
+                                    </defs>
+                                    <line x1="40" y1="30" x2="650" y2="30" class="chart-grid-line" />
+                                    <line x1="40" y1="80" x2="650" y2="80" class="chart-grid-line" />
+                                    <line x1="40" y1="130" x2="650" y2="130" class="chart-grid-line" />
+                                    <line x1="40" y1="180" x2="650" y2="180" class="chart-grid-line" />
+                                    <path class="chart-area-fill" d="M 50 180 Q 120 172, 190 155 T 330 130 T 470 95 T 610 80 L 610 180 L 50 180 Z" />
+                                    <path class="chart-line-path" d="M 50 180 Q 120 172, 190 155 T 330 130 T 470 95 T 610 80" />
+                                    <circle class="chart-point" cx="50" cy="180" onmouseover="showChartTooltip(evt, 'Jan: 620 Members')" onmouseout="hideChartTooltip()" />
+                                    <circle class="chart-point" cx="130" cy="168" onmouseover="showChartTooltip(evt, 'Feb: 840 Members')" onmouseout="hideChartTooltip()" />
+                                    <circle class="chart-point" cx="210" cy="150" onmouseover="showChartTooltip(evt, 'Mar: 1,120 Members')" onmouseout="hideChartTooltip()" />
+                                    <circle class="chart-point" cx="290" cy="136" onmouseover="showChartTooltip(evt, 'Apr: 1,450 Members')" onmouseout="hideChartTooltip()" />
+                                    <circle class="chart-point" cx="370" cy="120" onmouseover="showChartTooltip(evt, 'May: 1,780 Members')" onmouseout="hideChartTooltip()" />
+                                    <circle class="chart-point" cx="450" cy="100" onmouseover="showChartTooltip(evt, 'Jun: 2,050 Members')" onmouseout="hideChartTooltip()" />
+                                    <circle class="chart-point" cx="530" cy="90" onmouseover="showChartTooltip(evt, 'Jul: 2,290 Members')" onmouseout="hideChartTooltip()" />
+                                    <circle class="chart-point" cx="610" cy="80" onmouseover="showChartTooltip(evt, 'Aug: 2,548 Members')" onmouseout="hideChartTooltip()" />
+                                    <text x="50" y="205" text-anchor="middle" class="chart-axis-label">Jan</text>
+                                    <text x="130" y="205" text-anchor="middle" class="chart-axis-label">Feb</text>
+                                    <text x="210" y="205" text-anchor="middle" class="chart-axis-label">Mar</text>
+                                    <text x="290" y="205" text-anchor="middle" class="chart-axis-label">Apr</text>
+                                    <text x="370" y="205" text-anchor="middle" class="chart-axis-label">May</text>
+                                    <text x="450" y="205" text-anchor="middle" class="chart-axis-label">Jun</text>
+                                    <text x="530" y="205" text-anchor="middle" class="chart-axis-label">Jul</text>
+                                    <text x="610" y="205" text-anchor="middle" class="chart-axis-label">Aug</text>
+                                </svg>
+                                <div id="chartTooltip" style="position: absolute; display: none; background: #0f172a; border: 1px solid var(--accent-orange); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 11px; pointer-events: none; z-index: 10;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Program Statistics Donut Chart -->
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3 class="chart-title">Program Statistics</h3>
+                                <a href="javascript:void(0)" onclick="switchDashboardView('packages')" style="font-size: 12.5px; color: var(--accent-orange); font-weight: 600;">View Catalog →</a>
+                            </div>
+
+                            <div class="donut-chart-container">
+                                <div class="donut-svg-wrapper">
+                                    <svg class="donut-svg" viewBox="0 0 100 100">
+                                        <circle cx="50" cy="50" r="40" fill="transparent" stroke="rgba(255,255,255,0.04)" stroke-width="15" />
+                                        <circle cx="50" cy="50" r="40" fill="transparent" stroke="#8b5cf6" stroke-width="15" stroke-dasharray="71.8 251.2" stroke-dashoffset="0" />
+                                        <circle cx="50" cy="50" r="40" fill="transparent" stroke="#22c55e" stroke-width="15" stroke-dasharray="53.7 251.2" stroke-dashoffset="-71.8" />
+                                        <circle cx="50" cy="50" r="40" fill="transparent" stroke="#f97316" stroke-width="15" stroke-dasharray="45 251.2" stroke-dashoffset="-125.5" />
+                                        <circle cx="50" cy="50" r="40" fill="transparent" stroke="#38bdf8" stroke-width="15" stroke-dasharray="45 251.2" stroke-dashoffset="-170.5" />
+                                        <circle cx="50" cy="50" r="40" fill="transparent" stroke="#eab308" stroke-width="15" stroke-dasharray="35.7 251.2" stroke-dashoffset="-215.5" />
+                                    </svg>
+                                    <div class="donut-center-text">
+                                        <span class="donut-center-number">28</span>
+                                        <span class="donut-center-sub">Programs</span>
+                                    </div>
+                                </div>
+
+                                <div class="donut-legend">
+                                    <div class="legend-item"><div class="legend-left"><div class="legend-dot" style="background: #8b5cf6;"></div><span class="legend-name">Strength / Beach</span></div><div class="legend-right"><span>8</span><span class="legend-pct">(28.6%)</span></div></div>
+                                    <div class="legend-item"><div class="legend-left"><div class="legend-dot" style="background: #22c55e;"></div><span class="legend-name">Cardio / Mountain</span></div><div class="legend-right"><span>6</span><span class="legend-pct">(21.4%)</span></div></div>
+                                    <div class="legend-item"><div class="legend-left"><div class="legend-dot" style="background: #f97316;"></div><span class="legend-name">Yoga / Cultural</span></div><div class="legend-right"><span>5</span><span class="legend-pct">(17.9%)</span></div></div>
+                                    <div class="legend-item"><div class="legend-left"><div class="legend-dot" style="background: #38bdf8;"></div><span class="legend-name">HIIT / Cruise</span></div><div class="legend-right"><span>5</span><span class="legend-pct">(17.9%)</span></div></div>
+                                    <div class="legend-item"><div class="legend-left"><div class="legend-dot" style="background: #eab308;"></div><span class="legend-name">Other / Safari</span></div><div class="legend-right"><span>4</span><span class="legend-pct">(14.2%)</span></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Recent Inquiries Section Preview -->
+                    <section class="admin-table-card" style="margin-top: 24px;">
+                        <div class="table-header-row">
+                            <div>
+                                <h3 class="table-title">Recent Activity & Booking Requests</h3>
+                                <p style="font-size: 12.5px; color: var(--text-secondary); margin-top: 2px;">Latest incoming traveler submissions</p>
+                            </div>
+                            <button class="btn-trip-outline" style="padding: 6px 14px; font-size: 12.5px; color: var(--accent-orange); border-color: rgba(242,106,29,0.3);" onclick="switchDashboardView('bookings')">
+                                View All Bookings <i class="fa-solid fa-arrow-right" style="margin-left: 4px;"></i>
+                            </button>
+                        </div>
+                        <div style="overflow-x: auto; width: 100%;">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Ref</th>
+                                        <th>Traveler</th>
+                                        <th>Destination</th>
+                                        <th>Travel Date</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th style="text-align: right;">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="font-family: var(--font-heading); font-weight: 700; color: var(--accent-orange);">#TRV-8941</td>
+                                        <td><strong>Gaganachukki</strong></td>
+                                        <td>Bali Nature Escape & Ubud</td>
+                                        <td>28 Oct 2026</td>
+                                        <td style="font-weight: 700; color: var(--text-pure);">$1,850.00</td>
+                                        <td><span class="status-pill status-confirmed">Confirmed</span></td>
+                                        <td style="text-align: right;">
+                                            <button class="btn-action-icon" title="View" onclick="switchDashboardView('bookings')"><i class="fa-solid fa-eye"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-family: var(--font-heading); font-weight: 700; color: var(--accent-orange);">#TRV-8714</td>
+                                        <td><strong>Sarah Jenkins</strong></td>
+                                        <td>Dubai Skyline & Desert Safari</td>
+                                        <td>18 Nov 2026</td>
+                                        <td style="font-weight: 700; color: var(--text-pure);">$950.00</td>
+                                        <td><span class="status-pill status-pending">Pending Approval</span></td>
+                                        <td style="text-align: right;">
+                                            <button class="btn-action-icon" title="Approve" onclick="switchDashboardView('bookings')"><i class="fa-solid fa-check"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ==============================================================
+                     VIEW 2: USERS & MEMBERS DIRECTORY
+                     ============================================================== -->
+                <div class="dashboard-view" id="view-users">
+                    <div class="overview-header" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px;">
+                        <div>
+                            <h2 class="overview-title">Users & Members Directory</h2>
+                            <p class="overview-subtitle">Manage travelers, concierge operators, and system accounts.</p>
+                        </div>
+                        <button class="btn-export-report" onclick="showToast('Add Member modal initialized.')" style="padding: 10px 18px;">
+                            <i class="fa-solid fa-user-plus"></i> Add New Member
+                        </button>
+                    </div>
+
+                    <!-- User KPI Metric Chips -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 20px 0 24px;">
+                        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+                            <span style="font-size: 11.5px; color: var(--text-secondary); text-transform: uppercase;">Total Registered</span>
+                            <div style="font-size: 22px; font-weight: 800; color: var(--text-pure); margin-top: 4px;">2,548</div>
+                        </div>
+                        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+                            <span style="font-size: 11.5px; color: var(--text-secondary); text-transform: uppercase;">Active Travelers</span>
+                            <div style="font-size: 22px; font-weight: 800; color: var(--accent-orange); margin-top: 4px;">2,190</div>
+                        </div>
+                        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+                            <span style="font-size: 11.5px; color: var(--text-secondary); text-transform: uppercase;">Admins & Agents</span>
+                            <div style="font-size: 22px; font-weight: 800; color: #8b5cf6; margin-top: 4px;">12</div>
+                        </div>
+                        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+                            <span style="font-size: 11.5px; color: var(--text-secondary); text-transform: uppercase;">New This Month</span>
+                            <div style="font-size: 22px; font-weight: 800; color: #3b82f6; margin-top: 4px;">+184</div>
+                        </div>
+                    </div>
+
+                    <!-- Members Table Card -->
+                    <div class="admin-table-card">
+                        <div class="table-header-row">
+                            <div class="admin-search-box" style="margin-right: auto; max-width: 320px;">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" placeholder="Search members by name or email..." id="usersSearchInput" onkeyup="filterUsersDirectory()">
+                            </div>
+                            <div class="table-filter-group">
+                                <button class="table-filter-btn active" onclick="filterUserRole('all', this)">All</button>
+                                <button class="table-filter-btn" onclick="filterUserRole('traveler', this)">Travelers</button>
+                                <button class="table-filter-btn" onclick="filterUserRole('admin', this)">Admins</button>
+                            </div>
+                        </div>
+
+                        <div style="overflow-x: auto; width: 100%;">
+                            <table class="admin-table" id="adminUsersDirectoryTable">
+                                <thead>
+                                    <tr>
+                                        <th>Traveler / Member</th>
+                                        <th>Role</th>
+                                        <th>Trips Booked</th>
+                                        <th>Total Spent</th>
+                                        <th>Status</th>
+                                        <th>Member Since</th>
+                                        <th style="text-align: right;">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-role="traveler">
+                                        <td>
+                                            <div class="traveler-user-cell">
+                                                <div class="traveler-avatar-circle" style="background: #8b5cf6;">G</div>
+                                                <div>
+                                                    <div class="traveler-name">Gaganachukki</div>
+                                                    <div class="traveler-email">email@gmail.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge-pill-super" style="color: #7c3aed; border-color: rgba(139,92,246,0.3); background: #f5f3ff;">Wanderlust Elite</span></td>
+                                        <td>24 Trips</td>
+                                        <td style="font-weight: 700; color: var(--text-pure);">$14,250</td>
+                                        <td><span class="status-pill status-confirmed">Active</span></td>
+                                        <td>Jan 2025</td>
+                                        <td style="text-align: right;">
+                                            <button class="btn-action-icon" title="View Profile" onclick="showToast('Viewing traveler profile: Gaganachukki')"><i class="fa-solid fa-user-gear"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr data-role="traveler">
+                                        <td>
+                                            <div class="traveler-user-cell">
+                                                <div class="traveler-avatar-circle" style="background: #06b6d4;">M</div>
+                                                <div>
+                                                    <div class="traveler-name">Michael Scott</div>
+                                                    <div class="traveler-email">michael.s@dunder.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge-pill-super" style="color: #0284c7; border-color: rgba(6,182,212,0.3); background: #f0f9ff;">Traveler</span></td>
+                                        <td>8 Trips</td>
+                                        <td style="font-weight: 700; color: var(--text-pure);">$5,800</td>
+                                        <td><span class="status-pill status-confirmed">Active</span></td>
+                                        <td>Mar 2025</td>
+                                        <td style="text-align: right;">
+                                            <button class="btn-action-icon" title="View Profile" onclick="showToast('Viewing traveler profile: Michael Scott')"><i class="fa-solid fa-user-gear"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr data-role="traveler">
+                                        <td>
+                                            <div class="traveler-user-cell">
+                                                <div class="traveler-avatar-circle" style="background: #f59e0b;">S</div>
+                                                <div>
+                                                    <div class="traveler-name">Sarah Jenkins</div>
+                                                    <div class="traveler-email">sarah.j@travel.org</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge-pill-super" style="color: #d97706; border-color: rgba(245,158,11,0.3); background: #fffbeb;">Traveler</span></td>
+                                        <td>3 Trips</td>
+                                        <td style="font-weight: 700; color: var(--text-pure);">$2,450</td>
+                                        <td><span class="status-pill status-confirmed">Active</span></td>
+                                        <td>Jun 2025</td>
+                                        <td style="text-align: right;">
+                                            <button class="btn-action-icon" title="View Profile" onclick="showToast('Viewing traveler profile: Sarah Jenkins')"><i class="fa-solid fa-user-gear"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr data-role="traveler">
+                                        <td>
+                                            <div class="traveler-user-cell">
+                                                <div class="traveler-avatar-circle" style="background: #ec4899;">E</div>
+                                                <div>
+                                                    <div class="traveler-name">Elena Rostova</div>
+                                                    <div class="traveler-email">elena.r@eurotravel.de</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge-pill-super" style="color: #db2777; border-color: rgba(236,72,153,0.3); background: #fdf2f8;">Traveler</span></td>
+                                        <td>12 Trips</td>
+                                        <td style="font-weight: 700; color: var(--text-pure);">$9,100</td>
+                                        <td><span class="status-pill status-confirmed">Active</span></td>
+                                        <td>Nov 2024</td>
+                                        <td style="text-align: right;">
+                                            <button class="btn-action-icon" title="View Profile" onclick="showToast('Viewing traveler profile: Elena Rostova')"><i class="fa-solid fa-user-gear"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr data-role="admin">
+                                        <td>
+                                            <div class="traveler-user-cell">
+                                                <div class="traveler-avatar-circle" style="background: #16a34a;">A</div>
+                                                <div>
+                                                    <div class="traveler-name">Admin Officer</div>
+                                                    <div class="traveler-email">admin@stackly.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge-pill-super">Super Admin</span></td>
+                                        <td>-</td>
+                                        <td style="font-weight: 700; color: var(--text-pure);">-</td>
+                                        <td><span class="status-pill status-confirmed">Staff</span></td>
+                                        <td>Founder</td>
+                                        <td style="text-align: right;">
+                                            <button class="btn-action-icon" title="Settings" onclick="switchDashboardView('settings')"><i class="fa-solid fa-gear"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==============================================================
+                     VIEW 3: ALL BOOKINGS MANAGEMENT
+                     ============================================================== -->
+                <div class="dashboard-view" id="view-bookings">
+                    <div class="overview-header" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px;">
+                        <div>
+                            <h2 class="overview-title">Bookings Management</h2>
+                            <p class="overview-subtitle">Manage customer reservations, dispatch travel vouchers, and approve pending inquiries.</p>
+                        </div>
+                        <button class="btn-export-report" onclick="openExportModal()" style="padding: 10px 18px;">
+                            <i class="fa-solid fa-file-export"></i> Export Report
+                        </button>
+                    </div>
+
+                    <!-- Bookings Table Card -->
+                    <section class="admin-table-card" id="bookings-table-section" style="margin-top: 20px;">
+                        <div class="table-header-row">
+                            <div class="admin-search-box" style="margin-right: auto; max-width: 300px;">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" placeholder="Search reference, traveler, package..." id="adminSearchInput2" onkeyup="filterAdminTable2()">
+                            </div>
+                            <div class="table-filter-group">
+                                <button class="table-filter-btn active" onclick="filterAdminStatus('all', this)">All</button>
+                                <button class="table-filter-btn" onclick="filterAdminStatus('confirmed', this)">Confirmed</button>
+                                <button class="table-filter-btn" onclick="filterAdminStatus('pending', this)">Pending</button>
+                                <button class="table-filter-btn" onclick="filterAdminStatus('cancelled', this)">Cancelled</button>
+                            </div>
+                        </div>
+
+                        <div style="overflow-x: auto; width: 100%;">
+                            <table class="admin-table" id="adminBookingsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Booking Ref</th>
+                                        <th>Traveler / Member</th>
+                                        <th>Package / Destination</th>
+                                        <th>Travel Date</th>
+                                        <th>Total Revenue</th>
+                                        <th>Status</th>
+                                        <th style="text-align: right;">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-status="confirmed">
+                                        <td style="font-family: var(--font-heading); font-weight: 700; color: var(--accent-orange);">#TRV-8941</td>
+                                        <td>
+                                            <div class="traveler-user-cell">
+                                                <div class="traveler-avatar-circle" style="background: #8b5cf6;">G</div>
+                                                <div>
+                                                    <div class="traveler-name">Gaganachukki</div>
+                                                    <div class="traveler-email">email@gmail.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Bali Nature Escape & Ubud Retreat</td>
+                                        <td>28 Oct 2026</td>
+                                        <td style="font-weight: 700; color: var(--text-pure);">$1,850.00</td>
+                                        <td><span class="status-pill status-confirmed">Confirmed</span></td>
+                                        <td style="text-align: right;">
+                                            <button class="btn-action-icon" title="View Details" onclick="showToast('Viewing details for booking #TRV-8941')"><i class="fa-solid fa-eye"></i></button>
+                                            <button class="btn-action-icon" title="Download Invoice" onclick="showToast('Invoice generated for Gaganachukki')"><i class="fa-solid fa-file-invoice-dollar"></i></button>
+                                        </td>
+                                    </tr>
+
+                                    <tr data-status="confirmed">
+                                        <td style="font-family: var(--font-heading); font-weight: 700; color: var(--accent-orange);">#TRV-8820</td>
+                                        <td>
+                                            <div class="traveler-user-cell">
+                                                <div class="traveler-avatar-circle" style="background: #06b6d4;">M</div>
+                                                <div>
+                                                    <div class="traveler-name">Michael Scott</div>
+                                                    <div class="traveler-email">michael.s@dunder.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Swiss Alps Luxury Chalet & Ski</td>
+                                        <td>15 Dec 2026</td>
+                                        <td style="font-weight: 700; color: var(--text-pure);">$2,400.00</td>
+                                        <td><span class="status-pill status-confirmed">Confirmed</span></td>
+                                        <td style="text-align: right;">
+                                            <button class="btn-action-icon" title="View Details" onclick="showToast('Viewing details for booking #TRV-8820')"><i class="fa-solid fa-eye"></i></button>
+                                            <button class="btn-action-icon" title="Download Invoice" onclick="showToast('Invoice generated for Michael Scott')"><i class="fa-solid fa-file-invoice-dollar"></i></button>
+                                        </td>
+                                    </tr>
+
+                                    <tr data-status="pending">
+                                        <td style="font-family: var(--font-heading); font-weight: 700; color: var(--accent-orange);">#TRV-8714</td>
+                                        <td>
+                                            <div class="traveler-user-cell">
+                                                <div class="traveler-avatar-circle" style="background: #f59e0b;">S</div>
+                                                <div>
+                                                    <div class="traveler-name">Sarah Jenkins</div>
+                                                    <div class="traveler-email">sarah.j@travel.org</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Dubai Skyline & Desert Safari</td>
+                                        <td>18 Nov 2026</td>
+                                        <td style="font-weight: 700; color: var(--text-pure);">$950.00</td>
+                                        <td><span class="status-pill status-pending">Pending Approval</span></td>
+                                        <td style="text-align: right;">
+                                            <button class="btn-action-icon" title="Approve Booking" onclick="approveBooking(this)"><i class="fa-solid fa-check"></i></button>
+                                            <button class="btn-action-icon" title="Reject" onclick="rejectBooking(this)"><i class="fa-solid fa-xmark"></i></button>
+                                        </td>
+                                    </tr>
+
+                                    <tr data-status="confirmed">
+                                        <td style="font-family: var(--font-heading); font-weight: 700; color: var(--accent-orange);">#TRV-8650</td>
+                                        <td>
+                                            <div class="traveler-user-cell">
+                                                <div class="traveler-avatar-circle" style="background: #ec4899;">E</div>
+                                                <div>
+                                                    <div class="traveler-name">Elena Rostova</div>
+                                                    <div class="traveler-email">elena.r@eurotravel.de</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Maldives Sunset Water Villa</td>
+                                        <td>04 Nov 2026</td>
+                                        <td style="font-weight: 700; color: var(--text-pure);">$2,150.00</td>
+                                        <td><span class="status-pill status-confirmed">Confirmed</span></td>
+                                        <td style="text-align: right;">
+                                            <button class="btn-action-icon" title="View Details" onclick="showToast('Viewing details for booking #TRV-8650')"><i class="fa-solid fa-eye"></i></button>
+                                            <button class="btn-action-icon" title="Download Invoice" onclick="showToast('Invoice generated for Elena Rostova')"><i class="fa-solid fa-file-invoice-dollar"></i></button>
+                                        </td>
+                                    </tr>
+
+                                    <tr data-status="cancelled">
+                                        <td style="font-family: var(--font-heading); font-weight: 700; color: var(--accent-orange);">#TRV-8490</td>
+                                        <td>
+                                            <div class="traveler-user-cell">
+                                                <div class="traveler-avatar-circle" style="background: #ef4444;">D</div>
+                                                <div>
+                                                    <div class="traveler-name">David Chen</div>
+                                                    <div class="traveler-email">david.c@techasia.com</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Kyoto & Tokyo Blossom Experience</td>
+                                        <td>20 Oct 2026</td>
+                                        <td style="font-weight: 700; color: var(--text-pure);">$3,100.00</td>
+                                        <td><span class="status-pill status-cancelled">Cancelled</span></td>
+                                        <td style="text-align: right;">
+                                            <button class="btn-action-icon" title="Reactivate" onclick="showToast('Booking #TRV-8490 restored to pending')"><i class="fa-solid fa-rotate-left"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ==============================================================
+                     VIEW 4: TOUR PACKAGES CATALOG
+                     ============================================================== -->
+                <div class="dashboard-view" id="view-packages">
+                    <div class="overview-header" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px;">
+                        <div>
+                            <h2 class="overview-title">Tour Packages Catalog</h2>
+                            <p class="overview-subtitle">Manage vacation programs, itineraries, pricing tiers, and capacity.</p>
+                        </div>
+                        <button class="btn-export-report" onclick="showToast('Package creator wizard initialized.')" style="padding: 10px 18px;">
+                            <i class="fa-solid fa-plus"></i> Create New Package
+                        </button>
+                    </div>
+
+                    <div class="admin-packages-grid">
+                        <div class="admin-pkg-card">
+                            <img src="assets/photo-1537996194471-e657df975ab4.webp" alt="Bali" class="admin-pkg-img">
+                            <div class="admin-pkg-body">
+                                <div class="admin-pkg-header">
+                                    <span class="admin-pkg-badge">Tropical Escape</span>
+                                    <span style="font-size: 11px; color: #22c55e; font-weight: 700;">● Active</span>
+                                </div>
+                                <h4 class="admin-pkg-title">Bali Nature Escape & Ubud</h4>
+                                <div class="admin-pkg-meta">
+                                    <span><i class="fa-regular fa-clock"></i> 7 Days</span>
+                                    <span><i class="fa-solid fa-users"></i> 142 Bookings</span>
+                                </div>
+                                <div class="admin-pkg-footer">
+                                    <span class="admin-pkg-price">$1,850</span>
+                                    <button class="btn-trip-outline" style="padding: 5px 12px; font-size: 11px;" onclick="showToast('Editing Bali package settings')">Manage</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="admin-pkg-card">
+                            <img src="assets/photo-1530122037265-a5f1f91d3b99.webp" alt="Swiss Alps" class="admin-pkg-img">
+                            <div class="admin-pkg-body">
+                                <div class="admin-pkg-header">
+                                    <span class="admin-pkg-badge">Alpine Chalet</span>
+                                    <span style="font-size: 11px; color: #22c55e; font-weight: 700;">● Active</span>
+                                </div>
+                                <h4 class="admin-pkg-title">Swiss Alps Luxury Chalet & Ski</h4>
+                                <div class="admin-pkg-meta">
+                                    <span><i class="fa-regular fa-clock"></i> 8 Days</span>
+                                    <span><i class="fa-solid fa-users"></i> 98 Bookings</span>
+                                </div>
+                                <div class="admin-pkg-footer">
+                                    <span class="admin-pkg-price">$2,400</span>
+                                    <button class="btn-trip-outline" style="padding: 5px 12px; font-size: 11px;" onclick="showToast('Editing Swiss Alps package')">Manage</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="admin-pkg-card">
+                            <img src="assets/photo-1512453979798-5ea266f8880c.webp" alt="Dubai" class="admin-pkg-img">
+                            <div class="admin-pkg-body">
+                                <div class="admin-pkg-header">
+                                    <span class="admin-pkg-badge">Desert Safari</span>
+                                    <span style="font-size: 11px; color: #22c55e; font-weight: 700;">● Active</span>
+                                </div>
+                                <h4 class="admin-pkg-title">Dubai Luxury Skyline & Desert</h4>
+                                <div class="admin-pkg-meta">
+                                    <span><i class="fa-regular fa-clock"></i> 5 Days</span>
+                                    <span><i class="fa-solid fa-users"></i> 210 Bookings</span>
+                                </div>
+                                <div class="admin-pkg-footer">
+                                    <span class="admin-pkg-price">$950</span>
+                                    <button class="btn-trip-outline" style="padding: 5px 12px; font-size: 11px;" onclick="showToast('Editing Dubai package')">Manage</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="admin-pkg-card">
+                            <img src="assets/photo-1544644181-1484b3fdfc62.webp" alt="Maldives" class="admin-pkg-img">
+                            <div class="admin-pkg-body">
+                                <div class="admin-pkg-header">
+                                    <span class="admin-pkg-badge">Lagoon Villa</span>
+                                    <span style="font-size: 11px; color: #22c55e; font-weight: 700;">● Active</span>
+                                </div>
+                                <h4 class="admin-pkg-title">Maldives Sunset Water Villa</h4>
+                                <div class="admin-pkg-meta">
+                                    <span><i class="fa-regular fa-clock"></i> 6 Days</span>
+                                    <span><i class="fa-solid fa-users"></i> 84 Bookings</span>
+                                </div>
+                                <div class="admin-pkg-footer">
+                                    <span class="admin-pkg-price">$2,150</span>
+                                    <button class="btn-trip-outline" style="padding: 5px 12px; font-size: 11px;" onclick="showToast('Editing Maldives package')">Manage</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==============================================================
+                     VIEW 5: REPORTS & ANALYTICS
+                     ============================================================== -->
+                <div class="dashboard-view" id="view-reports">
+                    <div class="overview-header" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px;">
+                        <div>
+                            <h2 class="overview-title">Financial & Travel Reports</h2>
+                            <p class="overview-subtitle">Comprehensive monthly growth analysis, conversion, and platform revenue metrics.</p>
+                        </div>
+                        <button class="btn-export-report" onclick="openExportModal()" style="padding: 10px 18px;">
+                            <i class="fa-solid fa-download"></i> Generate CSV / PDF Report
+                        </button>
+                    </div>
+
+                    <!-- 3 KPI Cards -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin: 20px 0 24px;">
+                        <div class="metric-card">
+                            <div>
+                                <span class="metric-label">Average Booking Value</span>
+                                <div class="metric-value" style="font-size: 26px; margin-top: 6px;">$1,640</div>
+                            </div>
+                            <div class="metric-trend"><i class="fa-solid fa-arrow-up"></i><span>+8.4% YoY</span></div>
+                        </div>
+                        <div class="metric-card">
+                            <div>
+                                <span class="metric-label">Net Operating Margin</span>
+                                <div class="metric-value" style="font-size: 26px; margin-top: 6px; color: var(--accent-lime);">26.2%</div>
+                            </div>
+                            <div class="metric-trend"><i class="fa-solid fa-arrow-up"></i><span>Target 25% Exceeded</span></div>
+                        </div>
+                        <div class="metric-card">
+                            <div>
+                                <span class="metric-label">Customer Retention Rate</span>
+                                <div class="metric-value" style="font-size: 26px; margin-top: 6px; color: #8b5cf6;">34.5%</div>
+                            </div>
+                            <div class="metric-trend"><i class="fa-solid fa-arrow-up"></i><span>High Loyalty Tier</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Member Growth Chart Extended -->
+                    <div class="chart-card" id="growth-chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title-group">
+                                <i class="fa-solid fa-chart-line chart-title-icon"></i>
+                                <h3 class="chart-title">Annual Growth Curve</h3>
+                            </div>
+                            <select class="chart-select-filter" onchange="updateGrowthChart(this.value)">
+                                <option value="year">Full Year 2026</option>
+                                <option value="6m">Last 6 Months</option>
+                            </select>
+                        </div>
+                        <div class="line-chart-container" style="height: 250px;">
+                            <svg class="line-chart-svg" viewBox="0 0 680 220" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="chartGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#f26a1d" stop-opacity="0.35" />
+                                        <stop offset="100%" stop-color="#f26a1d" stop-opacity="0.0" />
+                                    </linearGradient>
+                                </defs>
+                                <line x1="40" y1="30" x2="650" y2="30" class="chart-grid-line" />
+                                <line x1="40" y1="80" x2="650" y2="80" class="chart-grid-line" />
+                                <line x1="40" y1="130" x2="650" y2="130" class="chart-grid-line" />
+                                <line x1="40" y1="180" x2="650" y2="180" class="chart-grid-line" />
+                                <path class="chart-area-fill" fill="url(#chartGradient2)" d="M 50 180 Q 120 172, 190 155 T 330 130 T 470 95 T 610 80 L 610 180 L 50 180 Z" />
+                                <path class="chart-line-path" stroke="#f26a1d" d="M 50 180 Q 120 172, 190 155 T 330 130 T 470 95 T 610 80" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==============================================================
+                     VIEW: CURRENT CUSTOMERS (ACTIVE TRIPS & TRAVELERS LIST)
+                     ============================================================== -->
+                <div class="dashboard-view" id="view-customers">
+                    <div class="overview-header" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px;">
+                        <div>
+                            <h2 class="overview-title">Current Customers & Active Trips</h2>
+                            <p class="overview-subtitle">Real-time tracking of travelers currently abroad, checked in at partner resorts, or on guided tours.</p>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="btn-trip-outline" style="padding: 10px 16px; font-size: 13px;" onclick="showToast('Live traveler GPS coordinates synchronized!')">
+                                <i class="fa-solid fa-rotate"></i> Sync Live Roster
+                            </button>
+                            <button class="btn-export-report" onclick="showToast('Broadcast emergency alert sent to 18 active travelers.')" style="padding: 10px 18px; background: rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.4); color: #ef4444;">
+                                <i class="fa-solid fa-tower-broadcast"></i> Traveler Broadcast
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 4 Real-time Status Metric Cards -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 20px 0 24px;">
+                        <div class="metric-card">
+                            <div class="metric-card-header">
+                                <div class="metric-icon-box metric-icon-lime"><i class="fa-solid fa-person-walking-luggage"></i></div>
+                                <span class="metric-label">Active Abroad</span>
+                            </div>
+                            <div class="metric-value" style="color: var(--accent-lime);">18 Travelers</div>
+                            <div class="metric-trend"><i class="fa-solid fa-circle-check"></i><span>All safe & verified</span></div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-card-header">
+                                <div class="metric-icon-box metric-icon-purple"><i class="fa-solid fa-hotel"></i></div>
+                                <span class="metric-label">Resort Checked-In</span>
+                            </div>
+                            <div class="metric-value">12 Guests</div>
+                            <div class="metric-trend"><i class="fa-solid fa-bed"></i><span>4 Luxury Partner Resorts</span></div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-card-header">
+                                <div class="metric-icon-box metric-icon-blue"><i class="fa-solid fa-plane-departure"></i></div>
+                                <span class="metric-label">In Transit / Flights</span>
+                            </div>
+                            <div class="metric-value">4 Travelers</div>
+                            <div class="metric-trend"><i class="fa-solid fa-plane"></i><span>Emirates & Swiss Air</span></div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-card-header">
+                                <div class="metric-icon-box metric-icon-orange"><i class="fa-solid fa-compass"></i></div>
+                                <span class="metric-label">On Excursion Tour</span>
+                            </div>
+                            <div class="metric-value">6 Guests</div>
+                            <div class="metric-trend"><i class="fa-solid fa-mountain-sun"></i><span>Guided Treks & Safaris</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Active Trips Table Card -->
+                    <div class="admin-table-card">
+                        <div class="table-header-row">
+                            <div class="admin-search-box" style="margin-right: auto; max-width: 340px;">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" placeholder="Search traveler, destination, booking ID..." id="currentCustomersSearchInput" onkeyup="filterCurrentCustomersTable()">
+                            </div>
+                            <div class="table-filter-group">
+                                <button class="table-filter-btn active" onclick="filterCurrentCustomersStatus('all', this)">All Active (18)</button>
+                                <button class="table-filter-btn" onclick="filterCurrentCustomersStatus('transit', this)">In Transit</button>
+                                <button class="table-filter-btn" onclick="filterCurrentCustomersStatus('resort', this)">Resort Stay</button>
+                                <button class="table-filter-btn" onclick="filterCurrentCustomersStatus('excursion', this)">On Excursion</button>
+                            </div>
+                        </div>
+
+                        <div style="overflow-x: auto; width: 100%;">
+                            <table class="admin-table" id="currentCustomersTable">
+                                <thead>
+                                    <tr>
+                                        <th>Traveler / Customer</th>
+                                        <th>Current Destination & Package</th>
+                                        <th>Live Status</th>
+                                        <th>Trip Timeline</th>
+                                        <th>Assigned Resort / Flight</th>
+                                        <th>Guide / Concierge</th>
+                                        <th style="text-align: right;">Live Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-status="transit">
+                                        <td>
+                                            <div class="traveler-user-cell">
+                                                <div class="traveler-avatar-circle" style="background: #8b5cf6;">G</div>
+                                                <div>
+                                                    <div class="traveler-name">Gaganachukki</div>
+                                                    <div class="traveler-email">+1 (555) 392-1084 • Ref #TRV-8941</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <strong style="color: var(--text-pure);">Bali Nature Escape & Ubud</strong>
+                                            <div style="font-size: 11.5px; color: var(--text-secondary);">Indonesia (2 Guests)</div>
+                                        </td>
+                                        <td>
+                                            <span class="status-pill status-confirmed" style="background: #fff7ed; color: #c2410c; border: 1px solid #ffedd5;">
+                                                ● In Transit: EK-302 Flight
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div style="font-weight: 600; color: var(--text-pure);">Day 1 of 7</div>
+                                            <div style="font-size: 11px; color: var(--text-secondary);">28 Oct - 04 Nov 2026</div>
+                                        </td>
+                                        <td>
+                                            <div style="color: var(--text-pure); font-weight: 500;">The Kayon Jungle Resort</div>
+                                            <div style="font-size: 11px; color: var(--accent-orange);">Check-in Ready 2:00 PM</div>
+                                        </td>
+                                        <td>
+                                            <span style="font-size: 12px; color: var(--text-primary);"><i class="fa-solid fa-headset" style="color: var(--accent-orange);"></i> Wayan (Bali)</span>
+                                        </td>
+                                        <td style="text-align: right;">
+                                            <button class="btn-action-icon" title="View Itinerary" onclick="showToast('Viewing live itinerary for Gaganachukki')"><i class="fa-solid fa-map-location-dot"></i></button>
+                                            <button class="btn-action-icon" title="Contact Traveler" onclick="showToast('Calling traveler Gaganachukki via concierge...')"><i class="fa-solid fa-phone"></i></button>
+                                        </td>
+                                    </tr>
+
+                                    <tr data-status="resort">
+                                        <td>
+                                            <div class="traveler-user-cell">
+                                                <div class="traveler-avatar-circle" style="background: #06b6d4;">M</div>
+                                                <div>
+                                                    <div class="traveler-name">Michael Scott</div>
+                                                    <div class="traveler-email">+1 (555) 234-8901 • Ref #TRV-8820</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <strong style="color: var(--text-pure);">Swiss Alps Luxury Chalet</strong>
+                                            <div style="font-size: 11.5px; color: var(--text-secondary);">Zermatt, Switzerland (2 Guests)</div>
+                                        </td>
+                                        <td>
+                                            <span class="status-pill status-confirmed" style="background: #eff6ff; color: #0284c7; border: 1px solid #bae6fd;">
+                                                ● Checked-In: Chalet Suite 4
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div style="font-weight: 600; color: var(--text-pure);">Day 3 of 8</div>
+                                            <div style="font-size: 11px; color: var(--text-secondary);">Dec 15 - Dec 22 2026</div>
+                                        </td>
+                                        <td>
+                                            <div style="color: var(--text-pure); font-weight: 500;">Matterhorn Chalet & Spa</div>
+                                            <div style="font-size: 11px; color: var(--text-secondary);">Ski Passes Dispatched</div>
+                                        </td>
+                                        <td>
+                                            <span style="font-size: 12px; color: var(--text-primary);"><i class="fa-solid fa-headset" style="color: #0284c7;"></i> Hans (Zermatt)</span>
+                                        </td>
+                                        <td style="text-align: right;">
+                                            <button class="btn-action-icon" title="View Itinerary" onclick="showToast('Viewing live Swiss chalet status')"><i class="fa-solid fa-map-location-dot"></i></button>
+                                            <button class="btn-action-icon" title="Contact Traveler" onclick="showToast('Calling Michael Scott...')"><i class="fa-solid fa-phone"></i></button>
+                                        </td>
+                                    </tr>
+
+                                    <tr data-status="excursion">
+                                        <td>
+                                            <div class="traveler-user-cell">
+                                                <div class="traveler-avatar-circle" style="background: #f59e0b;">S</div>
+                                                <div>
+                                                    <div class="traveler-name">Sarah Jenkins</div>
+                                                    <div class="traveler-email">+1 (555) 871-4029 • Ref #TRV-8714</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <strong style="color: var(--text-pure);">Dubai Skyline & Desert Safari</strong>
+                                            <div style="font-size: 11.5px; color: var(--text-secondary);">United Arab Emirates (1 Guest)</div>
+                                        </td>
+                                        <td>
+                                            <span class="status-pill" style="background: #fffbeb; color: #b45309; border: 1px solid #fef3c7;">
+                                                ● On Tour: Al Marmoom Safari
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div style="font-weight: 600; color: var(--text-pure);">Day 2 of 5</div>
+                                            <div style="font-size: 11px; color: var(--text-secondary);">Nov 18 - Nov 23 2026</div>
+                                        </td>
+                                        <td>
+                                            <div style="color: var(--text-pure); font-weight: 500;">Bab Al Shams Desert Resort</div>
+                                            <div style="font-size: 11px; color: var(--text-secondary);">Sunset Camel Trek Active</div>
+                                        </td>
+                                        <td>
+                                            <span style="font-size: 12px; color: var(--text-primary);"><i class="fa-solid fa-headset" style="color: #b45309;"></i> Tariq (Dubai)</span>
+                                        </td>
+                                        <td style="text-align: right;">
+                                            <button class="btn-action-icon" title="View Itinerary" onclick="showToast('Viewing Sarah Jenkins desert safari schedule')"><i class="fa-solid fa-map-location-dot"></i></button>
+                                            <button class="btn-action-icon" title="Contact Traveler" onclick="showToast('Calling Sarah Jenkins...')"><i class="fa-solid fa-phone"></i></button>
+                                        </td>
+                                    </tr>
+
+                                    <tr data-status="resort">
+                                        <td>
+                                            <div class="traveler-user-cell">
+                                                <div class="traveler-avatar-circle" style="background: #ec4899;">E</div>
+                                                <div>
+                                                    <div class="traveler-name">Elena Rostova</div>
+                                                    <div class="traveler-email">+49 170 555-8910 • Ref #TRV-8650</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <strong style="color: var(--text-pure);">Maldives Sunset Water Villa</strong>
+                                            <div style="font-size: 11.5px; color: var(--text-secondary);">Baa Atoll, Maldives (2 Guests)</div>
+                                        </td>
+                                        <td>
+                                            <span class="status-pill status-confirmed" style="background: #fdf2f8; color: #be185d; border-color: rgba(236,72,153,0.3);">
+                                                ● Checked-In: Overwater Villa 12
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div style="font-weight: 600; color: var(--text-pure);">Day 4 of 6</div>
+                                            <div style="font-size: 11px; color: var(--text-secondary);">04 Nov - 10 Nov 2026</div>
+                                        </td>
+                                        <td>
+                                            <div style="color: var(--text-pure); font-weight: 500;">Anantara Kihavah Villas</div>
+                                            <div style="font-size: 11px; color: var(--text-secondary);">Private Yacht Snorkel Confirmed</div>
+                                        </td>
+                                        <td>
+                                            <span style="font-size: 12px; color: var(--text-primary);"><i class="fa-solid fa-headset" style="color: #be185d;"></i> Aishath (Malé)</span>
+                                        </td>
+                                        <td style="text-align: right;">
+                                            <button class="btn-action-icon" title="View Itinerary" onclick="showToast('Viewing Elena Rostova Maldives booking')"><i class="fa-solid fa-map-location-dot"></i></button>
+                                            <button class="btn-action-icon" title="Contact Traveler" onclick="showToast('Calling Elena Rostova...')"><i class="fa-solid fa-phone"></i></button>
+                                        </td>
+                                    </tr>
+
+                                    <tr data-status="transit">
+                                        <td>
+                                            <div class="traveler-user-cell">
+                                                <div class="traveler-avatar-circle" style="background: #ef4444;">D</div>
+                                                <div>
+                                                    <div class="traveler-name">David Chen</div>
+                                                    <div class="traveler-email">+81 90 5551-4022 • Ref #TRV-8490</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <strong style="color: var(--text-pure);">Kyoto Blossom & Cultural Tour</strong>
+                                            <div style="font-size: 11.5px; color: var(--text-secondary);">Kyoto, Japan (1 Guest)</div>
+                                        </td>
+                                        <td>
+                                            <span class="status-pill status-confirmed" style="background: #fef2f2; color: #b91c1c; border-color: rgba(239,68,68,0.3);">
+                                                ● In Transit: Shinkansen Bullet Train
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div style="font-weight: 600; color: var(--text-pure);">Day 1 of 7</div>
+                                            <div style="font-size: 11px; color: var(--text-secondary);">20 Oct - 27 Oct 2026</div>
+                                        </td>
+                                        <td>
+                                            <div style="color: var(--text-pure); font-weight: 500;">Hoshinoya Kyoto Ryokan</div>
+                                            <div style="font-size: 11px; color: var(--text-secondary);">Arrival ETA 16:45 PM</div>
+                                        </td>
+                                        <td>
+                                            <span style="font-size: 12px; color: var(--text-primary);"><i class="fa-solid fa-headset" style="color: #b91c1c;"></i> Kenji (Kyoto)</span>
+                                        </td>
+                                        <td style="text-align: right;">
+                                            <button class="btn-action-icon" title="View Itinerary" onclick="showToast('Viewing David Chen Kyoto train transfer')"><i class="fa-solid fa-map-location-dot"></i></button>
+                                            <button class="btn-action-icon" title="Contact Traveler" onclick="showToast('Calling David Chen...')"><i class="fa-solid fa-phone"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==============================================================
+                     VIEW 6: SYSTEM SETTINGS
+                     ============================================================== -->
+                <div class="dashboard-view" id="view-settings">
+                    <div class="overview-header">
+                        <h2 class="overview-title">System Settings</h2>
+                        <p class="overview-subtitle">Configure agency preferences, automation rules, notifications, and security protocols.</p>
+                    </div>
+
+                    <div class="settings-grid" style="margin-top: 20px;">
+                        <!-- Agency Profile Card -->
+                        <div class="settings-card">
+                            <h3 class="settings-card-title">Agency & Platform Profile</h3>
+                            <p class="settings-card-subtitle">Public enterprise details shown on traveler vouchers and invoices.</p>
+                            <form onsubmit="event.preventDefault(); showToast('Agency settings saved successfully!');">
+                                <div class="settings-form-row">
+                                    <div class="settings-field">
+                                        <label>Agency Name</label>
+                                        <input type="text" value="Tour & Travel Booking">
+                                    </div>
+                                    <div class="settings-field">
+                                        <label>Support Email</label>
+                                        <input type="email" value="admin@tourtravel.com">
+                                    </div>
+                                </div>
+                                <div class="settings-form-row">
+                                    <div class="settings-field">
+                                        <label>Operational Currency</label>
+                                        <select>
+                                            <option selected>USD ($)</option>
+                                            <option>EUR (€)</option>
+                                            <option>GBP (£)</option>
+                                            <option>INR (₹)</option>
+                                        </select>
+                                    </div>
+                                    <div class="settings-field">
+                                        <label>Timezone</label>
+                                        <select>
+                                            <option selected>UTC +05:30 (Asia/Kolkata)</option>
+                                            <option>UTC +00:00 (London/GMT)</option>
+                                            <option>UTC -05:00 (New York/EST)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-trip-action" style="padding: 10px 20px; font-size: 13px; margin-top: 10px;">
+                                    Save Agency Changes
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Booking Automation Rules -->
+                        <div class="settings-card">
+                            <h3 class="settings-card-title">Booking Automation & Policies</h3>
+                            <p class="settings-card-subtitle">Control automated booking approvals and dispatch triggers.</p>
+                            <div class="settings-switch-row">
+                                <div class="settings-switch-info">
+                                    <h5>Auto-Confirm Instant Bookings</h5>
+                                    <p>Automatically approve reservations under $2,000 without manual review.</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="settings-switch-row">
+                                <div class="settings-switch-info">
+                                    <h5>Instant WhatsApp & SMS Alerts</h5>
+                                    <p>Send real-time flight changes and tickets directly to travelers' phones.</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="settings-switch-row" style="border-bottom: none;">
+                                <div class="settings-switch-info">
+                                    <h5>Two-Factor Authentication (2FA)</h5>
+                                    <p>Enforce biometric or SMS OTP for all super admin sessions.</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ==========================================================================
+         EXPORT REPORT MODAL
+         ========================================================================== -->
+    <div class="modal-overlay" id="exportModal">
+        <div class="modal-box">
+            <button class="modal-close-btn" onclick="closeExportModal()"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="modal-title">Export Analytical Report</h3>
+            <p class="modal-subtitle">Download consolidated bookings, revenue, and traveler statistics</p>
+
+            <form onsubmit="handleExportSubmit(event)" style="display: flex; flex-direction: column; gap: 14px;">
+                <div>
+                    <label style="font-size: 12px; color: var(--text-secondary); display: block; margin-bottom: 6px;">Report Type</label>
+                    <select style="width: 100%; padding: 10px 14px; background: #ffffff; border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-pure);">
+                        <option>Comprehensive Revenue & Bookings (CSV + PDF)</option>
+                        <option>Traveler Growth & Demographics (Excel)</option>
+                        <option>Tour Packages Performance (CSV)</option>
+                    </select>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div>
+                        <label style="font-size: 12px; color: var(--text-secondary); display: block; margin-bottom: 6px;">Date From</label>
+                        <input type="date" value="2026-01-01" style="width: 100%; padding: 10px 14px; background: #ffffff; border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-pure);">
+                    </div>
+                    <div>
+                        <label style="font-size: 12px; color: var(--text-secondary); display: block; margin-bottom: 6px;">Date To</label>
+                        <input type="date" value="2026-10-12" style="width: 100%; padding: 10px 14px; background: #ffffff; border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-pure);">
+                    </div>
+                </div>
+                <div style="display: flex; gap: 10px; margin-top: 10px;">
+                    <button type="submit" class="btn-export-report" style="flex: 1; justify-content: center; padding: 12px;">
+                        <i class="fa-solid fa-file-export"></i> Generate & Download
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification Element -->
+    <div class="toast-notice" id="adminToast">
+        <i class="fa-solid fa-circle-check" style="color: var(--accent-lime); font-size: 18px;"></i>
+        <span id="adminToastMsg">Report generated successfully!</span>
+    </div>
+
+    <!-- ==========================================================================
+         INTERACTIVE JAVASCRIPT
+         ========================================================================== -->
+    <script>
+        // View Switching System
+        function switchDashboardView(viewId) {
+            const views = document.querySelectorAll('.dashboard-view');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            const targetView = document.getElementById('view-' + viewId);
+            if (!targetView) return;
+
+            views.forEach(v => v.classList.remove('active'));
+            targetView.classList.add('active');
+
+            navItems.forEach(item => {
+                const link = item.querySelector('.nav-view-btn');
+                if (link && link.getAttribute('data-view') === viewId) {
+                    item.classList.add('active');
+                } else if (link) {
+                    item.classList.remove('active');
+                }
+            });
+
+            const titles = {
+                'dashboard': 'Admin Dashboard Overview',
+                'users': 'Users & Members Directory',
+                'bookings': 'Bookings Management',
+                'packages': 'Tour Packages Catalog',
+                'reports': 'Financial & Analytical Reports',
+                'customers': 'Current Customers & Active Trips',
+                'settings': 'System & Platform Settings'
+            };
+            const titleEl = document.getElementById('topbarPageTitle');
+            if (titleEl && titles[viewId]) {
+                titleEl.textContent = titles[viewId];
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            const sidebar = document.getElementById('sidebar');
+            if (sidebar && sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+            }
+
+            history.replaceState(null, null, '#' + viewId);
+        }
+
+        // Initialize on load & hashchange
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.replace('#', '');
+            if (hash && document.getElementById('view-' + hash)) {
+                switchDashboardView(hash);
+            } else {
+                switchDashboardView('dashboard');
+            }
+
+            document.querySelectorAll('.nav-view-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const viewId = btn.getAttribute('data-view');
+                    switchDashboardView(viewId);
+                });
+            });
+        });
+
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.replace('#', '');
+            if (hash && document.getElementById('view-' + hash)) {
+                switchDashboardView(hash);
+            }
+        });
+
+        // Sidebar Mobile Toggle
+        const sidebar = document.getElementById('sidebar');
+        const openSidebarBtn = document.getElementById('openSidebarBtn');
+        const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+
+        if (openSidebarBtn) {
+            openSidebarBtn.addEventListener('click', () => {
+                sidebar.classList.add('open');
+            });
+        }
+        if (closeSidebarBtn) {
+            closeSidebarBtn.addEventListener('click', () => {
+                sidebar.classList.remove('open');
+            });
+        }
+
+        // Notification Dropdown
+        function toggleNotifDropdown() {
+            const dropdown = document.getElementById('adminNotifDropdown');
+            dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+        }
+
+        document.addEventListener('click', (e) => {
+            const dropdown = document.getElementById('adminNotifDropdown');
+            const notifBtnWrapper = document.querySelector('.notif-btn-wrapper');
+            if (dropdown && notifBtnWrapper && !notifBtnWrapper.contains(e.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+
+        // Toast Helper
+        function showToast(message) {
+            const toast = document.getElementById('adminToast');
+            const msgEl = document.getElementById('adminToastMsg');
+            msgEl.textContent = message;
+            toast.style.display = 'flex';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+
+        // Export Modal
+        function openExportModal() {
+            document.getElementById('exportModal').classList.add('active');
+        }
+        function closeExportModal() {
+            document.getElementById('exportModal').classList.remove('active');
+        }
+        function handleExportSubmit(e) {
+            e.preventDefault();
+            closeExportModal();
+            showToast('Report generated! Download will commence automatically.');
+        }
+
+        // Table Status Filter
+        function filterAdminStatus(status, btn) {
+            document.querySelectorAll('#view-bookings .table-filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const rows = document.querySelectorAll('#adminBookingsTable tbody tr');
+            rows.forEach(row => {
+                if (status === 'all' || row.getAttribute('data-status') === status) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Admin Search Filter (Global Topbar)
+        function filterAdminTable() {
+            const query = document.getElementById('adminSearchInput').value.toLowerCase();
+            const rows = document.querySelectorAll('#adminBookingsTable tbody tr');
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                row.style.display = text.includes(query) ? '' : 'none';
+            });
+        }
+
+        // Bookings View Specific Search
+        function filterAdminTable2() {
+            const query = document.getElementById('adminSearchInput2').value.toLowerCase();
+            const rows = document.querySelectorAll('#adminBookingsTable tbody tr');
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                row.style.display = text.includes(query) ? '' : 'none';
+            });
+        }
+
+        // Users Directory Filter & Search
+        function filterUsersDirectory() {
+            const query = document.getElementById('usersSearchInput').value.toLowerCase();
+            const rows = document.querySelectorAll('#adminUsersDirectoryTable tbody tr');
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                row.style.display = text.includes(query) ? '' : 'none';
+            });
+        }
+
+        function filterUserRole(role, btn) {
+            document.querySelectorAll('#view-users .table-filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const rows = document.querySelectorAll('#adminUsersDirectoryTable tbody tr');
+            rows.forEach(row => {
+                if (role === 'all' || row.getAttribute('data-role') === role) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Current Active Customers Filter & Search
+        function filterCurrentCustomersTable() {
+            const query = document.getElementById('currentCustomersSearchInput').value.toLowerCase();
+            const rows = document.querySelectorAll('#currentCustomersTable tbody tr');
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                row.style.display = text.includes(query) ? '' : 'none';
+            });
+        }
+
+        function filterCurrentCustomersStatus(status, btn) {
+            document.querySelectorAll('#view-customers .table-filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const rows = document.querySelectorAll('#currentCustomersTable tbody tr');
+            rows.forEach(row => {
+                if (status === 'all' || row.getAttribute('data-status') === status) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Approve / Reject Handlers
+        function approveBooking(btn) {
+            const row = btn.closest('tr');
+            row.setAttribute('data-status', 'confirmed');
+            const pill = row.querySelector('.status-pill');
+            pill.className = 'status-pill status-confirmed';
+            pill.textContent = 'Confirmed';
+            btn.parentElement.innerHTML = `
+                <button class="btn-action-icon" title="View Details" onclick="showToast('Viewing confirmed booking')"><i class="fa-solid fa-eye"></i></button>
+                <button class="btn-action-icon" title="Download Invoice" onclick="showToast('Invoice generated')"><i class="fa-solid fa-file-invoice-dollar"></i></button>
+            `;
+            showToast('Booking approved successfully!');
+        }
+
+        function rejectBooking(btn) {
+            const row = btn.closest('tr');
+            row.setAttribute('data-status', 'cancelled');
+            const pill = row.querySelector('.status-pill');
+            pill.className = 'status-pill status-cancelled';
+            pill.textContent = 'Cancelled';
+            showToast('Booking rejected.');
+        }
+
+        // Dynamic Chart Tooltip
+        function showChartTooltip(e, text) {
+            const tooltip = document.getElementById('chartTooltip');
+            if (!tooltip) return;
+            tooltip.textContent = text;
+            tooltip.style.display = 'block';
+            const rect = e.target.getBoundingClientRect();
+            const containerRect = document.querySelector('.line-chart-container').getBoundingClientRect();
+            tooltip.style.left = (rect.left - containerRect.left - 20) + 'px';
+            tooltip.style.top = (rect.top - containerRect.top - 30) + 'px';
+        }
+
+        function hideChartTooltip() {
+            const tooltip = document.getElementById('chartTooltip');
+            if (tooltip) tooltip.style.display = 'none';
+        }
+
+        function updateGrowthChart(range) {
+            showToast('Chart updated for: ' + (range === 'year' ? 'This Year' : range === '6m' ? 'Last 6 Months' : 'This Quarter'));
+        }
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>
