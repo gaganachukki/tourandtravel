@@ -9,7 +9,7 @@
     --border-color: #e2e8f0;
     
     --font-heading: 'Plus Jakarta Sans', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
     
     --radius-sm: 8px;
     --radius-md: 12px;
@@ -334,10 +334,18 @@ img {
     margin-bottom: 20px;
 }
 
+.hero h1,
+.dest-hero h1,
+.tp-hero h1,
+.hotel-hero h1,
+.flight-hero h1,
+.contact-hero h1 {
+    color: white;
+}
+
 .hero h1 {
     font-size: 64px;
     line-height: 1.1;
-    color: white;
     margin-bottom: 24px;
     max-width: 600px;
 }
@@ -1268,7 +1276,7 @@ img {
 }
 
 .features-subtitle {
-    font-family: var(--font-body, 'Inter', sans-serif);
+    font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
     font-size: 16px;
     line-height: 1.6;
     color: #64748b;
@@ -1335,7 +1343,7 @@ img {
 }
 
 .feature-card p {
-    font-family: var(--font-body, 'Inter', sans-serif);
+    font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
     font-size: 14px;
     line-height: 1.65;
     color: #64748b;
@@ -2268,6 +2276,12 @@ img {
     background: #ffffff;
     border-color: #0284c7;
     box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
+}
+
+.newsletter-input-wrap.has-error {
+    border-color: #ef4444 !important;
+    background: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
 }
 
 .newsletter-input-wrap input {

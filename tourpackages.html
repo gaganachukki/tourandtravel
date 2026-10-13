@@ -7,7 +7,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
@@ -83,20 +83,9 @@
         <!-- Popular Tour Packages -->
         <section class="section">
             <div class="container">
-                <div class="section-header flex-header gsap-fade-up">
-                    <div>
-                        <span class="section-subtitle">TOP DESTINATIONS</span>
-                        <h2>Popular Tour Packages</h2>
-                    </div>
-                    <div class="tp-sort">
-                        <span style="font-size: 14px; color: #64748b; margin-right: 8px;">Sort by:</span>
-                        <select style="padding: 8px 12px; border: 1px solid #e2e8f0; border-radius: 8px; font-family: inherit; font-size: 14px; color: #0f172a; outline: none; cursor: pointer;">
-                            <option>Recommended</option>
-                            <option>Price: Low to High</option>
-                            <option>Price: High to Low</option>
-                            <option>Highest Rated</option>
-                        </select>
-                    </div>
+                <div class="section-header gsap-fade-up">
+                    <span class="section-subtitle">TOP DESTINATIONS</span>
+                    <h2>Popular Tour Packages</h2>
                 </div>
                 <div class="grid-3 gsap-stagger-group">
                     
@@ -280,7 +269,7 @@
             <img src="assets/photo-1519451241324-20b4ea2c4220.webp" alt="Mountains">
             <div class="tp-cat-overlay"></div>
             <div class="tp-cat-content">
-                <div class="tp-cat-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+                <div class="tp-cat-icon"><i class="fa-solid fa-mountain-sun"></i></div>
                 <h3>Mountains</h3>
                 <p>45 Tours</p>
             </div>
@@ -300,7 +289,7 @@
             <img src="assets/photo-1477959858617-67f85cf4f1df.webp" alt="City Tours">
             <div class="tp-cat-overlay"></div>
             <div class="tp-cat-content">
-                <div class="tp-cat-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+                <div class="tp-cat-icon"><i class="fa-solid fa-city"></i></div>
                 <h3>City Tours</h3>
                 <p>124 Tours</p>
             </div>
@@ -310,7 +299,7 @@
             <img src="assets/photo-1449844908441-8829872d2607.webp" alt="Historical">
             <div class="tp-cat-overlay"></div>
             <div class="tp-cat-content">
-                <div class="tp-cat-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+                <div class="tp-cat-icon"><i class="fa-solid fa-landmark"></i></div>
                 <h3>Historical</h3>
                 <p>56 Tours</p>
             </div>
@@ -320,7 +309,7 @@
             <img src="assets/photo-1500530855697-b586d89ba3ee.webp" alt="Nature">
             <div class="tp-cat-overlay"></div>
             <div class="tp-cat-content">
-                <div class="tp-cat-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+                <div class="tp-cat-icon"><i class="fa-solid fa-tree"></i></div>
                 <h3>Nature</h3>
                 <p>94 Tours</p>
             </div>
@@ -330,7 +319,7 @@
             <img src="assets/photo-1540555700478-4be289fbecef.webp" alt="Luxury">
             <div class="tp-cat-overlay"></div>
             <div class="tp-cat-content">
-                <div class="tp-cat-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+                <div class="tp-cat-icon"><i class="fa-solid fa-crown"></i></div>
                 <h3>Luxury</h3>
                 <p>67 Tours</p>
             </div>
@@ -340,7 +329,7 @@
             <img src="assets/photo-1533692328991-08159ff19fca.webp" alt="Adventure">
             <div class="tp-cat-overlay"></div>
             <div class="tp-cat-content">
-                <div class="tp-cat-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+                <div class="tp-cat-icon"><i class="fa-solid fa-person-hiking"></i></div>
                 <h3>Adventure</h3>
                 <p>88 Tours</p>
             </div>
@@ -376,50 +365,57 @@
             <div class="container">
                 <div class="section-header flex-header gsap-fade-up">
                     <div>
-                        <span class="section-subtitle">MUST VISIT</span>
-                        <h2>Featured Destinations</h2>
+                        <span class="tp-featured-section-subtitle">ICONIC WONDERS</span>
+                        <h2 class="tp-featured-section-title">Featured Destinations</h2>
                     </div>
-                    <a href="destinations.html" style="color: #0f172a; font-weight: 700; text-decoration: underline;">See All Destinations</a>
+                    <a href="destinations.html" class="tp-featured-view-all">View all 48 destinations <span class="tp-arrow-icon">&nearr;</span></a>
                 </div>
                 <div class="tp-featured-grid">
                     
-    <div class="tp-featured-item large gsap-item" style="background-image: url('assets/photo-1524492412937-b28074a5d7da.webp');">
-        <div class="tp-featured-overlay"></div>
-        <div class="tp-featured-content">
-            <span class="tp-featured-badge">12 Tours</span>
-            <h3>India</h3>
-            <p>Explore the majestic forts, vibrant culture, and diverse landscapes.</p>
-        </div>
-    </div>
-    <div class="tp-featured-item large gsap-item" style="background-image: url('assets/photo-1512453979798-5ea266f8880c.webp');">
-        <div class="tp-featured-overlay"></div>
-        <div class="tp-featured-content">
-            <span class="tp-featured-badge">8 Tours</span>
-            <h3>Dubai</h3>
-            <p>Experience the ultimate luxury, towering skyscrapers, and desert safaris.</p>
-        </div>
-    </div>
-    <div class="tp-featured-item small gsap-item" style="background-image: url('assets/photo-1537996194471-e657df975ab4.webp');">
-        <div class="tp-featured-overlay"></div>
-        <div class="tp-featured-content">
-            <span class="tp-featured-badge">15 Tours</span>
-            <h3>Bali</h3>
-        </div>
-    </div>
-    <div class="tp-featured-item small gsap-item" style="background-image: url('assets/photo-1525625293386-3f8f99389edd.webp');">
-        <div class="tp-featured-overlay"></div>
-        <div class="tp-featured-content">
-            <span class="tp-featured-badge">10 Tours</span>
-            <h3>Singapore</h3>
-        </div>
-    </div>
-    <div class="tp-featured-item small gsap-item" style="background-image: url('assets/photo-1499856871958-5b9627545d1a.webp');">
-        <div class="tp-featured-overlay"></div>
-        <div class="tp-featured-content">
-            <span class="tp-featured-badge">24 Tours</span>
-            <h3>Europe</h3>
-        </div>
-    </div>
+                    <div class="tp-featured-item item-india gsap-item" style="background-image: url('assets/photo-1524492412937-b28074a5d7da.webp');">
+                        <span class="tp-featured-badge">18 Expeditions</span>
+                        <div class="tp-featured-overlay"></div>
+                        <div class="tp-featured-content">
+                            <h3>India</h3>
+                            <p>Majestic heritage palaces, royal desert caravans, and profound spiritual grandeur.</p>
+                        </div>
+                    </div>
+
+                    <div class="tp-featured-item item-dubai gsap-item" style="background-image: url('assets/photo-1512453979798-5ea266f8880c.webp');">
+                        <span class="tp-featured-badge">12 Expeditions</span>
+                        <div class="tp-featured-overlay"></div>
+                        <div class="tp-featured-content">
+                            <h3>Dubai</h3>
+                            <p>Gleaming modern architectural wonders, private dunes, and high-octane luxury.</p>
+                        </div>
+                    </div>
+
+                    <div class="tp-featured-item item-bali gsap-item" style="background-image: url('assets/photo-1537996194471-e657df975ab4.webp');">
+                        <span class="tp-featured-badge">15 Expeditions</span>
+                        <div class="tp-featured-overlay"></div>
+                        <div class="tp-featured-content">
+                            <h3>Bali</h3>
+                            <p>Lush cascading rice terraces and sacred ancient temple gates.</p>
+                        </div>
+                    </div>
+
+                    <div class="tp-featured-item item-singapore gsap-item" style="background-image: url('assets/photo-1525625293386-3f8f99389edd.webp');">
+                        <span class="tp-featured-badge">9 Expeditions</span>
+                        <div class="tp-featured-overlay"></div>
+                        <div class="tp-featured-content">
+                            <h3>Singapore</h3>
+                            <p>Futuristic Gardens by the Bay, Michelin dining, and waterfront glamour.</p>
+                        </div>
+                    </div>
+
+                    <div class="tp-featured-item item-europe gsap-item" style="background-image: url('assets/photo-1499856871958-5b9627545d1a.webp');">
+                        <span class="tp-featured-badge">24 Expeditions</span>
+                        <div class="tp-featured-overlay"></div>
+                        <div class="tp-featured-content">
+                            <h3>Europe</h3>
+                            <p>Historic cobblestone plazas, alpine lakes, and classic Renaissance art.</p>
+                        </div>
+                    </div>
 
                 </div>
             </div>

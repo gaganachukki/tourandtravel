@@ -411,8 +411,19 @@ document.addEventListener('DOMContentLoaded', () => {
             // Form submit buttons
             const form = target.closest('form');
             if (form) {
-                // Newsletter form with no backend
+                // Newsletter form validation
                 if (form.classList.contains('newsletter-form') || form.classList.contains('newsletter-form-inline')) {
+                    const input = form.querySelector('input[type="email"]');
+                    if (input) {
+                        const wrap = form.querySelector('.newsletter-input-wrap') || input.parentElement;
+                        if (!input.value.trim() || !input.checkValidity()) {
+                            e.preventDefault();
+                            if (wrap) wrap.classList.add('has-error');
+                            input.focus();
+                            input.reportValidity();
+                            return;
+                        }
+                    }
                     e.preventDefault();
                     window.location.href = '404.html';
                     return;
@@ -425,5 +436,29 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             window.location.href = '404.html';
         }
+    });
+
+    // Newsletter input and submit validation listeners
+    document.querySelectorAll('.newsletter-form, .newsletter-form-inline').forEach(form => {
+        const input = form.querySelector('input[type="email"]');
+        const wrap = form.querySelector('.newsletter-input-wrap') || (input ? input.parentElement : null);
+        if (input) {
+            input.addEventListener('input', () => {
+                if (wrap) wrap.classList.remove('has-error');
+            });
+        }
+        form.addEventListener('submit', (e) => {
+            if (input) {
+                if (!input.value.trim() || !input.checkValidity()) {
+                    e.preventDefault();
+                    if (wrap) wrap.classList.add('has-error');
+                    input.focus();
+                    input.reportValidity();
+                    return;
+                }
+            }
+            e.preventDefault();
+            window.location.href = '404.html';
+        });
     });
 });

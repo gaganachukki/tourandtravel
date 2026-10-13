@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 stagger: 0.15,
                 ease: "power3.out",
                 delay: 0.1,
-                clearProps: "all"
+                clearProps: "transform,opacity"
             });
         }
 
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                         duration: 0.6,
                         stagger: 0.1,
                         ease: "power2.out",
-                        clearProps: "all"
+                        clearProps: "transform,opacity"
                     });
                 }
             });
