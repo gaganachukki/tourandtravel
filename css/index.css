@@ -1943,6 +1943,24 @@ img {
     color: var(--primary-color);
 }
 
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .footer-brand {
+        grid-column: auto;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .footer-bottom-links {
+        justify-content: flex-start;
+    }
+}
+
 /* ==========================================================================
    Everything You Need to Know (Figma FAQ Spec)
    ========================================================================== */
