@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <!-- User Dashboard CSS -->
     <link rel="stylesheet" href="css/userdashboard.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -109,59 +109,64 @@
                     <button class="mobile-toggle-btn" id="openSidebarBtn" aria-label="Open Sidebar">
                         <i class="fa-solid fa-bars"></i>
                     </button>
-                    <div class="page-title-box">
+                    <!-- Desktop title -->
+                    <div class="page-title-box desktop-only">
                         <h1 id="userPortalPageTitle">Customer Portal</h1>
                         <p id="userPortalPageSubtitle">Welcome to your personal tour & travel management hub</p>
                     </div>
+                    <!-- Mobile logo (shown on mobile, replacing Customer Portal title) -->
+                    <a href="index.html" class="topbar-mobile-logo mobile-only" aria-label="Stackly Home">
+                        <img src="assets/logo.webp" alt="Stackly Logo">
+                    </a>
                 </div>
 
                 <div class="topbar-right">
-                    <!-- Search Input -->
-                    <div class="topbar-search">
+                    <!-- Search Input (Desktop Only) -->
+                    <div class="topbar-search desktop-only">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <input type="text" placeholder="Search trips, bookings..." id="searchInput" onkeyup="filterBookings()">
                     </div>
 
-                    <!-- Book Trip Action -->
-                    <button class="btn-book-trip" onclick="openBookingModal()">
-                        <i class="fa-solid fa-plus"></i>
-                        <span>Book Trip</span>
+                    <!-- Mobile Circle Button: Search Toggle -->
+                    <button class="topbar-circle-btn mobile-only mobile-search-toggle" onclick="toggleMobileSearch()" aria-label="Search" title="Search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
 
-                    <!-- Notifications -->
+                    <!-- Mobile Circle Button: Book Trip (Leads to 404) -->
+                    <a href="404.html" class="topbar-circle-btn mobile-only mobile-book-circle" aria-label="Book Trip" title="Book Trip">
+                        <i class="fa-solid fa-plus"></i>
+                    </a>
+
+                    <!-- Book Trip Action (Desktop Only - Leads to 404) -->
+                    <a href="404.html" class="btn-book-trip desktop-only" aria-label="Book Trip">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>Book Trip</span>
+                    </a>
+
+                    <!-- Notifications (Leads to 404) -->
                     <div class="notif-btn-wrapper">
-                        <button class="topbar-icon-btn" onclick="toggleNotifDropdown()" aria-label="Notifications">
+                        <a href="404.html" class="topbar-circle-btn notif-circle-btn" aria-label="Notifications" title="Notifications">
                             <i class="fa-regular fa-bell"></i>
                             <span class="notif-badge">3</span>
-                        </button>
-                        <!-- Notif Dropdown -->
-                        <div id="notifDropdown" style="display: none; position: absolute; right: 0; top: 50px; width: 300px; background: #ffffff; border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 100;">
-                            <div style="font-weight: 700; color: var(--text-pure); margin-bottom: 10px; display: flex; justify-content: space-between;">
-                                <span>Notifications</span>
-                                <span style="font-size: 11px; color: var(--accent-orange); font-weight: 700;">3 New</span>
-                            </div>
-                            <div style="font-size: 12px; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px;">
-                                <div style="padding: 10px; background: #f8fafc; border: 1px solid #eef2f6; border-radius: 8px;">
-                                    <strong style="color: var(--text-pure);">✈️ Flight EK-302 Confirmed</strong>
-                                    <p style="font-size: 11.5px; margin-top: 2px; color: var(--text-secondary);">Your flight to Bali is scheduled for Oct 28 at 08:30 AM.</p>
-                                </div>
-                                <div style="padding: 10px; background: #f8fafc; border: 1px solid #eef2f6; border-radius: 8px;">
-                                    <strong style="color: var(--text-pure);">🏨 Hotel Check-In Ready</strong>
-                                    <p style="font-size: 11.5px; margin-top: 2px; color: var(--text-secondary);">Kayon Jungle Resort has confirmed your private villa.</p>
-                                </div>
-                                <div style="padding: 10px; background: #fff7ed; border: 1px solid #fed7aa; border-radius: 8px;">
-                                    <strong style="color: var(--accent-orange);">🎉 Loyalty Reward +1,200 pts</strong>
-                                    <p style="font-size: 11.5px; margin-top: 2px; color: var(--text-secondary);">Miles added for your recent Switzerland booking.</p>
-                                </div>
-                            </div>
-                        </div>
+                        </a>
                     </div>
 
-                    <!-- User Quick Menu -->
-                    <a href="javascript:void(0)" class="header-user-btn" onclick="showToast('Logged in as Gaganachukki')">
+                    <!-- User Quick Menu (Desktop Only) -->
+                    <a href="javascript:void(0)" class="header-user-btn desktop-only" onclick="showToast('Logged in as Gaganachukki')">
                         <div class="avatar-mini">G</div>
                         <span>Gaganachukki</span>
                     </a>
+                </div>
+
+                <!-- Mobile Slide-Down Search Expand -->
+                <div class="mobile-search-expand" id="mobileSearchExpand">
+                    <div class="mobile-search-inner">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search trips, bookings..." id="mobileSearchInput" onkeyup="syncMobileSearch(this.value)">
+                        <button class="mobile-search-close" onclick="toggleMobileSearch()" aria-label="Close search">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
                 </div>
             </header>
 
@@ -947,18 +952,19 @@
             });
 
             const titles = {
-                'dashboard': { title: 'Customer Portal', sub: 'Welcome to your personal tour & travel management hub' },
-                'bookings': { title: 'My Travel Bookings', sub: 'Manage, review, and download vouchers for your journeys' },
-                'wishlist': { title: 'Saved Destination Wishlist', sub: 'Handpicked vacations ready for instant reservation' },
-                'tickets': { title: 'Digital E-Tickets & Passes', sub: 'Verified travel passes with instant airport and hotel barcode recognition' },
-                'settings': { title: 'Account & Travel Settings', sub: 'Manage personal identity details, passport verification, and travel preferences' },
-                'support': { title: '24/7 Concierge & Support', sub: 'Round-the-clock personal assistance for trip adjustments, refunds, and inquiries' }
+                'dashboard': { title: 'Customer Portal', shortTitle: 'Customer Portal', sub: 'Welcome to your personal tour & travel management hub' },
+                'bookings': { title: 'My Travel Bookings', shortTitle: 'Bookings', sub: 'Manage, review, and download vouchers for your journeys' },
+                'wishlist': { title: 'Saved Destination Wishlist', shortTitle: 'Wishlist', sub: 'Handpicked vacations ready for instant reservation' },
+                'tickets': { title: 'Digital E-Tickets & Passes', shortTitle: 'E-Tickets', sub: 'Verified travel passes with instant airport and hotel barcode recognition' },
+                'settings': { title: 'Account & Travel Settings', shortTitle: 'Settings', sub: 'Manage personal identity details, passport verification, and travel preferences' },
+                'support': { title: '24/7 Concierge & Support', shortTitle: 'Support', sub: 'Round-the-clock personal assistance for trip adjustments, refunds, and inquiries' }
             };
 
             const titleEl = document.getElementById('userPortalPageTitle');
             const subEl = document.getElementById('userPortalPageSubtitle');
             if (titleEl && titles[viewId]) {
-                titleEl.textContent = titles[viewId].title;
+                const isCompact = window.innerWidth <= 992;
+                titleEl.textContent = isCompact ? (titles[viewId].shortTitle || titles[viewId].title) : titles[viewId].title;
                 if (subEl) subEl.textContent = titles[viewId].sub;
             }
 
@@ -971,6 +977,31 @@
 
             history.replaceState(null, null, '#' + viewId);
         }
+
+        window.addEventListener('resize', () => {
+            const currentView = window.location.hash.replace('#', '') || 'dashboard';
+            const titleEl = document.getElementById('userPortalPageTitle');
+            const titles = {
+                'dashboard': 'Customer Portal',
+                'bookings': 'My Travel Bookings',
+                'wishlist': 'Saved Destination Wishlist',
+                'tickets': 'Digital E-Tickets & Passes',
+                'settings': 'Account & Travel Settings',
+                'support': '24/7 Concierge & Support'
+            };
+            const shortTitles = {
+                'dashboard': 'Customer Portal',
+                'bookings': 'Bookings',
+                'wishlist': 'Wishlist',
+                'tickets': 'E-Tickets',
+                'settings': 'Settings',
+                'support': 'Support'
+            };
+            if (titleEl && titles[currentView]) {
+                const isCompact = window.innerWidth <= 992;
+                titleEl.textContent = isCompact ? (shortTitles[currentView] || titles[currentView]) : titles[currentView];
+            }
+        });
 
         // Initialize on load & hashchange
         window.addEventListener('DOMContentLoaded', () => {
@@ -1026,15 +1057,44 @@
         // Notification Dropdown Toggle
         function toggleNotifDropdown() {
             const dropdown = document.getElementById('notifDropdown');
-            dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+            if (dropdown) {
+                dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+            }
         }
 
-        // Close dropdown when clicked outside
+        // Mobile Search Toggle & Sync
+        function toggleMobileSearch() {
+            const searchExpand = document.getElementById('mobileSearchExpand');
+            if (!searchExpand) return;
+            const isNowActive = searchExpand.classList.toggle('active');
+            if (isNowActive) {
+                const input = document.getElementById('mobileSearchInput');
+                if (input) input.focus();
+            }
+        }
+
+        function syncMobileSearch(val) {
+            const desktopSearch = document.getElementById('searchInput');
+            if (desktopSearch) {
+                desktopSearch.value = val;
+            }
+            filterBookings();
+        }
+
+        // Close dropdown & mobile search when clicked outside
         document.addEventListener('click', (e) => {
             const dropdown = document.getElementById('notifDropdown');
             const notifBtnWrapper = document.querySelector('.notif-btn-wrapper');
             if (dropdown && notifBtnWrapper && !notifBtnWrapper.contains(e.target)) {
                 dropdown.style.display = 'none';
+            }
+
+            const searchExpand = document.getElementById('mobileSearchExpand');
+            const searchToggle = document.querySelector('.mobile-search-toggle');
+            if (searchExpand && searchExpand.classList.contains('active')) {
+                if (!searchExpand.contains(e.target) && searchToggle && !searchToggle.contains(e.target)) {
+                    searchExpand.classList.remove('active');
+                }
             }
         });
 

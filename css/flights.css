@@ -57,6 +57,8 @@
     padding: 24px;
     text-align: left;
     color: #0f172a;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .search-top {
@@ -106,6 +108,9 @@
     border-radius: 12px;
     display: flex;
     background: white;
+    box-sizing: border-box;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .from-to {
@@ -126,6 +131,8 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 .input-field label {
@@ -140,6 +147,9 @@
     outline: none;
     background: transparent;
     margin-bottom: 4px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 .input-field .sub-text {
@@ -445,4 +455,104 @@
     align-items: center;
     padding-top: 16px;
     border-top: 1px dashed #e2e8f0;
+}
+
+/* Sidebar Assistance / Concierge Card */
+.sidebar-help-card {
+    background: white;
+    padding: 16px 18px;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    border: 1px solid #f1f5f9;
+    margin-top: 14px;
+}
+
+.help-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.help-icon-wrap {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: #eef2ff;
+    color: #4f46e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+.help-badge {
+    font-size: 10px;
+    font-weight: 700;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    line-height: 1.1;
+    margin-bottom: 2px;
+}
+
+.help-card-header h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.help-card-desc {
+    font-size: 12px;
+    color: #64748b;
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+}
+
+.help-hotline-box {
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.help-hotline-box:hover {
+    background: #f1f5f9;
+    border-color: #4f46e5;
+}
+
+.help-hotline-box i {
+    color: #4f46e5;
+    font-size: 13px;
+}
+
+.hotline-label {
+    display: block;
+    font-size: 10px;
+    color: #94a3b8;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.hotline-number {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
+}
+
+@media (max-width: 992px) {
+    .results-layout {
+        grid-template-columns: 1fr;
+    }
 }

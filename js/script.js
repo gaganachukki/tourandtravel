@@ -411,6 +411,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // Form submit buttons
             const form = target.closest('form');
             if (form) {
+                // Contact form validation
+                if (form.classList.contains('contact-form') || form.id === 'contactEnquiryForm') {
+                    e.preventDefault();
+                    if (typeof window.handleContactSubmit === 'function') {
+                        window.handleContactSubmit(e);
+                    }
+                    return;
+                }
                 // Newsletter form validation
                 if (form.classList.contains('newsletter-form') || form.classList.contains('newsletter-form-inline')) {
                     const input = form.querySelector('input[type="email"]');
@@ -438,6 +446,110 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Contact form validation & submission handler
+    window.handleContactSubmit = function(e) {
+        if (e && typeof e.preventDefault === 'function') e.preventDefault();
+        const form = document.getElementById('contactEnquiryForm') || document.querySelector('.contact-form');
+        if (!form) return false;
+
+        const groups = form.querySelectorAll('.form-group');
+        let allValid = true;
+        let firstInvalid = null;
+
+        groups.forEach(group => {
+            const field = group.querySelector('input, select, textarea');
+            const errorMsg = group.querySelector('.field-error-msg');
+            const inputWrap = group.querySelector('.input-with-icon') || field;
+            if (!field) return;
+
+            let isEmpty = false;
+            if (field.tagName.toLowerCase() === 'select') {
+                isEmpty = !field.value || field.value === '' || field.value === 'Select a range...';
+            } else {
+                isEmpty = !field.value || field.value.trim() === '';
+            }
+
+            if (isEmpty) {
+                allValid = false;
+                if (errorMsg) errorMsg.style.display = 'inline-flex';
+                if (inputWrap) inputWrap.classList.add('has-error');
+                group.classList.add('has-error');
+                if (!firstInvalid) firstInvalid = field;
+            } else {
+                if (errorMsg) errorMsg.style.display = 'none';
+                if (inputWrap) inputWrap.classList.remove('has-error');
+                group.classList.remove('has-error');
+            }
+        });
+
+        if (!allValid) {
+            if (firstInvalid) {
+                firstInvalid.focus();
+            }
+            return false;
+        }
+
+        // All fields filled -> lead to 404 page
+        window.location.href = '404.html';
+        return false;
+    };
+
+    // Live validation for contact form
+    const contactForm = document.getElementById('contactEnquiryForm') || document.querySelector('.contact-form');
+    if (contactForm) {
+        let contactFormSubmitted = false;
+
+        contactForm.addEventListener('submit', (e) => {
+            contactFormSubmitted = true;
+            window.handleContactSubmit(e);
+        });
+
+        contactForm.querySelectorAll('.form-group').forEach(group => {
+            const field = group.querySelector('input, select, textarea');
+            const errorMsg = group.querySelector('.field-error-msg');
+            const inputWrap = group.querySelector('.input-with-icon') || field;
+            if (!field) return;
+
+            const checkField = () => {
+                let isEmpty = false;
+                if (field.tagName.toLowerCase() === 'select') {
+                    isEmpty = !field.value || field.value === '' || field.value === 'Select a range...';
+                } else {
+                    isEmpty = !field.value || field.value.trim() === '';
+                }
+
+                if (!isEmpty) {
+                    if (errorMsg) errorMsg.style.display = 'none';
+                    if (inputWrap) inputWrap.classList.remove('has-error');
+                    group.classList.remove('has-error');
+                } else if (contactFormSubmitted) {
+                    if (errorMsg) errorMsg.style.display = 'inline-flex';
+                    if (inputWrap) inputWrap.classList.add('has-error');
+                    group.classList.add('has-error');
+                }
+            };
+
+            field.addEventListener('input', checkField);
+            field.addEventListener('change', checkField);
+            field.addEventListener('blur', () => {
+                let isEmpty = false;
+                if (field.tagName.toLowerCase() === 'select') {
+                    isEmpty = !field.value || field.value === '' || field.value === 'Select a range...';
+                } else {
+                    isEmpty = !field.value || field.value.trim() === '';
+                }
+                if (isEmpty && (contactFormSubmitted || field.dataset.touched === 'true')) {
+                    if (errorMsg) errorMsg.style.display = 'inline-flex';
+                    if (inputWrap) inputWrap.classList.add('has-error');
+                    group.classList.add('has-error');
+                }
+            });
+            field.addEventListener('focus', () => {
+                field.dataset.touched = 'true';
+            });
+        });
+    }
+
     // Newsletter input and submit validation listeners
     document.querySelectorAll('.newsletter-form, .newsletter-form-inline').forEach(form => {
         const input = form.querySelector('input[type="email"]');
@@ -459,6 +571,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             e.preventDefault();
             window.location.href = '404.html';
+        });
+    });
+
+    // Flights time-box selection
+    document.querySelectorAll('.time-grid .time-box').forEach(box => {
+        box.addEventListener('click', () => {
+            const grid = box.closest('.time-grid');
+            if (grid) {
+                grid.querySelectorAll('.time-box').forEach(b => {
+                    b.classList.remove('active');
+                    const icon = b.querySelector('i');
+                    if (icon) icon.style.color = '#0f172a';
+                });
+                box.classList.add('active');
+                const activeIcon = box.querySelector('i');
+                if (activeIcon) activeIcon.style.color = '#f59e0b';
+            }
         });
     });
 });

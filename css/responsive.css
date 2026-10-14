@@ -388,21 +388,32 @@ body.mobile-menu-active {
 
     /* Flights Layout */
     .search-middle {
-        flex-direction: column;
+        flex-direction: column !important;
+        gap: 14px !important;
     }
     
-    .flight-route {
-        width: 100%;
-    }
-    
-    .flight-dates {
-        width: 100%;
+    .from-to,
+    .dates,
+    .passengers {
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     /* Contact Page */
+    .enquiry-layout,
     .contact-main-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: 40px;
+    }
+
+    .studio-layout {
+        grid-template-columns: 1fr !important;
+        height: auto !important;
+        gap: 24px;
+    }
+
+    .studio-map {
+        height: 320px !important;
     }
 
     /* Tour Packages Featured Grid */
@@ -697,44 +708,73 @@ body.mobile-menu-active {
 
     /* Flights Search Box */
     .flight-search-box {
-        padding: 18px;
-        border-radius: 16px;
+        padding: 18px !important;
+        border-radius: 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
     
     .search-top {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+        width: 100% !important;
     }
     
     .trip-types {
-        flex-wrap: wrap;
-        gap: 14px;
+        flex-wrap: wrap !important;
+        gap: 12px 16px !important;
     }
     
     .search-bottom {
-        flex-direction: column;
-        gap: 16px;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 16px !important;
+        width: 100% !important;
     }
     
     .checkbox-group {
-        flex-wrap: wrap;
-        gap: 12px;
+        flex-wrap: wrap !important;
+        gap: 12px !important;
+    }
+
+    .search-bottom button {
+        width: 100% !important;
+        justify-content: center !important;
     }
     
+    .results-header {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 16px !important;
+    }
+
+    .results-header .btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .flight-result-card {
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+    }
+
     .flight-result-card .flight-main-info {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 16px !important;
     }
     
     .flight-result-card .flight-price-info {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-top: 1px solid #f1f5f9;
-        padding-top: 14px;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        border-top: 1px solid #f1f5f9 !important;
+        border-left: none !important;
+        padding-left: 0 !important;
+        padding-top: 14px !important;
     }
     
     .flight-result-card .flight-price-info div {
@@ -752,20 +792,32 @@ body.mobile-menu-active {
         margin-top: -40px;
     }
     
-    .form-row {
-        flex-direction: column;
-        gap: 12px;
+    .enquiry-layout {
+        grid-template-columns: 1fr !important;
+        gap: 32px;
     }
-    
+
     .enquiry-form-wrapper {
         padding: 24px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .form-row {
+        flex-direction: column !important;
+        gap: 12px;
+        margin-bottom: 0 !important;
+    }
+
+    .form-row .form-group {
+        margin-bottom: 14px;
+        width: 100%;
     }
 
     /* Horizontal Filter Pills with Touch Momentum */
     .dest-filters,
     .hotel-filters,
-    .search-tabs,
-    .trending-tags-row {
+    .search-tabs {
         display: flex !important;
         flex-wrap: nowrap !important;
         overflow-x: auto !important;
@@ -777,12 +829,11 @@ body.mobile-menu-active {
     
     .dest-filters::-webkit-scrollbar,
     .hotel-filters::-webkit-scrollbar,
-    .search-tabs::-webkit-scrollbar,
-    .trending-tags-row::-webkit-scrollbar {
+    .search-tabs::-webkit-scrollbar {
         display: none;
     }
     
-    .filter-pill, .trending-pill, .tab-btn {
+    .filter-pill, .tab-btn {
         white-space: nowrap;
         flex-shrink: 0;
     }
@@ -848,6 +899,54 @@ body.mobile-menu-active {
     .footer-bottom-links {
         justify-content: flex-start;
         gap: 14px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   4b. SCREEN <= 600px (Phablets & Mobile Devices)
+   -------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+    .flight-search-box {
+        padding: 16px 14px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .from-to {
+        flex-direction: column !important;
+        position: relative !important;
+    }
+
+    .from-to .input-field:first-child {
+        border-right: none !important;
+        border-bottom: 1px solid #cbd5e1 !important;
+    }
+
+    .from-to .swap-btn {
+        left: auto !important;
+        right: 14px !important;
+        top: 50% !important;
+        transform: translateY(-50%) rotate(90deg) !important;
+        width: 32px !important;
+        height: 32px !important;
+    }
+
+    .from-to .input-field {
+        padding-right: 52px !important;
+    }
+
+    .dates {
+        flex-direction: column !important;
+    }
+
+    .dates .input-field:first-child {
+        border-right: none !important;
+        border-bottom: 1px solid #cbd5e1 !important;
+    }
+
+    .checkbox-group {
+        flex-direction: column !important;
+        gap: 10px !important;
     }
 }
 
@@ -927,6 +1026,226 @@ body.mobile-menu-active {
         height: 100% !important;
     }
 
+    /* Contact Page 480px */
+    .enquiry-layout {
+        grid-template-columns: 1fr !important;
+        gap: 24px;
+        width: 100%;
+    }
+
+    .enquiry-form-wrapper {
+        padding: 20px 16px !important;
+        border-radius: 16px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .form-row {
+        flex-direction: column !important;
+        gap: 12px;
+        margin-bottom: 0 !important;
+    }
+
+    .form-row .form-group {
+        margin-bottom: 12px;
+        width: 100%;
+    }
+
+    .form-submit-row {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .form-submit-row button {
+        width: 100% !important;
+    }
+
+    /* Flights Page 480px */
+    .flight-search-box {
+        padding: 16px 12px !important;
+        border-radius: 14px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .from-to {
+        flex-direction: column !important;
+        position: relative !important;
+    }
+
+    .from-to .input-field:first-child {
+        border-right: none !important;
+        border-bottom: 1px solid #cbd5e1 !important;
+    }
+
+    .from-to .swap-btn {
+        left: auto !important;
+        right: 12px !important;
+        top: 50% !important;
+        transform: translateY(-50%) rotate(90deg) !important;
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    .from-to .input-field {
+        padding-right: 48px !important;
+    }
+
+    .dates {
+        flex-direction: column !important;
+    }
+
+    .dates .input-field:first-child {
+        border-right: none !important;
+        border-bottom: 1px solid #cbd5e1 !important;
+    }
+
+    .input-field {
+        padding: 10px 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .input-field input {
+        font-size: 15px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .input-field .sub-text {
+        font-size: 11px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        display: block !important;
+    }
+
+    .checkbox-group {
+        flex-direction: column !important;
+        gap: 8px !important;
+    }
+
+    .search-bottom button {
+        width: 100% !important;
+        padding: 12px 20px !important;
+        font-size: 15px !important;
+    }
+
+    /* Results Header & Sorting 480px */
+    .results-header {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 14px !important;
+        padding: 16px 14px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .results-header > div:first-child {
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+
+    .results-header h2 {
+        font-size: 18px !important;
+        word-break: break-word !important;
+        line-height: 1.3 !important;
+    }
+
+    .results-header p {
+        font-size: 12px !important;
+    }
+
+    .results-header > div:last-child {
+        width: 100% !important;
+    }
+
+    .results-header .btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .results-sort-tabs {
+        border-radius: 12px !important;
+        margin-bottom: 16px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .sort-tab {
+        padding: 10px 4px !important;
+    }
+
+    .sort-tab .title {
+        font-size: 13px !important;
+        margin-bottom: 2px !important;
+    }
+
+    .sort-tab .price {
+        font-size: 10px !important;
+        line-height: 1.2 !important;
+    }
+
+    .flight-result-card {
+        padding: 16px 12px !important;
+        border-radius: 14px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .flight-result-card .flight-price-info {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+    }
+
+    .flight-result-card .flight-price-info div {
+        text-align: center !important;
+    }
+
+    .flight-result-card .flight-price-info button {
+        width: 100% !important;
+    }
+
+    .flight-time-info {
+        width: 100% !important;
+        justify-content: space-between !important;
+        gap: 6px !important;
+    }
+
+    .flight-duration {
+        flex: 1 !important;
+        width: auto !important;
+        max-width: 105px !important;
+        min-width: 60px !important;
+    }
+
+    .time-block .time {
+        font-size: 16px !important;
+    }
+
+    .dur-text, .stops-text {
+        font-size: 10px !important;
+    }
+
+    .flight-footer {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .flight-footer > div {
+        flex-wrap: wrap !important;
+        gap: 8px 12px !important;
+        font-size: 11px !important;
+    }
+
     /* Modals Responsive Full-width */
     .modal-dialog,
     .booking-modal-content,
@@ -1004,19 +1323,76 @@ body.mobile-menu-active {
     }
 
     /* 404 Page */
+    .notfound-main-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        min-width: 0 !important;
+    }
+
+    .notfound-visual-card,
+    .notfound-text-content {
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
     .notfound-heading {
-        font-size: 26px !important;
+        font-size: clamp(20px, 6vw, 26px) !important;
         line-height: 1.25 !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+
+    .desktop-only-br,
+    .notfound-heading br {
+        display: none !important;
+    }
+
+    .notfound-search-bar {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .notfound-search-bar input {
+        flex: 1 1 0% !important;
+        min-width: 0 !important;
+    }
+
+    .trending-tags-row {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        gap: 6px !important;
+        width: 100% !important;
+    }
+
+    .trending-label {
+        display: block !important;
+        width: 100% !important;
+        flex-basis: 100% !important;
+        flex-shrink: 0 !important;
+        white-space: nowrap !important;
+        font-size: 11px !important;
+        margin-bottom: 4px !important;
+    }
+
+    .trending-pill {
+        display: inline-flex !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
     }
     
     .notfound-actions {
-        flex-direction: column;
-        width: 100%;
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
     }
     
     .btn-back-home, .btn-explore-packages {
-        width: 100%;
-        justify-content: center;
+        width: 100% !important;
+        justify-content: center !important;
     }
 }
 
@@ -1294,5 +1670,199 @@ body.mobile-menu-active {
 
     .footer-brand .logo img {
         height: 32px !important;
+    }
+
+    /* Contact Page 320px Optimization */
+    .enquiry-layout {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        width: 100% !important;
+    }
+
+    .enquiry-form-wrapper {
+        padding: 16px 12px !important;
+        border-radius: 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .enquiry-text h2 {
+        font-size: 22px !important;
+        line-height: 1.25 !important;
+    }
+
+    .enquiry-form-wrapper h3 {
+        font-size: 19px !important;
+    }
+
+    .form-row {
+        flex-direction: column !important;
+        gap: 10px !important;
+        margin-bottom: 0 !important;
+    }
+
+    .form-row .form-group {
+        margin-bottom: 12px !important;
+        width: 100% !important;
+    }
+
+    .input-with-icon {
+        width: 100% !important;
+    }
+
+    .input-with-icon input,
+    .input-with-icon select,
+    .form-group textarea {
+        font-size: 13px !important;
+        padding: 10px 10px 10px 34px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .input-with-icon i {
+        left: 10px !important;
+        font-size: 13px !important;
+    }
+
+    .form-submit-row {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+        text-align: center !important;
+    }
+
+    .form-submit-row button {
+        width: 100% !important;
+        padding: 12px 16px !important;
+        font-size: 14px !important;
+    }
+
+    /* Flights Page 320px Optimization */
+    .flight-search-box {
+        padding: 14px 10px !important;
+        border-radius: 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .search-top {
+        gap: 10px !important;
+        margin-bottom: 14px !important;
+        padding-bottom: 12px !important;
+    }
+
+    .trip-types {
+        gap: 8px 10px !important;
+    }
+
+    .radio-label {
+        font-size: 12px !important;
+        gap: 5px !important;
+    }
+
+    .passenger-class {
+        font-size: 12px !important;
+    }
+
+    .search-middle {
+        gap: 10px !important;
+        margin-bottom: 14px !important;
+    }
+
+    .from-to .input-field {
+        padding-right: 44px !important;
+    }
+
+    .from-to .swap-btn {
+        right: 8px !important;
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 11px !important;
+    }
+
+    .input-field {
+        padding: 8px 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .input-field label {
+        font-size: 11px !important;
+        margin-bottom: 2px !important;
+    }
+
+    .input-field input {
+        font-size: 14px !important;
+        margin-bottom: 2px !important;
+        width: 100% !important;
+    }
+
+    .input-field .sub-text {
+        font-size: 10px !important;
+    }
+
+    .checkbox-group label {
+        font-size: 12px !important;
+        gap: 6px !important;
+    }
+
+    .search-bottom button {
+        padding: 11px 16px !important;
+        font-size: 14px !important;
+    }
+
+    .results-header {
+        padding: 12px 10px !important;
+    }
+
+    .results-header h2 {
+        font-size: 16px !important;
+    }
+
+    .results-header > div:last-child {
+        width: 100% !important;
+    }
+
+    .results-header .btn {
+        width: 100% !important;
+        padding: 10px 14px !important;
+        font-size: 13px !important;
+        justify-content: center !important;
+    }
+
+    .sort-tab {
+        padding: 8px 2px !important;
+    }
+
+    .sort-tab .title {
+        font-size: 11px !important;
+    }
+
+    .sort-tab .price {
+        font-size: 9px !important;
+    }
+
+    .flight-result-card {
+        padding: 14px 10px !important;
+    }
+
+    .time-block .time {
+        font-size: 15px !important;
+    }
+
+    .time-block .airport {
+        font-size: 10px !important;
+    }
+
+    .flight-duration {
+        max-width: 90px !important;
+    }
+
+    .dur-text, .stops-text {
+        font-size: 9px !important;
+    }
+
+    .flight-deal-card .card-content {
+        padding: 12px 10px !important;
     }
 }

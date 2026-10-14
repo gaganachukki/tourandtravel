@@ -129,6 +129,16 @@
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: start;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.enquiry-text,
+.enquiry-form-wrapper {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .enquiry-bullets {
@@ -171,11 +181,41 @@
 }
 
 .form-group label {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 13px;
     font-weight: 600;
     color: #4b5563;
     margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.field-error-msg {
+    color: #ef4444;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    line-height: 1;
+}
+
+.field-error-msg i {
+    font-size: 11px;
+}
+
+.input-with-icon.has-error input,
+.input-with-icon.has-error select,
+.form-group.has-error textarea {
+    border-color: #ef4444 !important;
+    background-color: #fef2f2 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12) !important;
+}
+
+.input-with-icon.has-error i {
+    color: #ef4444 !important;
 }
 
 .input-with-icon {
@@ -286,4 +326,99 @@
 
 .faq-item.active .faq-icon {
     transform: rotate(180deg);
+}
+
+/* Responsive Contact Page */
+@media (max-width: 992px) {
+    .enquiry-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .studio-layout {
+        grid-template-columns: 1fr;
+        height: auto;
+        gap: 24px;
+    }
+
+    .studio-map {
+        height: 320px;
+    }
+}
+
+@media (max-width: 768px) {
+    .enquiry-layout {
+        gap: 32px;
+    }
+
+    .enquiry-form-wrapper {
+        padding: 28px 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 0;
+    }
+
+    .form-row .form-group {
+        margin-bottom: 14px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .enquiry-layout {
+        gap: 24px;
+    }
+
+    .enquiry-form-wrapper {
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .form-submit-row {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .form-submit-row button {
+        width: 100% !important;
+        justify-content: center;
+    }
+
+    .embedded-review {
+        padding: 16px;
+    }
+
+    .bullet-item {
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    .enquiry-form-wrapper {
+        padding: 16px 12px;
+        border-radius: 14px;
+    }
+
+    .input-with-icon input,
+    .input-with-icon select,
+    .form-group textarea {
+        font-size: 13px;
+        padding: 10px 10px 10px 34px;
+    }
+
+    .input-with-icon i {
+        left: 10px;
+        font-size: 13px;
+    }
+
+    .form-submit-row button {
+        padding: 12px 16px !important;
+        font-size: 14px !important;
+    }
 }

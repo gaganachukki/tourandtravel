@@ -9,11 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <!-- Base & Custom CSS -->
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/404.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/404.css">
 </head>
 <body>
     <!-- Main 404 Error Section -->
@@ -157,20 +157,32 @@
                             <i class="fa-solid fa-compass"></i>
                             <span>Route Disrupted</span>
                         </div>
+
+                        <!-- Top-Right 404 Error Pin Badge -->
+                        <div class="badge-error-code">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <span>404 Lost</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Right Column: Error Headings & Actions -->
                 <div class="notfound-text-content gsap-fade-up">
-                    <!-- Pill Tag -->
-                    <div class="uncharted-tag">
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-                        <span>Uncharted Territory</span>
+                    <!-- Error 404 Badge Row -->
+                    <div class="error-badge-row">
+                        <div class="error-icon-box" title="404 Error: Page Not Found">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+                        <div class="uncharted-tag">
+                            <span class="tag-code">404 ERROR</span>
+                            <span class="tag-bullet">&bull;</span>
+                            <span>Uncharted Territory</span>
+                        </div>
                     </div>
 
                     <!-- Main Heading -->
                     <h1 class="notfound-heading">
-                        Oops! Your Journey Took a<br>Wrong Turn
+                        Oops! Your Journey Took a<br class="desktop-only-br"> Wrong Turn
                     </h1>
 
                     <!-- Subtitle -->
@@ -255,7 +267,7 @@
                     duration: 1,
                     clearProps: 'all'
                 })
-                .from('.badge-coords, .badge-disrupted', {
+                .from('.badge-coords, .badge-disrupted, .badge-error-code', {
                     scale: 0.85,
                     opacity: 0,
                     stagger: 0.15,
@@ -264,7 +276,7 @@
                 }, '-=0.6');
 
                 // 2. Cascade of Right Text & Interactive Controls
-                tl.from('.uncharted-tag', {
+                tl.from('.error-badge-row, .uncharted-tag', {
                     y: 15,
                     opacity: 0,
                     duration: 0.5,

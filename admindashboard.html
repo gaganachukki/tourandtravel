@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <!-- Admin Dashboard CSS -->
     <link rel="stylesheet" href="css/admindashboard.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -120,24 +120,52 @@
                     <button class="mobile-toggle-btn" id="openSidebarBtn" aria-label="Open Sidebar">
                         <i class="fa-solid fa-bars"></i>
                     </button>
+                    <!-- Desktop title -->
                     <span class="topbar-title" id="topbarPageTitle">Admin Dashboard</span>
+                    <!-- Mobile logo (shown on mobile, replacing "Dashboard" word) -->
+                    <a href="index.html" class="topbar-mobile-logo" aria-label="Stackly Home">
+                        <img src="assets/logo.webp" alt="Stackly Logo">
+                    </a>
                 </div>
 
                 <div class="topbar-right">
-                    <!-- Search input -->
-                    <div class="admin-search-box">
+                    <!-- Desktop Search input -->
+                    <div class="admin-search-box desktop-only">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <input type="text" placeholder="Search members, bookings, packages..." id="adminSearchInput" onkeyup="filterAdminTable()">
                     </div>
 
-                    <!-- Notification Bell -->
+                    <!-- Mobile Circle Button: Search (Screenshot Request) -->
+                    <button class="topbar-circle-btn mobile-only mobile-search-toggle" onclick="toggleMobileSearch()" aria-label="Search" title="Search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+
+                    <!-- Mobile Circle Button: Calendar (Screenshot Request) -->
+                    <div class="calendar-btn-wrapper mobile-only">
+                        <button class="topbar-circle-btn" onclick="toggleDatePopover(event)" aria-label="12 Oct 2026" title="12 Oct 2026">
+                            <i class="fa-regular fa-calendar"></i>
+                        </button>
+                        <div id="calendarPopover" class="calendar-mini-popover" style="display: none;">
+                            <div class="calendar-popover-content">
+                                <i class="fa-regular fa-calendar-check" style="color: var(--accent-orange); font-size: 15px;"></i>
+                                <span>12 Oct 2026</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Circle Button: Export Report (Screenshot Request) -->
+                    <button class="topbar-circle-btn mobile-only mobile-export-circle" onclick="openExportModal()" aria-label="Export Report" title="Export Report">
+                        <i class="fa-solid fa-download"></i>
+                    </button>
+
+                    <!-- Notification Bell Circle Button (Desktop & Mobile) -->
                     <div class="notif-btn-wrapper">
-                        <button class="icon-btn-circle" onclick="toggleNotifDropdown()" aria-label="Notifications">
+                        <button class="topbar-circle-btn notif-circle-btn" onclick="toggleNotifDropdown()" aria-label="Notifications" title="12 System Alerts">
                             <i class="fa-regular fa-bell"></i>
                             <span class="notif-badge-red">12</span>
                         </button>
                         <!-- Dropdown -->
-                        <div id="adminNotifDropdown" style="display: none; position: absolute; right: 0; top: 50px; width: 320px; background: #ffffff; border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 100;">
+                        <div id="adminNotifDropdown" style="display: none; position: absolute; right: 0; top: 48px; width: 320px; max-width: calc(100vw - 20px); background: #ffffff; border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 100;">
                             <div style="font-weight: 700; color: var(--text-pure); margin-bottom: 10px; display: flex; justify-content: space-between;">
                                 <span>Recent System Alerts</span>
                                 <span style="font-size: 11px; color: var(--accent-orange); font-weight: 700;">12 New</span>
@@ -159,17 +187,28 @@
                         </div>
                     </div>
 
-                    <!-- Date Pill (Screenshot 2) -->
-                    <div class="date-pill">
+                    <!-- Date Pill (Desktop Only) -->
+                    <div class="date-pill desktop-only">
                         <span>12 Oct 2026</span>
                         <i class="fa-regular fa-calendar"></i>
                     </div>
 
-                    <!-- Export Report Button (Screenshot 2) -->
-                    <button class="btn-export-report" onclick="openExportModal()">
+                    <!-- Export Report Button (Desktop Only) -->
+                    <button class="btn-export-report desktop-only" onclick="openExportModal()">
                         <i class="fa-solid fa-download"></i>
                         <span>Export Report</span>
                     </button>
+                </div>
+
+                <!-- Mobile Slide-Down Search Expand -->
+                <div class="mobile-search-expand" id="mobileSearchExpand">
+                    <div class="mobile-search-inner">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search members, bookings, packages..." id="mobileSearchInput" onkeyup="syncMobileSearch(this.value)">
+                        <button class="mobile-search-close" onclick="toggleMobileSearch()" aria-label="Close search">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
                 </div>
             </header>
 
@@ -1300,9 +1339,20 @@
                 'customers': 'Current Customers & Active Trips',
                 'settings': 'System & Platform Settings'
             };
+            const shortTitles = {
+                'dashboard': 'Dashboard',
+                'users': 'Users',
+                'bookings': 'Bookings',
+                'packages': 'Packages',
+                'reports': 'Reports',
+                'customers': 'Customers',
+                'settings': 'Settings'
+            };
             const titleEl = document.getElementById('topbarPageTitle');
             if (titleEl && titles[viewId]) {
-                titleEl.textContent = titles[viewId];
+                const isCompact = window.innerWidth <= 992;
+                titleEl.textContent = isCompact ? (shortTitles[viewId] || titles[viewId]) : titles[viewId];
+                titleEl.setAttribute('title', titles[viewId]);
             }
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1330,6 +1380,33 @@
                     const viewId = btn.getAttribute('data-view');
                     switchDashboardView(viewId);
                 });
+            });
+
+            window.addEventListener('resize', () => {
+                const currentView = window.location.hash.replace('#', '') || 'dashboard';
+                const titleEl = document.getElementById('topbarPageTitle');
+                const titles = {
+                    'dashboard': 'Admin Dashboard Overview',
+                    'users': 'Users & Members Directory',
+                    'bookings': 'Bookings Management',
+                    'packages': 'Tour Packages Catalog',
+                    'reports': 'Financial & Analytical Reports',
+                    'customers': 'Current Customers & Active Trips',
+                    'settings': 'System & Platform Settings'
+                };
+                const shortTitles = {
+                    'dashboard': 'Dashboard',
+                    'users': 'Users',
+                    'bookings': 'Bookings',
+                    'packages': 'Packages',
+                    'reports': 'Reports',
+                    'customers': 'Customers',
+                    'settings': 'Settings'
+                };
+                if (titleEl && titles[currentView]) {
+                    const isCompact = window.innerWidth <= 992;
+                    titleEl.textContent = isCompact ? (shortTitles[currentView] || titles[currentView]) : titles[currentView];
+                }
             });
         });
 
@@ -1359,7 +1436,37 @@
         // Notification Dropdown
         function toggleNotifDropdown() {
             const dropdown = document.getElementById('adminNotifDropdown');
-            dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+            if (dropdown) {
+                dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+            }
+        }
+
+        // Mobile Search Toggle & Sync
+        function toggleMobileSearch() {
+            const searchExpand = document.getElementById('mobileSearchExpand');
+            if (!searchExpand) return;
+            const isNowActive = searchExpand.classList.toggle('active');
+            if (isNowActive) {
+                const input = document.getElementById('mobileSearchInput');
+                if (input) input.focus();
+            }
+        }
+
+        function syncMobileSearch(val) {
+            const desktopSearch = document.getElementById('adminSearchInput');
+            if (desktopSearch) {
+                desktopSearch.value = val;
+            }
+            filterAdminTable();
+        }
+
+        // Calendar Popover Toggle
+        function toggleDatePopover(e) {
+            if (e) e.stopPropagation();
+            const pop = document.getElementById('calendarPopover');
+            if (pop) {
+                pop.style.display = pop.style.display === 'none' ? 'block' : 'none';
+            }
         }
 
         document.addEventListener('click', (e) => {
@@ -1367,6 +1474,20 @@
             const notifBtnWrapper = document.querySelector('.notif-btn-wrapper');
             if (dropdown && notifBtnWrapper && !notifBtnWrapper.contains(e.target)) {
                 dropdown.style.display = 'none';
+            }
+
+            const pop = document.getElementById('calendarPopover');
+            const calWrapper = document.querySelector('.calendar-btn-wrapper');
+            if (pop && calWrapper && !calWrapper.contains(e.target)) {
+                pop.style.display = 'none';
+            }
+
+            const searchExpand = document.getElementById('mobileSearchExpand');
+            const searchToggle = document.querySelector('.mobile-search-toggle');
+            if (searchExpand && searchExpand.classList.contains('active')) {
+                if (!searchExpand.contains(e.target) && searchToggle && !searchToggle.contains(e.target)) {
+                    searchExpand.classList.remove('active');
+                }
             }
         });
 
