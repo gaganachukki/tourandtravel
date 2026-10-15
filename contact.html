@@ -69,7 +69,7 @@
                     <div class="contact-card gsap-item">
                         <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
                         <h4>Call Us</h4>
-                        <p class="contact-val">+1 (800) 872-8354</p>
+                        <p class="contact-val">+91 9876541234</p>
                         <a href="404.html" class="contact-link">Give us a call anytime <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                     <!-- Card 2 -->
@@ -83,7 +83,7 @@
                     <div class="contact-card gsap-item">
                         <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
                         <h4>Visit Us</h4>
-                        <p class="contact-val">789 Market St, San Francisco, CA 94103</p>
+                        <p class="contact-val">Stackly, Salem, Tamilnadu</p>
                         <a href="404.html" class="contact-link">Get directions on Google Maps</a>
                     </div>
                     <!-- Card 4 -->
@@ -269,22 +269,53 @@
                 </div>
                 
                 <div class="studio-layout">
-                    <!-- Map Graphic -->
-                    <div class="studio-map gsap-fade-up" style="position: relative; border-radius: 20px; overflow: hidden; background: #0f172a; height: 100%;">
-                        <!-- Simulated Map UI -->
-                        <div style="position: absolute; inset: 0; opacity: 0.1; background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
-                        <div style="position: absolute; top: 20px; left: 20px; color: white; font-size: 12px; font-weight: 600;"><i class="fa-solid fa-location-arrow"></i> Stackly HQ, San Francisco</div>
-                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-                            <div style="width: 48px; height: 48px; background: #f59e0b; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; color: white; margin: 0 auto 12px; box-shadow: 0 0 0 10px rgba(245,158,11,0.2), 0 0 0 20px rgba(245,158,11,0.1);">
+                    <!-- Live Google Map -->
+                    <div class="studio-map gsap-fade-up">
+                        <iframe 
+                            class="google-map-iframe" 
+                            src="https://maps.google.com/maps?q=Salem%2C+Tamil+Nadu&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Stackly Flagship Studio Location - Salem, Tamilnadu">
+                        </iframe>
+
+                        <!-- Top Floating Location Badge with Pulse Beacon -->
+                        <div class="map-badge-top">
+                            <span class="live-pulse-dot"></span>
+                            <i class="fa-solid fa-location-dot" style="color: #f59e0b; font-size: 13px;"></i>
+                            <span>Stackly, Salem, Tamilnadu</span>
+                        </div>
+
+                        <!-- Top Floating "Open in Maps" Actions leading to 404 -->
+                        <div class="map-top-actions">
+                            <a href="404.html" class="map-open-btn" title="Open in Maps">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                <span>Open in Maps</span>
+                            </a>
+                            <a href="404.html" class="map-turn-btn" title="Directions">
+                                <i class="fa-solid fa-diamond-turn-right"></i>
+                            </a>
+                        </div>
+
+                        <!-- Bottom-Left Floating Studio Card with Floating Animation -->
+                        <div class="map-studio-card">
+                            <div class="map-studio-icon">
                                 <i class="fa-solid fa-building"></i>
                             </div>
-                            <div style="background: white; padding: 12px 20px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
-                                <h5 style="margin: 0 0 4px 0; color: #0f172a; font-size: 14px;">STACKLY STUDIOS</h5>
-                                <p style="margin: 0; font-size: 12px; color: #64748b;">789 Market St, San Francisco</p>
+                            <div class="map-studio-details">
+                                <h5>STACKLY STUDIOS</h5>
+                                <p>Salem, Tamilnadu</p>
                             </div>
                         </div>
-                        <div style="position: absolute; bottom: 20px; right: 20px;">
-                            <button class="btn btn-primary" style="background: #0ea5e9; border-color: #0ea5e9; border-radius: 50px; font-size: 13px; padding: 8px 16px;" onclick="window.location.href='404.html'"><i class="fa-solid fa-location-crosshairs" style="margin-right: 6px;"></i> Get Directions</button>
+
+                        <!-- Bottom-Right Get Directions Button with Shine & Hover Effect leading to 404 -->
+                        <div class="map-action-wrap">
+                            <a href="404.html" class="map-directions-btn" title="Get Directions">
+                                <i class="fa-solid fa-diamond-turn-right"></i>
+                                <span>Get Directions</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square map-external-icon"></i>
+                            </a>
                         </div>
                     </div>
                     
@@ -296,7 +327,7 @@
                                 <div style="width: 40px; height: 40px; background: #eef2ff; color: #4f46e5; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><i class="fa-solid fa-location-dot"></i></div>
                                 <div>
                                     <h5 style="font-size: 15px; margin: 0 0 4px 0; color: #0f172a;">Office Address</h5>
-                                    <p style="font-size: 14px; color: #64748b; margin: 0;">789 Market Street, Suite 400<br>San Francisco, CA 94103, USA</p>
+                                    <p style="font-size: 14px; color: #64748b; margin: 0;">Stackly, Salem, Tamilnadu</p>
                                 </div>
                             </div>
                             <div class="info-item" style="display: flex; gap: 16px; margin-bottom: 24px;">
@@ -309,8 +340,8 @@
                             <div class="info-item" style="display: flex; gap: 16px; margin-bottom: 32px;">
                                 <div style="width: 40px; height: 40px; background: #eef2ff; color: #4f46e5; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><i class="fa-solid fa-train-subway"></i></div>
                                 <div>
-                                    <h5 style="font-size: 15px; margin: 0 0 4px 0; color: #0f172a;">Metro Station & Parking</h5>
-                                    <p style="font-size: 14px; color: #64748b; margin: 0;">Powell St Station is a 2-minute walk.<br>Valet parking available at the building entrance.</p>
+                                    <h5 style="font-size: 15px; margin: 0 0 4px 0; color: #0f172a;">Transit & Parking</h5>
+                                    <p style="font-size: 14px; color: #64748b; margin: 0;">Salem Junction is easily accessible.<br>Valet parking available at the building entrance.</p>
                                 </div>
                             </div>
                             <button class="btn btn-primary" style="background: #0f172a; width: 100%; padding: 14px;" onclick="window.location.href='404.html'"><i class="fa-regular fa-calendar-check" style="margin-right: 8px;"></i> Schedule an In-Person Consultation</button>
@@ -452,10 +483,10 @@
                     </a>
                     <p class="brand-desc">Effortless luxury exploration and handcrafted travel experiences worldwide. Turning dream itineraries into lifelong memories.</p>
                     <div class="social-links">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="404.html" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 
@@ -486,8 +517,8 @@
                     <h3>Contact</h3>
                     <ul>
                         <li><i class="fa-regular fa-envelope"></i> concierge@travelgo.com</li>
-                        <li><i class="fa-solid fa-phone"></i> +1 (800) 872-8354</li>
-                        <li><i class="fa-solid fa-location-dot"></i> San Francisco & Geneva</li>
+                        <li><i class="fa-solid fa-phone"></i> +91 9876541234</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Stackly, Salem, Tamilnadu</li>
                     </ul>
                 </div>
             </div>

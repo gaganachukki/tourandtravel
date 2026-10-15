@@ -264,12 +264,277 @@
     border-color: #4f46e5;
 }
 
-/* Studio Layout */
+/* Studio Layout & Live Google Map */
 .studio-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
-    height: 400px;
+    min-height: 460px;
+    align-items: stretch;
+}
+
+.studio-map {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #e2e8f0;
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    border: 1px solid #e2e8f0;
+    height: 100%;
+    min-height: 420px;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.studio-map:hover {
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.14);
+}
+
+.google-map-iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    border: 0;
+    display: block;
+    animation: mapFadeIn 0.8s ease forwards;
+}
+
+@keyframes mapFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(1.02);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Map Top Location Badge with Radar Beacon */
+.map-badge-top {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 5;
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    pointer-events: auto;
+    transition: all 0.3s ease;
+}
+
+.map-badge-top:hover {
+    background: rgba(15, 23, 42, 0.96);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+.live-pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    animation: mapBeaconPulse 2s infinite;
+}
+
+@keyframes mapBeaconPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.8);
+    }
+    70% {
+        box-shadow: 0 0 0 9px rgba(34, 197, 94, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
+}
+
+/* Open in Maps & Quick Turn Buttons */
+.map-top-actions {
+    position: absolute;
+    top: 58px;
+    left: 16px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    pointer-events: auto;
+}
+
+.map-open-btn {
+    background: #1a73e8;
+    color: white !important;
+    border-radius: 50px;
+    padding: 7px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.4);
+    transition: all 0.25s ease;
+}
+
+.map-open-btn:hover {
+    background: #1557b0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(26, 115, 232, 0.55);
+}
+
+.map-turn-btn {
+    width: 32px;
+    height: 32px;
+    background: #1a73e8;
+    color: white !important;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 12px;
+    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.4);
+    transition: all 0.25s ease;
+}
+
+.map-turn-btn:hover {
+    background: #1557b0;
+    transform: translateY(-2px) rotate(15deg);
+    box-shadow: 0 6px 18px rgba(26, 115, 232, 0.55);
+}
+
+/* Floating Studio Pin Card */
+.map-studio-card {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 5;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 14px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+    pointer-events: auto;
+    animation: mapCardFloat 4s ease-in-out infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-studio-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.18);
+}
+
+@keyframes mapCardFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.map-studio-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 15px;
+    box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+}
+
+.map-studio-details h5 {
+    margin: 0 0 2px 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: 0.3px;
+}
+
+.map-studio-details p {
+    margin: 0;
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* Directions Action Button */
+.map-action-wrap {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 5;
+    pointer-events: auto;
+}
+
+.map-directions-btn {
+    background: linear-gradient(135deg, #0ea5e9, #4f46e5);
+    color: white !important;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.35);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.map-directions-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transition: left 0.6s ease;
+}
+
+.map-directions-btn:hover::before {
+    left: 100%;
+}
+
+.map-directions-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.45);
+}
+
+.map-directions-btn i.fa-diamond-turn-right {
+    font-size: 13px;
+    transition: transform 0.25s ease;
+}
+
+.map-directions-btn:hover i.fa-diamond-turn-right {
+    transform: rotate(15deg) scale(1.1);
+}
+
+.map-external-icon {
+    font-size: 10px;
+    opacity: 0.85;
 }
 
 /* FAQ */
@@ -397,6 +662,50 @@
         gap: 12px;
         margin-bottom: 16px;
     }
+
+    .studio-map {
+        height: 300px !important;
+        min-height: 300px !important;
+        border-radius: 16px !important;
+    }
+
+    .google-map-iframe {
+        min-height: 300px !important;
+    }
+
+    .map-studio-card {
+        display: none !important;
+    }
+
+    .map-badge-top {
+        font-size: 11px !important;
+        padding: 6px 12px !important;
+        top: 12px !important;
+        left: 12px !important;
+    }
+
+    .map-directions-btn {
+        padding: 8px 14px !important;
+        font-size: 12px !important;
+        bottom: 12px !important;
+        right: 12px !important;
+    }
+
+    .map-top-actions {
+        top: 48px !important;
+        left: 12px !important;
+    }
+
+    .map-open-btn {
+        padding: 5px 10px !important;
+        font-size: 11px !important;
+    }
+
+    .map-turn-btn {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 11px !important;
+    }
 }
 
 @media (max-width: 360px) {
@@ -421,4 +730,45 @@
         padding: 12px 16px !important;
         font-size: 14px !important;
     }
+
+    .studio-map {
+        height: 260px !important;
+        min-height: 260px !important;
+        border-radius: 14px !important;
+    }
+
+    .google-map-iframe {
+        min-height: 260px !important;
+    }
+
+    .map-badge-top {
+        font-size: 10px !important;
+        padding: 5px 10px !important;
+        top: 8px !important;
+        left: 8px !important;
+    }
+
+    .map-directions-btn {
+        padding: 6px 10px !important;
+        font-size: 11px !important;
+        bottom: 8px !important;
+        right: 8px !important;
+    }
+
+    .map-top-actions {
+        top: 40px !important;
+        left: 8px !important;
+    }
+
+    .map-open-btn {
+        padding: 4px 8px !important;
+        font-size: 10px !important;
+    }
+
+    .map-turn-btn {
+        width: 24px !important;
+        height: 24px !important;
+        font-size: 10px !important;
+    }
 }
+
